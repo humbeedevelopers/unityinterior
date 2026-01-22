@@ -1,12 +1,13 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F5F5;
+  /* --foreground: #171717; */
+  --font-helvetica-neue: "Helvetica Neue", Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #F5F5F5;
+    /* --foreground: #ededed; */
   }
 }
 
@@ -19,7 +20,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-helvetica-neue);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
