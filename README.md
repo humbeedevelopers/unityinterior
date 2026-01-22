@@ -9,7 +9,7 @@ The project focuses on showcasing premium interior design services, portfolios, 
 
 - **Next.js** – React framework for production
 - **React.js** – Component-based UI
-- **Tailwind CSS / CSS Modules** – Styling
+- **SCSS / CSS Modules** – Styling
 - **Framer Motion** – Animations
 
 ---
