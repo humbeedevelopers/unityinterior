@@ -32,17 +32,9 @@ unityinterior/
 
 ---
 
-### Getting Started
-First, clone the repository and install the dependencies:
+### 🚀 Getting Started
+Follow the steps below to run the **Unity Interiors** project locally.
 
-### Clone the Repository
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/humbeedevelopers/unityinterior.git
-
-### Install Dependencies
-```bash
-npm install
-
-### Start the Development Server
-```bash
-npm run dev
