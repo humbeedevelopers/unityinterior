@@ -30,8 +30,9 @@ unityinterior/
 ├── package.json
 └── next.config.js
 
+---
 
-## Getting Started
+### Getting Started
 First, clone the repository and install the dependencies:
 
 ### Clone the Repository
