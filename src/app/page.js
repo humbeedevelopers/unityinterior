@@ -1,6 +1,7 @@
 "use client"
 import CoreOfferings from "@/components/CoreOfferings/CoreOffering"
 import CountDown from "@/components/CountDown/CountDown"
+import Faqs from "@/components/FaqsSection/Faqs"
 import Form from "@/components/Form/Form"
 import Hero from "@/components/Hero/Hero"
 import LeadingVision from "@/components/LeadingVision/LeadingVision"
@@ -21,6 +22,7 @@ const Page = () => {
       <LeadingVision />
       <CountDown />
       <Form />
+      <Faqs />
 
     </main>
   )
