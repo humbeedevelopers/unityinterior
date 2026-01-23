@@ -4,6 +4,7 @@ import CountDown from "@/components/CountDown/CountDown"
 import Faqs from "@/components/FaqsSection/Faqs"
 import Form from "@/components/Form/Form"
 import Hero from "@/components/Hero/Hero"
+import KnowledgeSpace from "@/components/KnowledgeSlider/KnowledgeSlider"
 import LeadingVision from "@/components/LeadingVision/LeadingVision"
 import Marquee from "@/components/Marquee/Marquee"
 import NumbersSec from "@/components/NumbersSection/NumbersSec"
@@ -21,6 +22,7 @@ const Page = () => {
       <TruelyMatters />
       <LeadingVision />
       <CountDown />
+      <KnowledgeSpace />
       <Form />
       <Faqs />
 
