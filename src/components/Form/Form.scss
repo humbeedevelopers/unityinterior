@@ -1,0 +1,127 @@
+.contactForm {
+  background: linear-gradient(90deg, #5c0a0a, #6e0f0f);
+  padding: 120px 0;
+  color: #ffffff;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  &__content {
+    max-width: 420px;
+  }
+
+  &__heading {
+    font-size: 42px;
+    line-height: 1.15;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+
+    span {
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 12px;
+    }
+  }
+
+  &__form {
+    // max-width: 420px;
+    // margin-left: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__field {
+    position: relative;
+    margin-bottom: 28px;
+
+    input,
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 10px 0;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      &:focus {
+        border-color: #ffffff;
+      }
+    }
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    font-size: 12px;
+    color: #ffd4d4;
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    color: #5c0a0a;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #f3f3f3;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__arrow {
+    font-size: 16px;
+    transform: translateY(1px);
+  }
+
+  /* =====================
+     RESPONSIVE
+  ====================== */
+
+  @media (max-width: 992px) {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    &__form {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 80px 0;
+
+    &__heading {
+      font-size: 34px;
+    }
+  }
+}
