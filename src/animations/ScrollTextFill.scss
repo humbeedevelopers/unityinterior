@@ -1,0 +1,39 @@
+.scroll-fill-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.is-pinned {
+    min-height: 100vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &.not-pinned {
+    min-height: 30vh;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.scroll-fill-text {
+  font-size: 100px; 
+  font-weight: 400;
+//   font-style: "light";
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  transform: scaleY(1.15);
+}
+
+.scroll-word {
+  white-space: nowrap;
+  margin-right: 1rem;
+}
+
+.scroll-letter {
+  color: #fff; // gray-500
+  display: inline-block;
+}

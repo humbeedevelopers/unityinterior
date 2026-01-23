@@ -1,0 +1,32 @@
+.highlights {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.highlights-container {
+  max-width: 80rem; // max-w-7xl
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+@media (min-width: 768px) {
+  .highlights-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.highlights-header {
+//   max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

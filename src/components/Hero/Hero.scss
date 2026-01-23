@@ -1,0 +1,118 @@
+.HeroSection{
+    padding: 2rem;
+    @media(max-width: 575px){
+        padding: 20px;
+    }
+}
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+//   margin: 0 2rem;
+  border-radius: 24px;
+  overflow: hidden;
+    
+  background-image: url("../../images/HeroBanner.png"); // replace with your image path
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    min-height: 80vh;
+    border-radius: 16px;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.1)
+    );
+    border-radius: 24px;
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: 80px;
+    max-width: 1200px;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+      padding: 60px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 40px 24px;
+    }
+  }
+
+  &__title {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 32px;
+    }
+  }
+  .TextPattern{
+    padding-left: 12rem;
+    @media(max-width: 575px){
+        padding-left: 2rem;
+    }
+  }
+  .TextPatternTwo{
+    padding-left: 15rem;
+    @media(max-width: 575px){
+        padding-left: 3rem;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    justify-content: end;
+    gap: 24px;
+    // max-width: 520px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    //   align-items: flex-start;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    text-align: right;
+    line-height: 1.6;
+    color: #fff;
+    max-width: 280px;
+  }
+
+  &__button {
+    padding: 12px 28px;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+  }
+}

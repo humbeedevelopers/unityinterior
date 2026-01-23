@@ -1,0 +1,126 @@
+.numbers {  
+  padding: 80px 0;
+
+  &__container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+  }
+
+  &__label {
+    color: #540B0E;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  &__subtext {
+    font-size: 18px;
+    max-width: 350px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+    img {
+    //   object-fit: cover;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__card {
+    padding: 40px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    background: transparent;
+
+    h2 {
+      font-size: 64px;
+      text-align: right;
+      color: #540B0E;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    span {
+      display: block;
+      font-size: 20px;
+      font-weight: 400;
+      color: #000;
+      text-align: right;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      text-align: left;
+      line-height: 1.4;
+      margin: 0px -15px 0 0;
+    }
+
+    &:nth-child(-n+2) {
+      border-top: 1px solid #000;
+    }
+
+    &:nth-last-child(3n) {
+      border-right: none;
+    }
+  }
+
+  &__card--dark {
+    background: #540B0E;
+    color: #fff;
+
+    h2,
+    span,
+    p {
+      color: #fff;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .numbers {
+    &__container {
+      grid-template-columns: 1fr;
+    }
+
+  }
+}
+
+@media (max-width: 576px) {
+  .numbers {
+    padding: 60px 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__card {
+      border-right: none;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #999;
+      }
+    }
+  }
+}
