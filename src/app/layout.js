@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const helveticaNeue = localFont({
   src: [
@@ -37,7 +39,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={helveticaNeue.variable}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
