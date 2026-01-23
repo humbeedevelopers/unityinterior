@@ -1,7 +1,9 @@
 "use client"
 import CoreOfferings from "@/components/CoreOfferings/CoreOffering"
 import CountDown from "@/components/CountDown/CountDown"
+import Form from "@/components/Form/Form"
 import Hero from "@/components/Hero/Hero"
+import LeadingVision from "@/components/LeadingVision/LeadingVision"
 import Marquee from "@/components/Marquee/Marquee"
 import NumbersSec from "@/components/NumbersSection/NumbersSec"
 import TextEffect from "@/components/TextEffectSection/TextEffect"
@@ -16,7 +18,9 @@ const Page = () => {
       {/* <CoreOfferings /> */}
       <NumbersSec />
       <TruelyMatters />
+      <LeadingVision />
       <CountDown />
+      <Form />
 
     </main>
   )
