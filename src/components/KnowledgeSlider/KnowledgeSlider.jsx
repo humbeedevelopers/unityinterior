@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import BannerImg from "@/images/KnowlwdgeSliderBanner.png";
+import PrevIcon from "@/images/PrevIcon.svg";
+import NextIcon from "@/images/NextIcon.svg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./KnowledgeSlider.scss";
@@ -71,10 +73,22 @@ const KnowledgeSpace = () => {
 
                     <div className="knowledge-space__nav">
                         <button className="knowledge-space__btn knowledge-space__btn--prev">
-                            ←
+                            <Image
+                                src={PrevIcon}
+                                alt="Icons"
+                                width={20}
+                                height={20}
+                                className="Icon"
+                            />
                         </button>
                         <button className="knowledge-space__btn knowledge-space__btn--next">
-                            →
+                              <Image
+                                src={NextIcon}
+                                alt="Icons"
+                                width={20}
+                                height={20}
+                                className="Icon"
+                            />
                         </button>
                     </div>
                 </div>
@@ -85,9 +99,9 @@ const KnowledgeSpace = () => {
                         nextEl: ".knowledge-space__btn--next",
                     }}
                     loop={true}
-                    speed={3500} 
+                    speed={3500}
                     autoplay={{
-                        delay: 2500, 
+                        delay: 2500,
                         disableOnInteraction: false,
                     }}
                     spaceBetween={24}

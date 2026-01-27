@@ -4,7 +4,10 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
-import ProjectImg from "@/images/ProjectSliderImg.png"
+import WhiteIconPrev from "@/images/WhitePrev.svg";
+import WhiteIconNext from "@/images/WhiteNext.svg";
+import ProjectImg from "@/images/ProjectSliderImg.png";
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./ProjectSlider.scss";
@@ -13,10 +16,12 @@ const slides = [
   {
     image: ProjectImg,
     city: "Ahmedabad",
+    href: "/",
   },
   {
     image: ProjectImg,
     city: "Mumbai",
+    href: "/",
   },
 ];
 
@@ -57,7 +62,13 @@ const ProjectSlider = () => {
 
                 <div className="projectSlider__footer">
                   <h4>{slide.city}</h4>
-                  <button>View Project</button>
+                  <Link
+                    href={slide.href}
+                    className="projectSlider__ProjectBtn"
+                  >
+                    View Project
+                  </Link>
+                  {/* <button>View Project</button> */}
                 </div>
               </div>
             </div>
@@ -67,10 +78,20 @@ const ProjectSlider = () => {
 
       <div className="projectSlider__nav">
         <button className="projectSlider__prev">
-          ←
+          <Image
+            src={WhiteIconPrev}
+            alt="Icons"
+            width={20}
+            height={20}
+          />
         </button>
         <button className="projectSlider__next">
-          →
+          <Image
+            src={WhiteIconNext}
+            alt="Icons"
+            width={20}
+            height={20}
+          />
         </button>
       </div>
     </section>
