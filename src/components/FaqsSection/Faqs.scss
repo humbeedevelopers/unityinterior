@@ -3,9 +3,9 @@
   background-color: #ffffff;
 
   &__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+    // max-width: 1200px;
+    // margin: 0 auto;
+    padding: 0 50px 0 80px;
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 80px;
@@ -27,17 +27,16 @@
   &__cta {
     background: none;
     border: none;
-    padding: 0;
-    font-size: 12px;
-    letter-spacing: 0.12em;
+    font-size: 18px;
     text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 6px;
     color: #000;
     cursor: pointer;
     width: fit-content;
+    font-family: "helveticaNeue";
 
-    &:hover {
-      opacity: 0.6;
-    }
+   
   }
 
   /* RIGHT */
@@ -94,10 +93,11 @@
 
   .is-active &__answer-wrapper {
     grid-template-rows: 1fr;
+    padding-bottom: 20px;
   }
 
   .is-active &__answer {
-    padding-bottom: 20px;
+    // margin-bottom: 20px;
   }
 
   @media (max-width: 991px) {
@@ -112,7 +112,10 @@
   }
 
   @media (max-width: 576px) {
-    padding: 70px 0;
+    // padding: 70px 0;
+    &__container {
+      padding: 0 20px 0 20px;
+    }
 
     &__title {
       font-size: 32px;

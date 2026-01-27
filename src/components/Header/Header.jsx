@@ -5,7 +5,6 @@ import Link from "next/link";
 import "./Header.scss";
 import Image from "next/image";
 import Logo from "@/images/websitelogo.svg";
-// import Link from "next/link";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +20,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo */}
+
         <div className="logo">
           <Link href="/">
             <Image
@@ -31,10 +30,8 @@ const Header = () => {
               height={50}
             />
           </Link>
-
           </div>
 
-        {/* Desktop Nav */}
         <nav className={`nav ${menuOpen ? "open" : ""}`}>
           <ul>
             {navLinks.map((item, index) => (
@@ -45,13 +42,11 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* CTA */}
         <div className="header-cta">
           <Link href="/contact" className="contact-btn">
             Contact us
           </Link>
 
-          {/* Hamburger */}
           <button
             className={`hamburger ${menuOpen ? "active" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}

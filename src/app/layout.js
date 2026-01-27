@@ -7,7 +7,7 @@ const helveticaNeue = localFont({
   src: [
     {
       path: "../fonts/HelveticaNeueBlack.otf",
-      weight: "400",
+      weight: "900",
       style: "normal",
     },
     {
@@ -31,8 +31,8 @@ const helveticaNeue = localFont({
 });
 
 export const metadata = {
-  title: "Unity Interiors",
-  description: "Unity Interiors",
+  title: "Unity Interiors - Best Interior Designer Ahmedabad - Architecture Planning",
+  description: "Unity Interiors - Best Interior Designer Ahmedabad - Architecture Planning",
 };
 
 export default function RootLayout({ children }) {

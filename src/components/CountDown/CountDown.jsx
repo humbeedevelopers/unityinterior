@@ -57,7 +57,7 @@ const CountDown = () => {
 
   return (
     <section className="numbers" ref={sectionRef}>
-      <div className="numbers__container">
+      <div className="numbers__containerCountdown">
         <div className="numbers__stats">
           {statsData.map((stat, index) => (
             <div className="numbers__item" key={index}>

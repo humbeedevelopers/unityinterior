@@ -42,6 +42,9 @@
       font-weight: 400;
       display: block;
       padding-left: 10rem;
+      @media(max-width: 575px){
+        padding-left: 3rem;
+      }
     }
   }
 
@@ -91,12 +94,12 @@
 @media (max-width: 480px) {
   .leading-vision {
     &__title {
-      font-size: 1.5rem;
+      font-size: 30px;
       margin-bottom: 2rem;
     }
 
     &__description {
-      font-size: 0.7rem;
+      font-size: 15px;
     }
   }
 }

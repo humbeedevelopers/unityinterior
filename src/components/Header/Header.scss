@@ -9,8 +9,9 @@
 }
 
 .header-container {
-  max-width: 1300px;
-  margin: 0 auto;
+  // max-width: 1300px;
+  // margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +36,8 @@
   a {
     padding: 8px 16px;
     border-radius: 999px;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 16px;
     letter-spacing: 0.2px;
     color: #000;
     text-decoration: none;

@@ -110,7 +110,7 @@ const Form = () => {
             disabled={isSubmitting}
           >
             Submit
-            <span className="contactForm__arrow">→</span>
+            {/* <span className="contactForm__arrow">→</span> */}
           </button>
         </form>
       </div>

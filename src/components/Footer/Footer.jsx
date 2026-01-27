@@ -3,6 +3,9 @@ import "./Footer.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/images/websitelogo.svg";
+import PhoneLogo from "@/images/PHONE.svg";
+import EmailLogo from "@/images/EMAIL.svg";
+import FooterImg from "@/images/footerimage.png";
 
 const Footer = () => {
   return (
@@ -18,7 +21,7 @@ const Footer = () => {
 
           <div className="footer__brand">
             <Image
-              src={Logo} 
+              src={Logo}
               alt="Unity Interiors"
               width={120}
               height={50}
@@ -49,19 +52,33 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* <div className="footer__contact">
+          <div className="footer__contact">
             <div className="footer__contact-item">
-              <span className="icon">📞</span>
+              <span className="icon">
+                <Image
+                  src={PhoneLogo}
+                  alt="Unity Interiors"
+                  width={25}
+                  height={25}
+                />
+              </span>
               <a href="tel:+917405169196">+91 7405169196</a>
             </div>
 
             <div className="footer__contact-item">
-              <span className="icon">✉️</span>
+              <span className="icon">
+                <Image
+                  src={EmailLogo}
+                  alt="Unity Interiors"
+                  width={25}
+                  height={25}
+                />
+              </span>
               <a href="mailto:info@unityinteriors.com">
                 info@unityinteriors.com
               </a>
             </div>
-          </div> */}
+          </div>
 
           <div className="footer__socials">
             <Link href="#">YouTube</Link>
@@ -71,6 +88,18 @@ const Footer = () => {
             <Link href="#">LinkedIn</Link>
           </div>
         </div>
+
+        {/* <div className="footer-visual">
+          <h2 className="footer-visual__text">MAKING</h2>
+
+          <div className="footer-visual__image">
+            <Image
+              src={FooterImg}
+              alt="Making People"
+            />
+          </div>
+        </div> */}
+
       </div>
     </footer>
   );

@@ -1,7 +1,7 @@
 :root {
   --background: #F5F5F5;
   /* --foreground: #171717; */
-  --font-helvetica-neue: "Helvetica Neue", Helvetica, sans-serif;
+  --font-helvetica-neue: "HelveticaNeue"
 }
 
 @media (prefers-color-scheme: dark) {
