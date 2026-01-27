@@ -6,7 +6,7 @@ import "./Experience.scss";
 import ImgMain from "@/images/image1.png";
 import ImgSideTop from "@/images/image2.png";
 import ImgSideBottom from "@/images/image3.png";
-
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const Experience = () => {
   return (
@@ -15,9 +15,9 @@ const Experience = () => {
         {/* Left Content */}
         <div className="experience__content">
           <span className="experience__count">20</span>
-
           <h2 className="experience__title">
-            WHERE ELEGANCE <br /> MEETS DESIRE
+            <ParagraphTextReveal>
+              WHERE ELEGANCE <br /> MEETS DESIRE</ParagraphTextReveal>
           </h2>
 
           <div className="experience__divider">
@@ -37,15 +37,15 @@ const Experience = () => {
         {/* Right Images */}
         <div className="experience__images">
           <div className="experience__image experience__image--main">
-            <Image src={ImgMain} alt="Interior Design" fill priority />
+            <Image src={ImgMain} alt="Interior Design"  />
           </div>
 
           <div className="experience__image experience__image--top">
-            <Image src={ImgSideTop} alt="Luxury Space" fill />
+            <Image src={ImgSideTop} alt="Luxury Space"  />
           </div>
 
           <div className="experience__image experience__image--bottom">
-            <Image src={ImgSideBottom} alt="Elegant Interior" fill />
+            <Image src={ImgSideBottom} alt="Elegant Interior"  />
           </div>
         </div>
       </div>

@@ -32,6 +32,9 @@
   &__btn {
     width: 44px;
     height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     border: 1px solid #540B0E;
     background: transparent;
@@ -44,6 +47,11 @@
       background: #540B0E;
       color: #fff;
     }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
+    }
+
   }
 
   // &__slider {
@@ -108,11 +116,12 @@
     height: 200px;
   }
 }
-@media(max-width: 575px){
+
+@media(max-width: 575px) {
   .knowledge-space {
-   &__container {
-    padding: 0 20px;
-    margin: 0 -20px 0 0;
+    &__container {
+      padding: 0 20px;
+      margin: 0 -20px 0 0;
+    }
   }
-}
 }

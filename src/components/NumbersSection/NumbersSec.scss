@@ -1,4 +1,4 @@
-.numbers {  
+.numbers {
   padding: 80px 0;
 
   &__container {
@@ -8,9 +8,11 @@
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 40px;
-    @media(max-width: 575px){
+
+    @media(max-width: 575px) {
       padding: 0 20px;
     }
+
   }
 
   &__label {
@@ -39,7 +41,7 @@
     display: block;
 
     img {
-    //   object-fit: cover;
+      //   object-fit: cover;
     }
   }
 
@@ -49,11 +51,31 @@
   }
 
   &__card {
+    position: relative;
     padding: 40px;
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
-    text-align: center;
     background: transparent;
+    overflow: hidden;
+    cursor: pointer;
+
+
+    transition:
+      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #540B0E;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 0;
+    }
+
 
     h2 {
       font-size: 64px;
@@ -61,6 +83,26 @@
       color: #540B0E;
       margin-bottom: 8px;
       font-weight: 500;
+      position: relative;
+      z-index: 2;
+      transition: color 0.35s ease;
+    }
+
+    &:hover {
+      // transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+
+      &::before {
+        transform: scaleY(1);
+      }
+
+
+    }
+
+    &:hover h2,
+    &:hover span,
+    &:hover p {
+      color: #fff;
     }
 
     span {
@@ -71,6 +113,13 @@
       text-align: right;
       letter-spacing: 1px;
       margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+      transition: color 0.35s ease;
+
+      &:hover {
+        color: #fff;
+      }
     }
 
     p {
@@ -79,7 +128,15 @@
       color: #000;
       line-height: 1.4;
       margin: 0px -15px 0 0;
+      position: relative;
+      z-index: 2;
+      transition: color 0.35s ease;
+
+      &:hover {
+        color: #fff;
+      }
     }
+
 
     &:nth-child(-n+2) {
       border-top: 1px solid #000;

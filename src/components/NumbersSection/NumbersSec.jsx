@@ -1,6 +1,7 @@
 import "./NumbersSec.scss";
 import Image from "next/image";
-import NumbersImage from "@/images/Numbersectionimg.png"; // replace with your image path
+import NumbersImage from "@/images/Numbersectionimg.png"; 
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const NumbersSec = () => {
   return (
@@ -8,7 +9,7 @@ const NumbersSec = () => {
       <div className="numbers__container">
         {/* Left Content */}
         <div className="numbers__left">
-          <h6 className="numbers__label">THE NUMBERS</h6>
+          <h6 className="numbers__label"><ParagraphTextReveal>THE NUMBERS</ParagraphTextReveal></h6>
           <p className="numbers__subtext">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
@@ -47,7 +48,10 @@ const NumbersSec = () => {
             </p>
           </div>
 
-          <div className="numbers__card numbers__card--dark">
+          <div className="numbers__card numbers__card--dark "
+
+          >
+            {/* numbers__card--dark */}
             <h2>9</h2>
             <span>YEARS</span>
             <p>

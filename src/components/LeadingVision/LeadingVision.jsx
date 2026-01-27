@@ -5,6 +5,7 @@ import Image from "next/image";
 import "./LeadingVision.scss";
 import BgImage from "@/images/leadingvisionimg.png";
 import PersonImage from "@/images/lvinnerimg.png";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const LeadingVision = () => {
   return (
@@ -21,7 +22,7 @@ const LeadingVision = () => {
       {/* Content */}
       <div className="leading-vision__content container">
         <h2 className="leading-vision__title">
-          LEADING <span>the VISION</span>
+         <ParagraphTextReveal>LEADING <span>the VISION</span></ParagraphTextReveal> 
         </h2>
 
         <div className="leading-vision__card">
