@@ -1,7 +1,7 @@
 .HeroSection{
-    padding: 2rem;
+    padding: 0 40px;
     @media(max-width: 575px){
-        padding: 20px;
+        padding: 0 20px;
     }
 }
 .hero {
@@ -11,8 +11,7 @@
 //   margin: 0 2rem;
   border-radius: 24px;
   overflow: hidden;
-    
-  background-image: url("../../images/HeroBanner.png"); // replace with your image path
+  background-image: url("../../images/HeroBanner.png"); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,8 +39,13 @@
   &__content {
     position: relative;
     z-index: 2;
-    padding: 80px;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 70vh;
+    padding: 0 80px;
+    // padding: 80px;
+    // max-width: 1200px;
     width: 100%;
 
     @media (max-width: 1024px) {
@@ -54,12 +58,12 @@
   }
 
   &__title {
-    font-size: clamp(36px, 6vw, 72px);
+    font-size: clamp(36px, 7vw, 80px);
     font-weight: 400;
     line-height: 1.1;
     color: #ffffff;
     text-transform: uppercase;
-    margin-bottom: 48px;
+    margin-bottom: 80px;
 
     @media (max-width: 768px) {
       margin-bottom: 32px;
@@ -93,11 +97,12 @@
   }
 
   &__description {
-    font-size: 14px;
+    font-size: 20px;
     text-align: right;
-    line-height: 1.6;
+    line-height: 1.2;
+    text-transform: uppercase;
     color: #fff;
-    max-width: 280px;
+    max-width: 400px;
   }
 
   &__button {

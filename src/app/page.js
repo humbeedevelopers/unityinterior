@@ -20,17 +20,13 @@ const Page = () => {
       <Marquee />
       <TextEffect />
       <Experience />
-      
       {/* <CoreOfferings /> */}
       <NumbersSec />
-     
       <TruelyMatters />
-      
       <LeadingVision />
        <ThreeSlider />
       <ProjectSlider />
       <CountDown />
-      
       <Form />
       <KnowledgeSpace />
       <Faqs />

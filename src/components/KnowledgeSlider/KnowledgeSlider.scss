@@ -2,9 +2,10 @@
   padding: 80px 0;
 
   &__container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 24px;
+    // max-width: 1280px;
+    // margin: 0 auto;
+    padding: 0 50px;
+    margin: 0 -50px 0 0;
   }
 
   &__header {
@@ -12,6 +13,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    padding: 0 50px 0 0;
   }
 
   &__title {
@@ -44,14 +46,13 @@
     }
   }
 
-  &__slider {
-    padding-bottom: 10px;
-  }
+  // &__slider {
+  //   padding-bottom: 10px;
+  // }
 }
 
 .knowledge-card {
   background: #fff;
-  border-radius: 6px;
   overflow: hidden;
   height: 100%;
   display: flex;
@@ -59,7 +60,7 @@
 
   &__image {
     position: relative;
-    height: 250px;
+    height: 300px;
     background: #eee;
   }
 
@@ -83,11 +84,11 @@
   }
 
   &__content {
-    padding: 20px;
+    padding: 40px 20px;
 
     p {
       font-size: 25px;
-      line-height: 1.3;
+      line-height: 1.2;
       font-weight: 400;
       color: #000;
     }
@@ -106,4 +107,12 @@
   .knowledge-card__image {
     height: 200px;
   }
+}
+@media(max-width: 575px){
+  .knowledge-space {
+   &__container {
+    padding: 0 20px;
+    margin: 0 -20px 0 0;
+  }
+}
 }
