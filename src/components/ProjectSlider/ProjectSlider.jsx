@@ -11,6 +11,7 @@ import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./ProjectSlider.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const slides = [
   {
@@ -55,9 +56,11 @@ const ProjectSlider = () => {
 
               <div className="projectSlider__overlay">
                 <p className="projectSlider__subtitle">
+                  <ParagraphTextReveal>
                   EXPERIENCE THE
                   <br />
                   <span>EXCEPTIONAL UP CLOSE</span>
+                  </ParagraphTextReveal>
                 </p>
 
                 <div className="projectSlider__footer">

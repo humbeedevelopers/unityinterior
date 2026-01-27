@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Image from "next/image";
 import "./Threeslider.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 // const slides = [
 //     { id: 1, img1: PersonImage },
@@ -90,7 +91,7 @@ const ThreeSlider = () => {
     return (
         <section className="three-slider">
             <div className="three-slider__container">
-                <h2 className="three-slider__heading">Wall of Desire</h2>
+                <h2 className="three-slider__heading"><ParagraphTextReveal>Wall of Desire</ParagraphTextReveal></h2>
                 <p className="three-slider__headingText">best picked projects</p>
 
                 <Swiper

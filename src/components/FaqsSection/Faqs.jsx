@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./Faqs.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const FAQS_DATA = [
   {
@@ -39,7 +40,7 @@ const FaqsSection = () => {
       <div className="faqs__container">
         {/* Left Column */}
         <div className="faqs__left">
-          <h2 className="faqs__title">QnA</h2>
+          <h2 className="faqs__title"><ParagraphTextReveal>QnA</ParagraphTextReveal></h2>
           <button className="faqs__cta">MY QUESTION IS NOT HERE</button>
         </div>
 

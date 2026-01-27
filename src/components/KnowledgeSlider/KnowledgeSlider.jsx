@@ -9,6 +9,7 @@ import NextIcon from "@/images/NextIcon.svg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./KnowledgeSlider.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const knowledgeData = [
     {
@@ -68,7 +69,8 @@ const KnowledgeSpace = () => {
             <div className="knowledge-space__container">
                 <div className="knowledge-space__header">
                     <h2 className="knowledge-space__title">
-                        Knowledge <br /> Space
+                        <ParagraphTextReveal>
+                        Knowledge <br /> Space</ParagraphTextReveal>
                     </h2>
 
                     <div className="knowledge-space__nav">

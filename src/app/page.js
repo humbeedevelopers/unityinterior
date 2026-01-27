@@ -19,11 +19,13 @@ const Page = () => {
       <Hero />
       <Marquee />
       <TextEffect />
+      <CoreOfferings />
       <Experience />
-      {/* <CoreOfferings /> */}
+     
       <NumbersSec />
       <TruelyMatters />
       <LeadingVision />
+       
        <ThreeSlider />
       <ProjectSlider />
       <CountDown />

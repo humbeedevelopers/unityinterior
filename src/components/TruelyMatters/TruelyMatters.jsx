@@ -4,6 +4,7 @@ import Image from "next/image";
 import Lightbulb from "@/images/bulb.svg";
 import Planet from "@/images/planet.svg";
 import StarBadge from "@/images/starbadge.svg";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const TruelyMatters = () => {
   return (
@@ -12,7 +13,7 @@ const TruelyMatters = () => {
         {/* Left Content */}
         <div className="tm-left">
           <h2>
-            WHAT TRULY <br /> MATTERS TO US
+           <ParagraphTextReveal> WHAT TRULY <br /> MATTERS TO US</ParagraphTextReveal>
           </h2>
 
           <p>
