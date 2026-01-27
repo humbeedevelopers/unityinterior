@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import SmoothScroll from "@/animations/SmoothScroll";
+// import SmoothScroll from "@/animations/SmoothScroll";
 
 const helveticaNeue = localFont({
   src: [
