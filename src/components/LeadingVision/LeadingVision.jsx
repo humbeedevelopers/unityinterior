@@ -32,7 +32,6 @@ const LeadingVision = () => {
               alt="Leader"
               width={280}
               height={360}
-              priority
             />
           </div>
 

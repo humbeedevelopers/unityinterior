@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useCycle } from "framer-motion";
+import { motion, useCycle, AnimatePresence } from "framer-motion";
 import "./Header.scss";
 import Logo from "@/images/websitelogo.svg";
 
@@ -191,53 +191,65 @@ const Header = () => {
 
         </div>
       </div>
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <motion.nav
+            //  className={`mobile-menu ${isOpen ? "open" : ""}`}
+            className="mobile-menu"
+            key="mobile-menu"
+            variants={sidebar}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            custom={1000}
+            ref={containerRef}
+          // initial={false}
+          // animate={isOpen ? "open" : "closed"}
+          // custom={1000}
+          // ref={containerRef}
+          >
+            <motion.div className="mobile-bg" variants={sidebar} />
 
-      <motion.nav
-        className="mobile-menu"
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={1000}
-        ref={containerRef}
-      >
-        <motion.div className="mobile-bg" variants={sidebar} />
+            <motion.ul variants={navVariants}>
+              {navLinks.map((item, i) => (
+                <motion.li key={i} variants={itemVariants}>
+                  <Link href={item.href} onClick={() => toggleOpen()}>
+                    {item.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
 
-        <motion.ul variants={navVariants}>
-          {navLinks.map((item, i) => (
-            <motion.li key={i} variants={itemVariants}>
-              <Link href={item.href} onClick={() => toggleOpen()}>
-                {item.name}
-              </Link>
-            </motion.li>
-          ))}
-        </motion.ul>
-
-        <motion.div
-          className="mobile-socials"
-          variants={socialContainerVariants}
-          initial={false}
-          animate={isOpen ? "open" : "closed"}
-        >
-          {[
-            { name: "YOUTUBE", href: "https://www.youtube.com/channel/UCQLqYlIthw4Buk6XKW4lqNg" },
-            { name: "INSTAGRAM", href: "https://www.instagram.com/ekta_interior/" },
-            { name: "FACEBOOK", href: "https://www.facebook.com/unityinteriorstudio" },
-            { name: "THREADS", href: "https://x.com/unityinteriors" },
-            { name: "LINKEDIN", href: "https://www.linkedin.com/in/ektamakadia/" },
-          ].map((item, i) => (
-            <motion.a
-              key={i}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={socialItemVariants}
-              //  onClick={() => toggleOpen()}   //for closing menu bar if needed
+            <motion.div
+              className="mobile-socials"
+              variants={socialContainerVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+            // initial={false}
+            // animate={isOpen ? "open" : "closed"}
             >
-              {item.name}
-            </motion.a>
-          ))}
-        </motion.div>
+              {[
+                { name: "YOUTUBE", href: "https://www.youtube.com/channel/UCQLqYlIthw4Buk6XKW4lqNg" },
+                { name: "INSTAGRAM", href: "https://www.instagram.com/ekta_interior/" },
+                { name: "FACEBOOK", href: "https://www.facebook.com/unityinteriorstudio" },
+                { name: "THREADS", href: "https://x.com/unityinteriors" },
+                { name: "LINKEDIN", href: "https://www.linkedin.com/in/ektamakadia/" },
+              ].map((item, i) => (
+                <motion.a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={socialItemVariants}
+                //  onClick={() => toggleOpen()}   //for closing menu bar if needed
+                >
+                  {item.name}
+                </motion.a>
+              ))}
+            </motion.div>
 
-        {/* <motion.div
+            {/* <motion.div
           className="mobile-socials"
           initial={{ opacity: 0, y: 20 }}
           animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -250,7 +262,9 @@ const Header = () => {
           <Link href="https://instagram.com" target="_blank">LINKEDIN</Link>
         </motion.div> */}
 
-      </motion.nav>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

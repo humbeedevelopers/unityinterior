@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 
 const ParagraphTextReveal = ({ children, delay = 0, className = "" }) => {
   return (
-    <motion.div
+    <motion.span
       className={className}
+       style={{ display: "inline-block" }}
       initial={{ 
         opacity: 0, 
         y: 30, 
@@ -23,7 +24,7 @@ const ParagraphTextReveal = ({ children, delay = 0, className = "" }) => {
       }}
     >
       {children}
-    </motion.div>
+    </motion.span>
   );
 };
 
