@@ -105,6 +105,10 @@
       top: 100px;
       z-index: 2;
       // border-radius: 4px;
+      @media(max-width: 575px){
+        left: 0;
+        top: 0;
+      }
     }
 
     &--top {
