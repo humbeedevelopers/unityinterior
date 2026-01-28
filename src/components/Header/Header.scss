@@ -156,12 +156,21 @@
   }
 }
 
+// .mobile-menu ul,
+// .mobile-socials {
+//   pointer-events: none;
+// }
+
+// .mobile-menu.open ul,
+// .mobile-menu.open .mobile-socials {
+//   pointer-events: auto;
+// }
 
 
 .mobile-menu {
   position: fixed;
   inset: 0;
-  pointer-events: none;
+  // pointer-events: none;
   z-index: 99;
 
   @media (min-width: 993px) {
