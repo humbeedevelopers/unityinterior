@@ -11,6 +11,9 @@
     margin-bottom: 30px;
     color: #540B0E;
     text-transform: uppercase;
+    @media(max-width: 575px){
+      font-size: 30px;
+    }
   }
 
   &__box {
