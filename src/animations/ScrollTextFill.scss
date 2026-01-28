@@ -38,3 +38,12 @@
   color: #fff; 
   display: inline-block;
 }
+
+
+@media (max-width: 575px) {
+  .scroll-fill-text {
+    font-size: 36px;
+    line-height: 1.25;
+    padding: 0 10px;
+  }
+}

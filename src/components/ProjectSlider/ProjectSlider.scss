@@ -94,6 +94,10 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    @media(max-width: 575px){
+    height: 40px;
+    width: 40px;
+    }
 
     &:hover {
       background: #fff;
@@ -120,11 +124,11 @@
     height: 85vh;
 
     &__overlay {
-      padding: 30px;
+      padding: 20px;
     }
 
     &__subtitle {
-      font-size: 12px;
+      font-size: 21px;
     }
 
     &__footer h4 {

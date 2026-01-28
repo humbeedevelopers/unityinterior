@@ -40,6 +40,7 @@ const ScrollFillText = ({ text = "", pin = true }) => {
       ref={containerRef}
       className={`scroll-fill-section ${pin ? "is-pinned" : "not-pinned"}`}
     >
+      <div className="scroll-fill-inner">
       <p className="scroll-fill-text">
         {text.split(" ").map((word, wordIndex) => (
           <span key={wordIndex} className="scroll-word">
@@ -55,6 +56,7 @@ const ScrollFillText = ({ text = "", pin = true }) => {
           </span>
         ))}
       </p>
+      </div>
     </section>
   );
 };
