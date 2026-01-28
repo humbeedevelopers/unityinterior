@@ -80,6 +80,45 @@ const itemVariants = {
 };
 
 
+const socialContainerVariants = {
+  open: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.35,
+    },
+  },
+  closed: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const socialItemVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 600,
+      damping: 30,
+    },
+  },
+  closed: {
+    y: 20,
+    opacity: 0,
+    transition: {
+      type: "spring",
+      stiffness: 600,
+      damping: 30,
+    },
+  },
+};
+
+
+
+
 const Header = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
@@ -95,7 +134,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo */}
         <div className="logo">
           <Link href="/">
             <Image src={Logo} alt="Unity Interiors Logo" width={130} height={50} />
@@ -116,7 +154,7 @@ const Header = () => {
         {/* CTA */}
         <div className="header-cta">
           <Link href="/contact" className="contact-btn">
-            Contact us
+            <span className="contactInner">Contact us</span>
           </Link>
 
           {/* Mobile Toggle */}
@@ -172,6 +210,46 @@ const Header = () => {
             </motion.li>
           ))}
         </motion.ul>
+
+        <motion.div
+          className="mobile-socials"
+          variants={socialContainerVariants}
+          initial={false}
+          animate={isOpen ? "open" : "closed"}
+        >
+          {[
+            { name: "YOUTUBE", href: "https://www.youtube.com/channel/UCQLqYlIthw4Buk6XKW4lqNg" },
+            { name: "INSTAGRAM", href: "https://www.instagram.com/ekta_interior/" },
+            { name: "FACEBOOK", href: "https://www.facebook.com/unityinteriorstudio" },
+            { name: "THREADS", href: "https://x.com/unityinteriors" },
+            { name: "LINKEDIN", href: "https://www.linkedin.com/in/ektamakadia/" },
+          ].map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={socialItemVariants}
+              //  onClick={() => toggleOpen()}   //for closing menu bar if needed
+            >
+              {item.name}
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* <motion.div
+          className="mobile-socials"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ delay: 0.4 }}
+        >
+          <Link href="https://instagram.com" target="_blank">YOUTUBE</Link>
+          <Link href="https://instagram.com" target="_blank">INSTAGRAM</Link>
+          <Link href="https://instagram.com" target="_blank">FACEBOOK</Link>
+          <Link href="https://instagram.com" target="_blank">THREADS</Link>
+          <Link href="https://instagram.com" target="_blank">LINKEDIN</Link>
+        </motion.div> */}
+
       </motion.nav>
     </header>
   );
