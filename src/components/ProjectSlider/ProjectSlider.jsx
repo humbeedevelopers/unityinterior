@@ -33,6 +33,7 @@ const ProjectSlider = () => {
         modules={[Navigation, Autoplay]}
         slidesPerView={1}
         loop
+        speed={1500}
         autoplay={{
           delay: 4500,
           disableOnInteraction: false,

@@ -38,9 +38,11 @@ const AccordionScroll = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: () => `+=${regionsRef.current.length * 900}`,
+          end: () => `+=${regionsRef.current.length * 1600}`,
+          // 900
           // scrub: 0.6,
-          scrub: 2,
+          scrub: 5,
+          // 2
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
