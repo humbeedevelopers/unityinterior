@@ -22,9 +22,7 @@ unityinterior/
 ├── src/
 │   ├── app/             # Next.js App Router
 │   ├── components/      # Reusable UI components
-│   ├── sections/        # Page sections (Hero, About, Services, etc.)
-│   ├── styles/          # Global styles
-│   └── utils/           # Helper functions
+│   └── images/          # All Images
 ├── .env.local           # Environment variables
 ├── README.md
 ├── package.json
