@@ -72,6 +72,9 @@
     color: #000;
     margin-bottom: 6px;
     // letter-spacing: 0.5px;
+    @media(max-width: 575px){
+      font-size: 22px;
+    }
   }
 
   p {
