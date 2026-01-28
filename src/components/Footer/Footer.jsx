@@ -81,11 +81,11 @@ const Footer = () => {
           </div>
 
           <div className="footer__socials">
-            <Link href="#">YouTube</Link>
-            <Link href="#">Instagram</Link>
-            <Link href="#">Facebook</Link>
-            <Link href="#">Threads</Link>
-            <Link href="#">LinkedIn</Link>
+            <Link href="https://www.youtube.com/channel/UCQLqYlIthw4Buk6XKW4lqNg">YouTube</Link>
+            <Link href="https://www.instagram.com/ekta_interior/">Instagram</Link>
+            <Link href="https://www.facebook.com/unityinteriorstudio">Facebook</Link>
+            <Link href="https://x.com/unityinteriors">Threads</Link>
+            <Link href="https://www.linkedin.com/in/ektamakadia/">LinkedIn</Link>
           </div>
         </div>
 
