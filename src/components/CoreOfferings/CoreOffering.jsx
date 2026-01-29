@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./CoreOffering.scss";
 import Image from "next/image";
 import Banner from "@/images/coreBanner.png";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +68,7 @@ const AccordionScroll = () => {
 
   return (
     <section className="accordion-scroll" ref={containerRef}>
-      <h2 className="accordion-scroll__heading">CORE OFFERINGS</h2>
+      <h2 className="accordion-scroll__heading"><ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal></h2>
 
       <div className="accordion-scroll__box">
         <div className="accordion-scroll__content">
