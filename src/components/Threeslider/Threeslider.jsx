@@ -99,7 +99,7 @@ const ThreeSlider = () => {
                     centeredSlides
                     loop
                     slidesPerView="auto"
-                    speed={3500}
+                    speed={1500}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
