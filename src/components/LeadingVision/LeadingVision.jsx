@@ -22,7 +22,7 @@ const LeadingVision = () => {
       {/* Content */}
       <div className="leading-vision__content container">
         <h2 className="leading-vision__title">
-         <ParagraphTextReveal>LEADING <span>the VISION</span></ParagraphTextReveal> 
+         <ParagraphTextReveal>LEADING <br /><p>the VISION</p></ParagraphTextReveal> 
         </h2>
 
         <div className="leading-vision__card">
