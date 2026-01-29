@@ -27,11 +27,11 @@
   &__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.1)
-    );
+    // background: linear-gradient(
+    //   to right,
+    //   rgba(0, 0, 0, 0.35),
+    //   rgba(0, 0, 0, 0.1)
+    // );
     border-radius: 24px;
     z-index: 1;
   }
@@ -58,7 +58,7 @@
   }
 
   &__title {
-    font-size: clamp(36px, 7vw, 80px);
+    font-size: clamp(36px, 7vw, 100px);
     font-weight: 400;
     line-height: 1.1;
     color: #ffffff;
@@ -70,13 +70,13 @@
     }
   }
   .TextPattern{
-    padding-left: 12rem;
+    padding-left: 15rem;
     @media(max-width: 575px){
         padding-left: 2rem;
     }
   }
   .TextPatternTwo{
-    padding-left: 15rem;
+    padding-left: 19rem;
     @media(max-width: 575px){
         padding-left: 3rem;
     }
