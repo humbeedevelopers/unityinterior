@@ -6,7 +6,7 @@ const WordReveal = ({ children, delay = 0 }) => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: delay },
+      transition: { staggerChildren: 0.06, delayChildren: delay },
     },
   };
 
@@ -18,6 +18,19 @@ const WordReveal = ({ children, delay = 0 }) => {
       transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] },
     },
   };
+
+//   const childVariants = {
+//   hidden: { y: "110%", opacity: 0, filter: "blur(6px)" },
+//   visible: {
+//     y: 0,
+//     opacity: 1,
+//     filter: "blur(0px)",
+//     transition: {
+//       duration: 0.85,
+//       ease: [0.22, 1, 0.36, 1],
+//     },
+//   },
+// };
 
   const processChildren = (children) => {
     return React.Children.map(children, (child) => {

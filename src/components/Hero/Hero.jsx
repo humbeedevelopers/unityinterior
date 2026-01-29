@@ -1,6 +1,7 @@
 "use client";
 import "./Hero.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import WordReveal from "@/animations/WordReveal";
 
 const Hero = () => {
   return (
@@ -10,10 +11,10 @@ const Hero = () => {
 
       <div className="hero__content">
         <h1 className="hero__title">
-          <ParagraphTextReveal>
-          WE DESIGN <br /></ParagraphTextReveal>
-         <p className="TextPattern"><ParagraphTextReveal> THE FEELING</ParagraphTextReveal></p> 
-          <p className="TextPatternTwo"><ParagraphTextReveal> OF YOU</ParagraphTextReveal></p>
+          <WordReveal>
+          WE DESIGN <br /></WordReveal>
+         <p className="TextPattern"><WordReveal> THE FEELING</WordReveal></p> 
+          <p className="TextPatternTwo"><WordReveal> OF YOU</WordReveal></p>
         </h1>
 
         <div className="hero__footer">

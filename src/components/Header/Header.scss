@@ -59,6 +59,9 @@
 }
 
 .contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #000;
   height: 35px;
   background-size: 400%;

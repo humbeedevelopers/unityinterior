@@ -22,7 +22,7 @@ const helveticaNeue = localFont({
       style: "normal",
     },
     {
-      path: "../fonts/HelveticaNeueLight.otf",
+      path: "../fonts/HelveticaNeueRegular.ttf",
       weight: "400",
       style: "light",
     },
