@@ -128,7 +128,6 @@ const KnowledgeSpace = () => {
                                     <Image
                                         src={item.image}
                                         alt={item.title}
-                                        fill
                                         className="knowledge-card__img"
                                     />
                                     <span className="knowledge-card__badge">
