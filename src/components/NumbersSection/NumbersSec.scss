@@ -22,6 +22,9 @@
     letter-spacing: 1px;
     margin-bottom: 10px;
     text-transform: uppercase;
+    @media(max-width: 575px){
+      font-size: 30px;
+    }
   }
 
   &__subtext {

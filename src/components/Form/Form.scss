@@ -28,6 +28,9 @@
       font-weight: 400;
       display: inline-block;
       margin-top: 12px;
+       @media(max-width: 575px){
+      font-size: 35px;
+    }
     }
   }
 
@@ -127,7 +130,7 @@
   }
 
     &__heading {
-      font-size: 34px;
+      font-size: 30px;
     }
   }
 }
