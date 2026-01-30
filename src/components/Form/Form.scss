@@ -28,9 +28,10 @@
       font-weight: 400;
       display: inline-block;
       margin-top: 12px;
-       @media(max-width: 575px){
-      font-size: 35px;
-    }
+
+      @media(max-width: 575px) {
+        font-size: 35px;
+      }
     }
   }
 
@@ -39,12 +40,26 @@
     // margin-left: auto;
     width: 100%;
     max-width: 90%;
-    
+
   }
 
   &__field {
     position: relative;
     margin-bottom: 28px;
+
+    /* Change the input field background color when it's been autofilled */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+      /* Use your desired color instead of white */
+      transition: background-color 5000s ease-in-out 0s;
+      /* Optional: adds a smooth transition */
+      -webkit-text-fill-color: #fff;
+      /* Optional: also change text color */
+    }
+
 
     input,
     textarea {
@@ -125,9 +140,9 @@
   @media (max-width: 576px) {
     padding: 80px 0;
 
-      &__container {
-    padding: 0 20px;
-  }
+    &__container {
+      padding: 0 20px;
+    }
 
     &__heading {
       font-size: 30px;
