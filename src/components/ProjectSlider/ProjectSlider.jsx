@@ -50,8 +50,8 @@ const ProjectSlider = () => {
               <Image
                 src={slide.image}
                 alt={slide.city}
-                fill
-                priority={index === 0}
+                // fill
+                // priority={index === 0}
                 className="projectSlider__image"
               />
 
