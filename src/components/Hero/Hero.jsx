@@ -1,6 +1,6 @@
 "use client";
 import "./Hero.scss";
-import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+// import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import WordReveal from "@/animations/WordReveal";
 
 const Hero = () => {

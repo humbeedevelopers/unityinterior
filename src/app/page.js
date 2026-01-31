@@ -5,11 +5,13 @@ import Experience from "@/components/ExperienceSec/Experience"
 import Faqs from "@/components/FaqsSection/Faqs"
 import Form from "@/components/Form/Form"
 import Hero from "@/components/Hero/Hero"
+import Formula from "@/components/HomeFormula/Formula"
 import KnowledgeSpace from "@/components/KnowledgeSlider/KnowledgeSlider"
 import LeadingVision from "@/components/LeadingVision/LeadingVision"
 import Marquee from "@/components/Marquee/Marquee"
 import NumbersSec from "@/components/NumbersSection/NumbersSec"
 import ProjectSlider from "@/components/ProjectSlider/ProjectSlider"
+// import TestimonialSlider from "@/components/TestimonialSlider/TestimonialSlider"
 import TextEffect from "@/components/TextEffectSection/TextEffect"
 import ThreeSlider from "@/components/Threeslider/Threeslider"
 import TruelyMatters from "@/components/TruelyMatters/TruelyMatters"
@@ -17,16 +19,16 @@ const Page = () => {
   return (
     <main>
       <Hero />
+      {/* <TestimonialSlider /> */}
       <Marquee />
       <TextEffect />
       <CoreOfferings />
+      <Formula />
       <Experience />
-     
       <NumbersSec />
       <TruelyMatters />
       <LeadingVision />
-       
-       <ThreeSlider />
+      <ThreeSlider />
       <ProjectSlider />
       <CountDown />
       <Form />
