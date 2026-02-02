@@ -22,9 +22,11 @@
 
 
 
-// .nav-link--disabled {
-//   cursor: default;
-// }
+.nav-link--disabled {
+  cursor: default;
+  pointer-events: none; 
+}
+
 
 
 

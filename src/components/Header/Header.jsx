@@ -145,6 +145,14 @@ const Header = () => {
     { name: "About", href: "/about-us" },
   ];
 
+  // const isActiveNav = (itemHref, hasChildren = false) => {
+  //   if (hasChildren) {
+  //     return pathname === itemHref || pathname.startsWith(`${itemHref}/`);
+  //   }
+  //   return pathname === itemHref;
+  // };
+
+
   return (
     <header className="header">
       <div className="header-container">
@@ -175,10 +183,18 @@ const Header = () => {
             {navLinks.map((item, index) => (
               <li
                 key={index}
+                // className={`nav-item ${isActiveNav(item.href, !!item.children) ? "active" : ""
+                //   } ${item.children ? "has-dropdown" : ""}`}
+
                 className={`nav-item ${pathname === item.href ? "active" : ""
                   } ${item.children ? "has-dropdown" : ""}`}
               >
-                <Link href={item.href}>{item.name}</Link>
+                <Link href={item.href}
+                  onClick={(e) => {
+                    if (item.href === "/services") {
+                      e.preventDefault();
+                    }
+                  }}>{item.name}</Link>
                 {/* {item.children ? (
                   <span className="nav-link nav-link--disabled">
                     {item.name}
