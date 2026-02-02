@@ -14,50 +14,50 @@ import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 const knowledgeData = [
     {
         id: 1,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
     {
         id: 2,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
     {
         id: 3,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
     {
         id: 4,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
     {
         id: 5,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
     {
         id: 6,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
     {
         id: 7,
-        title: "Wardrobe Hinges",
-        description:
+        // title: "Wardrobe Hinges",
+        description1:
             "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
         image: BannerImg,
     },
@@ -127,7 +127,7 @@ const KnowledgeSpace = () => {
                                 <div className="knowledge-card__image">
                                     <Image
                                         src={item.image}
-                                        alt={item.title}
+                                        alt="Interior image"
                                         className="knowledge-card__img"
                                     />
                                     <span className="knowledge-card__badge">
@@ -136,7 +136,7 @@ const KnowledgeSpace = () => {
                                 </div>
 
                                 <div className="knowledge-card__content">
-                                    <p>{item.description}</p>
+                                    <p>{item.description1}</p>
                                 </div>
                             </article>
                         </SwiperSlide>
