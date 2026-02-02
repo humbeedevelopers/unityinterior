@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import "./HomeCards.scss";
 
 const HomeCards = ({ heading, cards = [] }) => {
@@ -11,26 +10,14 @@ const HomeCards = ({ heading, cards = [] }) => {
 
         {heading && <h2 className="home-cards__heading">{heading}</h2>}
 
-        
+
         <div className="home-cards__list">
           {cards.map((card, index) => (
             <div
               key={index}
-              className={`home-cards__item ${
-                index === 0 ? "home-cards__item--active" : ""
-              }`}
+              className={`home-cards__item ${index === 0 ? "home-cards__item--active" : ""
+                }`}
             >
-              {/* {card.image && (
-                <div className="home-cards__icon">
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    width={40}
-                    height={40}
-                  />
-                </div>
-              )} */}
-
               <h3 className="home-cards__title">{card.title}</h3>
 
               {card.description && (

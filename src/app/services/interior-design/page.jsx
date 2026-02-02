@@ -47,7 +47,7 @@ const InteriorDesign = () => {
                         description: "Our team consists of experienced industry experts.",
                     },
                     {
-                        title: "Real Focus on Customer Satisfaction",
+                        title: "Real Focus on Satisfaction",
                         description: "Your success is our priority.",
                     },
                 ]}
