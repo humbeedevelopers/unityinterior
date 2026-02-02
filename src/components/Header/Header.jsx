@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import "./Header.scss";
 import Logo from "@/images/websitelogo.svg";
@@ -122,12 +123,14 @@ const socialItemVariants = {
 const Header = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
+  const pathname = usePathname();
+
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/" },
-    { name: "Services", href: "/" },
-    { name: "Blogs", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Services", href: "/services" },
+    { name: "Blogs", href: "/blogs" },
     { name: "About", href: "/about-us" },
   ];
 
@@ -144,7 +147,11 @@ const Header = () => {
         <nav className="nav desktop-nav">
           <ul>
             {navLinks.map((item, index) => (
-              <li key={index} className={item.name === "Home" ? "active" : ""}>
+              <li key={index} 
+              // className={item.name === "Home" ? "active" : ""}
+              // for active background 
+              className={pathname === item.href ? "active" : ""}
+              >
                 <Link href={item.href}>{item.name}</Link>
               </li>
             ))}
@@ -212,7 +219,9 @@ const Header = () => {
 
             <motion.ul variants={navVariants}>
               {navLinks.map((item, i) => (
-                <motion.li key={i} variants={itemVariants}>
+                <motion.li key={i} variants={itemVariants}
+                className={pathname === item.href ? "active" : ""}
+                >
                   <Link href={item.href} onClick={() => toggleOpen()}>
                     {item.name}
                   </Link>
