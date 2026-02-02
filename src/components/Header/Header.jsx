@@ -124,12 +124,23 @@ const Header = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const pathname = usePathname();
+  const [openService, setOpenService] = React.useState(false);
+
 
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Projects", href: "/projects" },
-    { name: "Services", href: "/services" },
+    {
+      name: "Services",
+      href: "/services",
+      children: [
+        { name: "Interior Design", href: "/services/interior-design" },
+        { name: "Architecture Planning", href: "/services/architectural-planning" },
+        { name: "3D Visualization", href: "/services/3d-visualization" },
+      ],
+    },
+    // { name: "Services", href: "/services" },
     { name: "Blogs", href: "/blogs" },
     { name: "About", href: "/about-us" },
   ];
@@ -144,19 +155,60 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="nav desktop-nav">
+        {/* <nav className="nav desktop-nav">
           <ul>
             {navLinks.map((item, index) => (
-              <li key={index} 
-              // className={item.name === "Home" ? "active" : ""}
-              // for active background 
-              className={pathname === item.href ? "active" : ""}
+              <li key={index}
+                // className={item.name === "Home" ? "active" : ""}
+                // for active background 
+                className={`nav-item ${pathname === item.href ? "active" : ""
+                  } ${item.children ? "has-dropdown" : ""}`}
+              // className={pathname === item.href ? "active" : ""}
               >
                 <Link href={item.href}>{item.name}</Link>
               </li>
             ))}
           </ul>
+        </nav> */}
+        <nav className="nav desktop-nav">
+          <ul>
+            {navLinks.map((item, index) => (
+              <li
+                key={index}
+                className={`nav-item ${pathname === item.href ? "active" : ""
+                  } ${item.children ? "has-dropdown" : ""}`}
+              >
+                <Link href={item.href}>{item.name}</Link>
+                {/* {item.children ? (
+                  <span className="nav-link nav-link--disabled">
+                    {item.name}
+                  </span>
+                ) : (
+                  <Link href={item.href}>{item.name}</Link>
+                )} */}
+
+
+                {item.children && (
+                  <motion.ul
+                    className="dropdown"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                  // initial={{ opacity: 0, y: 10, pointerEvents: "none" }}
+                  // whileHover={{ opacity: 1, y: 0, pointerEvents: "auto" }}
+                  >
+                    {item.children.map((child, i) => (
+                      <li key={i}>
+                        <Link href={child.href}>{child.name}</Link>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </li>
+            ))}
+          </ul>
         </nav>
+
 
         {/* CTA */}
         <div className="header-cta">
@@ -219,14 +271,65 @@ const Header = () => {
 
             <motion.ul variants={navVariants}>
               {navLinks.map((item, i) => (
+                <motion.li
+                  key={i}
+                  variants={itemVariants}
+                  className={`mobile-item ${pathname === item.href ? "active" : ""
+                    }`}
+                >
+                  {!item.children ? (
+                    <Link href={item.href} onClick={() => toggleOpen()}>
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        className="mobile-dropdown-btn"
+                        onClick={() => setOpenService(!openService)}
+                      >
+                        {item.name}
+                        <span className={openService ? "rotate" : ""}>+</span>
+                      </button>
+
+                      <AnimatePresence>
+                        {openService && (
+                          <motion.ul
+                            className="mobile-submenu"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: "easeInOut" }}
+                          >
+                            {item.children.map((child, j) => (
+                              <li key={j}>
+                                <Link
+                                  href={child.href}
+                                  onClick={() => {
+                                    toggleOpen();
+                                    setOpenService(false);
+                                  }}
+                                >
+                                  {child.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  )}
+                </motion.li>
+              ))}
+
+              {/* {navLinks.map((item, i) => (
                 <motion.li key={i} variants={itemVariants}
-                className={pathname === item.href ? "active" : ""}
+                  className={pathname === item.href ? "active" : ""}
                 >
                   <Link href={item.href} onClick={() => toggleOpen()}>
                     {item.name}
                   </Link>
                 </motion.li>
-              ))}
+              ))} */}
             </motion.ul>
 
             <motion.div

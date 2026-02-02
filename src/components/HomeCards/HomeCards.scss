@@ -1,0 +1,134 @@
+.home-cards {
+  padding: 80px 0;
+
+  &__container {
+    padding: 0 50px;
+
+    @media(max-width: 575px) {
+      padding: 0 20px;
+    }
+  }
+
+  &__heading {
+    font-size: 40px;
+    font-weight: 400;
+    color: #540B0E;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    flex: 1;
+    min-width: 260px;
+    background-color: #E4DCDD;
+    border-radius: 12px;
+    padding: 30px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      background-color: #D7B5B6;
+
+      .home-cards__title {
+        transform: translateY(0);
+      }
+
+      .home-cards__description {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &--active {
+      background-color: #D7B5B6;
+
+      .home-cards__title {
+        transform: translateY(0);
+      }
+
+      .home-cards__description {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+
+
+  &__title {
+    font-size: 25px;
+    font-weight: 400;
+    color: #540B0E;
+    // max-width: 300px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    // margin-bottom: 12px;
+    transform: translateY(200px);
+
+    transition: transform 0.45s ease;
+    will-change: transform;
+
+    // transition: all 0.4s ease;
+    @media(max-width: 575px) {
+      transform: translateY(145px);
+    }
+  }
+
+  &__description {
+    font-size: 18px;
+    color: #000;
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.45s ease;
+    will-change: transform, opacity;
+    // opacity: 0;
+    // transform: translateY(10px);
+    // transition: all 0.4s ease;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .home-cards {
+    &__list {
+      gap: 20px;
+    }
+
+    &__item {
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-cards {
+    padding: 60px 0;
+
+    &__heading {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    &__list {
+      flex-direction: column;
+    }
+
+    &__item {
+      height: auto;
+      min-height: 260px;
+    }
+  }
+}
