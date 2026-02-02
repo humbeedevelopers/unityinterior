@@ -12,8 +12,6 @@ const HeroAbout = () => {
           <Image
             src={Banner}
             alt="About Us Interior"
-            fill
-            priority
             className="heroAbout__image"
           />
 
