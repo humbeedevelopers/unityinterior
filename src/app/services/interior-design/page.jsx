@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import ImgMain from "@/images/Heroservice.png";
+import HoverImage from "@/images/hoveredimg.png";
 // import Hero from "@/components/Hero/Hero"
 import CountDown from "@/components/CountDown/CountDown"
 import Faqs from "@/components/FaqsSection/Faqs"
@@ -11,6 +12,7 @@ import ThreeSlider from "@/components/Threeslider/Threeslider"
 import ServiceDetails from "@/components/ServiceDetails/ServiceDetails";
 import HeroService from "@/components/HeroService/HeroService";
 import HomeCards from "@/components/HomeCards/HomeCards";
+import ServiceHoverCards from "@/components/ServiceHoverCards/ServiceHoverCards";
 
 const InteriorDesign = () => {
     useEffect(() => {
@@ -36,7 +38,7 @@ const InteriorDesign = () => {
                         title: "Functional Design Approach",
                         description:
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                       
+
                     },
                     {
                         title: "On Time and On Budget",
@@ -52,7 +54,14 @@ const InteriorDesign = () => {
                     },
                 ]}
             />
-
+            <ServiceHoverCards
+                title="Lorem Ipsum Is Simply Dummy Text Of The Printing And"
+                description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
+                imageSrc={HoverImage}
+                imageSrc1={HoverImage}
+                buttonText="Contact Us"
+                onButtonClick={() => console.log("CTA Clicked")}
+            />
             <ThreeSlider />
             <TestimonialSlider />
             <CountDown />

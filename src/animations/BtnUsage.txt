@@ -1,0 +1,462 @@
+// COMPREHENSIVE USAGE EXAMPLES FOR BUTTON COMPONENT
+// ==================================================
+
+import Button from './Button';
+
+// ==========================================
+// Example 1: Basic Usage
+// ==========================================
+export function Example1() {
+  return (
+    <div>
+      <Button>Click Me</Button>
+      {/* or */}
+      <Button text="Click Me" />
+    </div>
+  );
+}
+
+// ==========================================
+// Example 2: Different Sizes
+// ==========================================
+export function Example2() {
+  return (
+    <div className="custom-button-group">
+      <Button size="small">Small Button</Button>
+      <Button size="medium">Medium Button</Button>
+      <Button size="large">Large Button</Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 3: Built-in Variants
+// ==========================================
+export function Example3() {
+  return (
+    <div className="custom-button-group">
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="accent">Accent</Button>
+      <Button variant="dark">Dark</Button>
+      <Button variant="light">Light</Button>
+      <Button variant="outline">Outline</Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 4: Custom Colors
+// ==========================================
+export function Example4() {
+  return (
+    <div className="custom-button-group">
+      {/* Custom single color */}
+      <Button
+        backgroundColor="#ff6b6b"
+        hoverBackgroundColor="#ff5252"
+        textColor="#ffffff"
+      >
+        Custom Red
+      </Button>
+
+      {/* Custom blue */}
+      <Button
+        backgroundColor="#4a90e2"
+        hoverBackgroundColor="#357abd"
+        textColor="#ffffff"
+      >
+        Custom Blue
+      </Button>
+
+      {/* Custom green */}
+      <Button
+        backgroundColor="#2ecc71"
+        hoverBackgroundColor="#27ae60"
+        textColor="#ffffff"
+      >
+        Custom Green
+      </Button>
+
+      {/* Custom purple gradient effect */}
+      <Button
+        backgroundColor="#9b59b6"
+        hoverBackgroundColor="#8e44ad"
+        textColor="#ffffff"
+      >
+        Custom Purple
+      </Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 5: Button as Link
+// ==========================================
+export function Example5() {
+  return (
+    <div className="custom-button-group">
+      {/* Internal link */}
+      <Button href="/about">About Us</Button>
+
+      {/* External link */}
+      <Button href="https://example.com" target="_blank">
+        Visit Website
+      </Button>
+
+      {/* Link with custom variant */}
+      <Button href="/contact" variant="accent">
+        Contact Us
+      </Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 6: Arrow Variations
+// ==========================================
+export function Example6() {
+  return (
+    <div className="custom-button-group">
+      {/* Arrow on right (default) */}
+      <Button>Next Step</Button>
+
+      {/* Arrow on left */}
+      <Button arrowPosition="left">Go Back</Button>
+
+      {/* No arrow */}
+      <Button showArrow={false}>No Arrow</Button>
+
+      {/* Left arrow with custom colors */}
+      <Button
+        arrowPosition="left"
+        backgroundColor="#2c3e50"
+        hoverBackgroundColor="#1a252f"
+      >
+        Previous
+      </Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 7: Click Handlers
+// ==========================================
+export function Example7() {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
+
+  const handleSubmit = () => {
+    console.log('Form submitted');
+  };
+
+  return (
+    <div className="custom-button-group">
+      <Button onClick={handleClick}>
+        Click Handler
+      </Button>
+
+      <Button onClick={handleSubmit} variant="accent">
+        Submit Form
+      </Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 8: Form Integration
+// ==========================================
+export function Example8() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="Enter your name" />
+      <input type="email" placeholder="Enter your email" />
+      
+      <div className="custom-button-group">
+        <Button type="submit" variant="primary">
+          Submit
+        </Button>
+        <Button type="reset" variant="outline">
+          Reset
+        </Button>
+        <Button type="button" variant="secondary" onClick={() => console.log('Cancel')}>
+          Cancel
+        </Button>
+      </div>
+    </form>
+  );
+}
+
+// ==========================================
+// Example 9: Disabled State
+// ==========================================
+export function Example9() {
+  return (
+    <div className="custom-button-group">
+      <Button disabled>Disabled Button</Button>
+      <Button disabled variant="accent">Disabled Accent</Button>
+      <Button disabled href="/link">Disabled Link</Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 10: Full Width Buttons
+// ==========================================
+export function Example10() {
+  return (
+    <div style={{ maxWidth: '400px' }}>
+      <Button fullWidth variant="primary" style={{ marginBottom: '16px' }}>
+        Full Width Primary
+      </Button>
+      <Button fullWidth variant="outline" style={{ marginBottom: '16px' }}>
+        Full Width Outline
+      </Button>
+      <Button fullWidth variant="accent">
+        Full Width Accent
+      </Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 11: Integration with ServiceHoverCards
+// ==========================================
+import ServiceHoverCards from './ServiceHoverCards';
+
+export function Example11() {
+  return (
+    <ServiceHoverCards
+      title="PROFESSIONAL INTERIOR DESIGN SERVICES"
+      description="Transform your space with our expert design solutions."
+      buttonText="GET STARTED"
+      buttonLink="/contact"
+      image="/images/interior.jpg"
+      // These colors will match the Button component
+      buttonColor="#5a2c2c"
+      buttonHoverColor="#3a1c1c"
+    />
+  );
+}
+
+// ==========================================
+// Example 12: Navigation Bar Usage
+// ==========================================
+export function Example12() {
+  return (
+    <nav style={{ display: 'flex', gap: '16px', padding: '20px' }}>
+      <Button href="/" variant="outline" size="small" showArrow={false}>
+        Home
+      </Button>
+      <Button href="/services" variant="outline" size="small" showArrow={false}>
+        Services
+      </Button>
+      <Button href="/portfolio" variant="outline" size="small" showArrow={false}>
+        Portfolio
+      </Button>
+      <Button href="/contact" variant="accent" size="small">
+        Contact Us
+      </Button>
+    </nav>
+  );
+}
+
+// ==========================================
+// Example 13: Call-to-Action Section
+// ==========================================
+export function Example13() {
+  return (
+    <section style={{ textAlign: 'center', padding: '60px 20px' }}>
+      <h2>Ready to Transform Your Space?</h2>
+      <p>Get in touch with our expert design team today.</p>
+      
+      <div className="custom-button-group custom-button-group--centered" style={{ marginTop: '30px' }}>
+        <Button
+          href="/consultation"
+          backgroundColor="#d4af37"
+          hoverBackgroundColor="#b8941f"
+          textColor="#1a1a1a"
+          size="large"
+        >
+          Book Consultation
+        </Button>
+        <Button
+          href="/portfolio"
+          variant="outline"
+          size="large"
+        >
+          View Portfolio
+        </Button>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// Example 14: Loading State (Custom Implementation)
+// ==========================================
+export function Example14() {
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleClick = async () => {
+    setIsLoading(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setIsLoading(false);
+  };
+
+  return (
+    <Button
+      onClick={handleClick}
+      disabled={isLoading}
+      variant="primary"
+    >
+      {isLoading ? 'Loading...' : 'Submit'}
+    </Button>
+  );
+}
+
+// ==========================================
+// Example 15: Responsive Button Group
+// ==========================================
+export function Example15() {
+  return (
+    <div className="custom-button-group">
+      <Button variant="primary">Primary Action</Button>
+      <Button variant="secondary">Secondary Action</Button>
+      <Button variant="outline">Tertiary Action</Button>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 16: Hero Section with Buttons
+// ==========================================
+export function Example16() {
+  return (
+    <section className="hero" style={{ padding: '100px 20px', textAlign: 'center' }}>
+      <h1>Welcome to Our Interior Design Studio</h1>
+      <p>Creating beautiful spaces that inspire and delight</p>
+      
+      <div className="custom-button-group custom-button-group--centered" style={{ marginTop: '40px' }}>
+        <Button
+          href="/services"
+          backgroundColor="#5a2c2c"
+          hoverBackgroundColor="#3a1c1c"
+          size="large"
+        >
+          Explore Services
+        </Button>
+        <Button
+          href="/portfolio"
+          variant="outline"
+          size="large"
+        >
+          View Projects
+        </Button>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// Example 17: Card Actions
+// ==========================================
+export function Example17() {
+  return (
+    <div className="card" style={{ padding: '30px', border: '1px solid #e0e0e0', borderRadius: '12px' }}>
+      <h3>Premium Interior Package</h3>
+      <p>Complete interior design solution for your home</p>
+      <p style={{ fontSize: '24px', fontWeight: 'bold', margin: '20px 0' }}>$5,999</p>
+      
+      <div className="custom-button-group" style={{ marginTop: '20px' }}>
+        <Button fullWidth variant="primary">
+          Get Started
+        </Button>
+        <Button fullWidth variant="outline">
+          Learn More
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Example 18: Custom Styling with className
+// ==========================================
+export function Example18() {
+  return (
+    <Button
+      className="my-custom-class"
+      variant="primary"
+    >
+      Custom Styled Button
+    </Button>
+  );
+}
+
+// ==========================================
+// PROPS REFERENCE GUIDE
+// ==========================================
+/*
+COMPLETE PROPS LIST:
+
+children (ReactNode) - Button text/content (preferred method)
+text (string) - Alternative way to set button text
+onClick (function) - Click event handler
+href (string) - Makes button render as <a> link
+type (string) - Button type: 'button' | 'submit' | 'reset'
+  Default: 'button'
+
+variant (string) - Preset color scheme
+  Options: 'primary' | 'secondary' | 'accent' | 'outline' | 'dark' | 'light'
+  Default: 'primary'
+
+size (string) - Button size
+  Options: 'small' | 'medium' | 'large'
+  Default: 'medium'
+
+backgroundColor (string) - Custom background color (overrides variant)
+hoverBackgroundColor (string) - Custom hover color
+textColor (string) - Custom text color
+  Default: '#ffffff'
+
+disabled (boolean) - Disable button
+  Default: false
+
+fullWidth (boolean) - Make button full width
+  Default: false
+
+showArrow (boolean) - Show/hide arrow icon
+  Default: true
+
+arrowPosition (string) - Arrow position
+  Options: 'left' | 'right'
+  Default: 'right'
+
+className (string) - Additional CSS classes
+target (string) - Link target (for href)
+rel (string) - Link relationship (for href)
+
+...rest - All other HTML button/anchor attributes
+*/
+
+// ==========================================
+// STYLING TIPS
+// ==========================================
+/*
+1. Use variants for consistent brand colors
+2. Use custom colors for special CTAs
+3. Combine size prop with responsive design
+4. Use fullWidth in mobile layouts
+5. Group buttons with .custom-button-group
+6. Add custom classes for unique styling
+7. Respect accessibility with proper contrast
+8. Test hover animations on touch devices
+*/
