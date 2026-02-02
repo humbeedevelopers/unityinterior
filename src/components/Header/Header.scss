@@ -22,17 +22,71 @@
 
 
 
+.nav-link--disabled {
+  cursor: default;
+  pointer-events: none; 
+}
+
+
+
+
+
 .desktop-nav {
   @media (max-width: 992px) {
     display: none;
   }
 
-  ul {
+  > ul {
     display: flex;
     gap: 8px;
     list-style: none;
     padding: 6px;
     border-radius: 999px;
+  }
+
+  .nav-item {
+    position: relative;
+
+    &.has-dropdown:hover .dropdown {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 999; 
+    transition: all 0.25s ease;
+
+    li {
+      list-style: none;
+      a {
+        display: block;
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #000;
+        white-space: nowrap;
+        border-radius: 10px;
+        margin: 0 8px;
+
+        &:hover {
+          background: #e5d6d0;
+        }
+      }
+    }
   }
 
   li a {
@@ -169,6 +223,44 @@
 //   pointer-events: auto;
 // }
 
+.mobile-item {
+  text-align: center;
+
+  .mobile-dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    span {
+      display: inline-block;
+      transition: transform 0.3s ease;
+
+      &.rotate {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .mobile-submenu {
+    background-color: white;
+    margin-top: 12px;
+
+    li {
+      margin-bottom: 14px;
+
+      a {
+        font-size: 18px;
+        color: #000;
+      }
+    }
+  }
+}
 
 .mobile-menu {
   position: fixed;
@@ -182,7 +274,7 @@
 
   ul {
     position: absolute;
-    top: 120px;
+    top: 160px;
     left: 50%;
     transform: translateX(-50%);
     list-style: none;
