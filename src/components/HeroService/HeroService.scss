@@ -11,7 +11,8 @@
 
     &__header {
         display: flex;
-        align-items: flex-start;
+        // align-items: flex-start;
+        align-items: end;
         justify-content: space-between;
         gap: 40px;
     }
@@ -20,7 +21,7 @@
         flex: 1;
         font-size: 40px;
         font-weight: 500;
-        color: #5b1f1f;
+        color: #540B0E;
         text-transform: uppercase;
         line-height: 1.1;
         max-width: 400px;

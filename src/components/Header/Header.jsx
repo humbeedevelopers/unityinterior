@@ -228,7 +228,7 @@ const Header = () => {
 
         {/* CTA */}
         <div className="header-cta">
-          <Link href="/contact" className="contact-btn">
+          <Link href="/contact-us" className="contact-btn">
             <span className="contactInner">Contact us</span>
           </Link>
 
