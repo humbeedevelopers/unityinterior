@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
 import Image from 'next/image';
+import arrow from "@/images/WhiteNext.svg";
 import InstaLogo from "@/images/insta.svg";
 import YtLogo from "@/images/youtube.svg";
 import BehanceLogo from "@/images/behance.svg";
@@ -108,7 +109,7 @@ const ContactUsInfo = () => {
                 <Image
                   src={YtLogo}
                   alt="YouTube"
-                   className='SocialImg'
+                  className='SocialImg'
                 />
               </li>
 
@@ -116,7 +117,7 @@ const ContactUsInfo = () => {
                 <Image
                   src={LinkedinLogo}
                   alt="LinkedIn"
-                   className='SocialImg'
+                  className='SocialImg'
                 />
               </li>
 
@@ -124,7 +125,7 @@ const ContactUsInfo = () => {
                 <Image
                   src={FacebookLogo}
                   alt="Facebook"
-                   className='SocialImg'
+                  className='SocialImg'
                 />
               </li>
 
@@ -132,7 +133,7 @@ const ContactUsInfo = () => {
                 <Image
                   src={BehanceLogo}
                   alt="Behance"
-                   className='SocialImg'
+                  className='SocialImg'
                 />
               </li>
 
@@ -140,7 +141,7 @@ const ContactUsInfo = () => {
                 <Image
                   src={TwitterLogo}
                   alt="X"
-                   className='SocialImg'
+                  className='SocialImg'
                 />
               </li>
             </ul>
@@ -203,8 +204,22 @@ const ContactUsInfo = () => {
               )}
             </div>
 
-            <button type="submit" className="contact-us-info__submit">
+            {/* <button type="submit" className="contact-us-info__submit">
               Submit <span>→</span>
+            </button> */}
+            <button type="submit" className="contact-us-info__submit">
+              <span className="contact-us-info__label">
+                Submit
+              </span>
+              <span className="contact-us-info__icon">
+                <Image
+                  src={arrow}
+                  alt="Arrow"
+                  width={20}
+                  height={20}
+                  className='svgIcon'
+                />
+              </span>
             </button>
 
           </form>
