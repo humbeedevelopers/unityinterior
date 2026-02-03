@@ -7,14 +7,13 @@ const BlogsInner = ({ blog }) => {
   return (
     <section className="blogsInner">
       <div className="blogsInner__container">
-        {/*Intro */}
+
         <div className="blogsInner__intro">
           <p className="blogsInner__introText">
             {blog.intro}
           </p>
         </div>
 
-        {/*Content */}
         <div className="blogsInner__content">
           {blog.sections.map((section, index) => (
             <div className="blogsInner__section" key={index}>
@@ -47,10 +46,6 @@ const BlogsInner = ({ blog }) => {
                   </p>
                 );
               })}
-
-
-
-
 
               {section.image && (
                 <div className="blogsInner__imageWrap">

@@ -6,6 +6,7 @@ import { PROJECTS_DATA } from "@/app/projects/data";
 import DummyImf from "@/images/projectDummy.png";
 import ProjectInner from "@/components/ProjectInner/ProjectInner";
 import RelatedProjectSlider from "@/components/RelatedProjectSlider/RelatedProjectSlider";
+import ProjectHero from "@/components/ProjectHero/ProjectHero";
 
 // Static data for now (can be API later)
 // const PROJECTS_DATA = [
@@ -105,6 +106,7 @@ const ProjectSlugPage = ({ params }) => {
 
     return (
         <>
+            <ProjectHero project={projectData} />
             <ProjectInner project={projectData} />
 
             {relatedProjects.length > 0 && (

@@ -3,7 +3,7 @@ import DummyImf from "@/images/projectDummy.png";
 export const PROJECTS_DATA = [
   {
     id: 1,
-    title: "Luxury Bedroom",
+    title: "Luxury Bedroom in ahmedabad",
     category: "RESIDENTIAL INTERIOR",
     location: "AHMEDABAD",
     slug: "luxury-bedroom",
@@ -80,7 +80,7 @@ export const PROJECTS_DATA = [
     client: "Zen Corp",
     value: "2,50,000 INR",
     area: "850 Sq. Ft.",
-     gallery: [
+    gallery: [
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
@@ -91,7 +91,7 @@ export const PROJECTS_DATA = [
     ],
     image: DummyImf,
   },
-   {
+  {
     id: 5,
     title: "Architectural Living Room",
     category: "ARCHITECTURE",
@@ -148,7 +148,7 @@ export const PROJECTS_DATA = [
     client: "Design Proposal",
     value: "—",
     area: "—",
-     gallery: [
+    gallery: [
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
@@ -171,7 +171,7 @@ export const PROJECTS_DATA = [
     client: "Urban Wear",
     value: "3,10,000 INR",
     area: "950 Sq. Ft.",
-     gallery: [
+    gallery: [
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
@@ -217,7 +217,7 @@ export const PROJECTS_DATA = [
     client: "Arjun Patel",
     value: "1,90,000 INR",
     area: "560 Sq. Ft.",
-     gallery: [
+    gallery: [
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
       "/images/project/projectDummy.png",
@@ -229,6 +229,6 @@ export const PROJECTS_DATA = [
     image: DummyImf,
   },
 
-  
+
 
 ];
