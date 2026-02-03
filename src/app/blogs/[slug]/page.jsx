@@ -3,6 +3,13 @@ import BlogsInnerHero from "@/components/BlogsInner/BlogsInnerHero";
 import { blogs } from "../data";
 import { blogsMeta } from "../[slug]/head";
 
+// REQUIRED for static export
+export async function generateStaticParams() {
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
 export default async function BlogSlugPage({ params }) {
   const { slug } = await params;
 
