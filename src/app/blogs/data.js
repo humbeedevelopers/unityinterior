@@ -1,4 +1,4 @@
-
+import BlogsImg from "@/images/innerimg.png";
 export const blogs = [
   {
     slug: "wardrobe-hinges-guide",
@@ -24,7 +24,7 @@ export const blogs = [
           }
 
         ],
-        image: "/images/blogs/innerimg.png",
+        image: BlogsImg,
       },
       {
         title: "Duck Hinges: The Hidden Champions",
@@ -75,7 +75,7 @@ export const blogs = [
           }
 
         ],
-        image: "/images/blogs/innerimg.png",
+       image: BlogsImg,
       },
       {
         title: "Duck Hinges: The Hidden Champions",
