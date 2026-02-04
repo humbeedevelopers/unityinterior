@@ -1,6 +1,6 @@
 "use client";
 
-// import ProjectDetail from "@/components/ProjectDetails/ProjectDetail";
+import ProjectDetail from "@/components/ProjectDetails/ProjectDetail";
 import { useEffect } from "react";
 
 const ProjectsPage = () => {
@@ -10,7 +10,7 @@ const ProjectsPage = () => {
 
   return (
     <div>
-      {/* <ProjectDetail /> */}
+      <ProjectDetail />
     </div>
   )
 

@@ -1,5 +1,8 @@
 .ProjectInner {
     padding: 120px 0;
+    @media(max-width: 575px){
+        padding: 20px 0;
+    }
 }
 
 .ProjectInner__container {
@@ -33,7 +36,7 @@
     font-size: 48px;
     font-weight: 500;
     line-height: 1.1;
-    color: #5a1d1d;
+    color: #540b0e;
 }
 
 

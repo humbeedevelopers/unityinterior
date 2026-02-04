@@ -2,10 +2,6 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
 import { PROJECTS_DATA } from "@/app/projects/data";
 import { useRouter } from "next/navigation";
 import "./ProjectDetail.scss";
@@ -48,14 +44,15 @@ const ProjectDetail = () => {
   return (
     <section className="Projectdetail">
       <div className="Projectdetail__container">
-
+        
         {/* Sidebar Tabs */}
         <aside className="Projectdetail__sidebar">
           {TABS.map((tab) => (
             <button
               key={tab}
-              className={`Projectdetail__tab ${activeTab === tab ? "is-active" : ""
-                }`}
+              className={`Projectdetail__tab ${
+                activeTab === tab ? "is-active" : ""
+              }`}
               onClick={() => {
                 setActiveTab(tab);
                 setVisibleCount(INITIAL_COUNT);
@@ -82,43 +79,6 @@ const ProjectDetail = () => {
                     className="ProjectImgMain"
                   />
                 </div>
-                {/* <div className="Projectdetail__image">
-                  {project.images && project.images.length > 1 ? (
-                    <Swiper
-                      modules={[Pagination, Autoplay]}
-                      // loop={true}
-                      // autoplay={{
-                      //   delay: 2500,
-                      //   disableOnInteraction: false,
-                      //   pauseOnMouseEnter: true,
-                      // }}
-                      pagination={{ clickable: true }}
-                      speed={600}
-                      className="Projectdetail__swiper"
-                    >
-                      {project.images.map((img, index) => (
-                        <SwiperSlide key={index}>
-                          <Image
-                            src={img}
-                            alt={`${project.title} ${index + 1}`}
-                            className="ProjectImgMain"
-                            fill
-                            // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-
-                  ) : (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      className="ProjectImgMain"
-                      fill
-                    />
-                  )}
-                </div> */}
-
 
                 <div className="Projectdetail__info">
                   <span className="Projectdetail__location">

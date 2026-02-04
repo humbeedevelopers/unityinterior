@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Banner from "@/images/HeroAboutBanner.png";
+import Banner from "@/images/AboutUsBanner.png";
 import "./HeroAbout.scss";
 
 const HeroAbout = () => {
@@ -17,9 +17,9 @@ const HeroAbout = () => {
 
           <div className="heroAbout__content">
             <h1 className="heroAbout__title">ABOUT US</h1>
-            {/* <button className="heroAbout__button">
+            <button className="heroAbout__button">
               KNOW ABOUT US
-            </button> */}
+            </button>
           </div>
         </div>
       </div>
