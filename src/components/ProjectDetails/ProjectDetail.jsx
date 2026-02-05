@@ -75,15 +75,15 @@ const ProjectDetail = () => {
                 className="Projectdetail__card"
                 onClick={() => handleCardClick(project.slug)}
               >
-                <div className="Projectdetail__image">
+                {/* <div className="Projectdetail__image">
                   <Image
                     src={project.image}
                     alt={project.title}
                     className="ProjectImgMain"
                   />
-                </div>
-                {/* <div className="Projectdetail__image">
-                  {project.images && project.images.length > 1 ? (
+                </div> */}
+                <div className="Projectdetail__image">
+                  {project.image && project.image.length > 1 ? (
                     <Swiper
                       modules={[Pagination, Autoplay]}
                       // loop={true}
@@ -96,13 +96,13 @@ const ProjectDetail = () => {
                       speed={600}
                       className="Projectdetail__swiper"
                     >
-                      {project.images.map((img, index) => (
+                      {project.image.map((img, index) => (
                         <SwiperSlide key={index}>
                           <Image
                             src={img}
                             alt={`${project.title} ${index + 1}`}
                             className="ProjectImgMain"
-                            fill
+                            // fill
                             // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                         </SwiperSlide>
@@ -117,7 +117,7 @@ const ProjectDetail = () => {
                       fill
                     />
                   )}
-                </div> */}
+                </div>
 
 
                 <div className="Projectdetail__info">
