@@ -13,6 +13,7 @@ import ServiceDetails from "@/components/ServiceDetails/ServiceDetails";
 import HeroService from "@/components/HeroService/HeroService";
 import HomeCards from "@/components/HomeCards/HomeCards";
 import ServiceHoverCards from "@/components/ServiceHoverCards/ServiceHoverCards";
+import Formula from "@/components/HomeFormula/Formula";
 
 const InteriorDesign = () => {
     useEffect(() => {
@@ -31,6 +32,7 @@ const InteriorDesign = () => {
                 primaryDescription="Unity Interiors offers exceptional interior design services, tailored to meet the unique needs and preferences of our clients. With a commitment to creativity, functionality, and attention to detail, we transform spaces into stunning and personalized environments that inspire and delight."
                 secondaryDescription="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
             />
+            <Formula />
             <HomeCards
                 heading="Why Choose Us?"
                 cards={[
