@@ -1,0 +1,165 @@
+.aboutUsMasterpiece {
+    //   padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+
+    &__container {
+        padding: 0 60px;
+        position: relative;
+        min-height: 600px;
+        background-color: #540B0E;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 200px;
+    }
+
+
+    &__imageLayer {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        margin-bottom: -175px;
+    }
+
+    &__image {
+        // height: auto;
+        width: auto;
+        object-fit: contain;
+    }
+
+
+    &__textLayer {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        flex-direction: column;
+        // left: 60px;
+        // right: 60px;
+        // top: 150px;
+        z-index: 2;
+        color: #ffffff;
+        pointer-events: none;
+    }
+
+    &__subtitle {
+        font-size: 60px;
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-size: 170px;
+        font-weight: 700;
+        // line-height: 1;
+        margin-bottom: 30px;
+
+        span {
+            margin-left: 14px;
+        }
+    }
+
+    &__description {
+        margin-top: 50px;
+        max-width: 320px;
+        font-size: 20px;    
+        opacity: 0.9;
+    }
+
+
+    &__circle {
+        position: absolute;
+        right: 60px;
+        bottom: 60px;
+        width: 80px;
+        height: 80px;
+        border: 2px solid #FBAE1B;
+        border-radius: 50%;
+        animation: rotateCircle 6s linear infinite;
+        z-index: 4;
+
+        span {
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: #ffb400;
+            border-radius: 50%;
+        }
+    }
+
+    @keyframes rotateCircle {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    @media (max-width: 1200px) {
+        &__title {
+            font-size: 72px;
+        }
+
+        &__image {
+            // height: 420px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        padding: 100px 0;
+
+        &__textLayer {
+            text-align: center;
+            left: 30px;
+            right: 30px;
+        }
+
+        &__description {
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__image{
+            height: auto;
+        }
+        &__imageLayer{
+            margin-bottom: -252px;
+        }
+    }
+    @media (max-width: 575px) {
+        padding: 80px 0;
+
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__title {
+            font-size: 46px;
+        }
+
+        &__image {
+            // height: 300px;
+        }
+
+        &__circle {
+            width: 60px;
+            height: 60px;
+
+            span {
+                width: 8px;
+                height: 8px;
+                top: -4px;
+            }
+        }
+    }
+}

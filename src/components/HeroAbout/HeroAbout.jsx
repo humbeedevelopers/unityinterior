@@ -18,7 +18,7 @@ const HeroAbout = () => {
           <div className="heroAbout__content">
             <h1 className="heroAbout__title">ABOUT US</h1>
             <button className="heroAbout__button">
-              KNOW ABOUT US
+              VISIT MY YOUTUBE
             </button>
           </div>
         </div>

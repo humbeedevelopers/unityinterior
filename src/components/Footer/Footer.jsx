@@ -20,12 +20,13 @@ const Footer = () => {
           </h2>
 
           <div className="footer__brand">
-            <Image
-              src={Logo}
-              alt="Unity Interiors"
-              width={120}
-              height={50}
-            />
+            <Link href={"/"}>
+              <Image
+                src={Logo}
+                alt="Unity Interiors"
+                width={120}
+                height={50}
+              /></Link>
           </div>
 
           <p className="footer__description">
@@ -101,16 +102,16 @@ const Footer = () => {
         </div> */}
 
       </div>
-       <div className="footer-visual">
-          <h2 className="footer-visual__text">MAKING</h2>
+      <div className="footer-visual">
+        <h2 className="footer-visual__text">MAKING</h2>
 
-          <div className="footer-visual__image">
-            <Image
-              src={FooterImg}
-              alt="Making People"
-            />
-          </div>
+        <div className="footer-visual__image">
+          <Image
+            src={FooterImg}
+            alt="Making People"
+          />
         </div>
+      </div>
     </footer>
   );
 };
