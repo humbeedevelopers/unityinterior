@@ -2,6 +2,7 @@ import BlogsInner from "@/components/BlogsInner/BlogsInner";
 import BlogsInnerHero from "@/components/BlogsInner/BlogsInnerHero";
 import { blogs } from "../data";
 import { blogsMeta } from "../[slug]/head";
+import RelatedBlogsSlider from "@/components/RelatedBlogsSlider/RelatedBlogsSlider";
 
 // REQUIRED for static export
 export async function generateStaticParams() {
@@ -39,6 +40,8 @@ export default async function BlogSlugPage({ params }) {
           }
         }
       />
+
+      <RelatedBlogsSlider currentSlug={slug} />
     </>
   );
 }

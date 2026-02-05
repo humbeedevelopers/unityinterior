@@ -22,6 +22,7 @@ export const blogsMeta = [
       "The Ultimate Guide to Wardrobe Hinges: Choosing the Right Hardware for Your Hinged and Sliding Wardrobes",
     category: "Architecture",
     heroImage: BlogsImg,
+    blogsDate: "January 5, 2026",
   },
   {
     slug: "interior-hardware-trends",
@@ -29,6 +30,7 @@ export const blogsMeta = [
       "Modern Interior Hardware Trends You Should Know in 2026",
     category: "Interior",
     heroImage: BlogsImg,
+    blogsDate: "January 5, 2026",
   },
   {
     slug: "architecture-hardware-design",
@@ -36,6 +38,7 @@ export const blogsMeta = [
       "How Architecture Hardware Impacts Space Design",
     category: "Architecture",
     heroImage: BlogsImg,
+    blogsDate: "January 5, 2026",
   },
   {
     slug: "luxury-wardrobe-accessories",
@@ -43,6 +46,7 @@ export const blogsMeta = [
       "Choosing Premium Wardrobe Accessories for Luxury Homes",
     category: "Uncategorized",
     heroImage: BlogsImg,
+    blogsDate: "January 5, 2026",
   },
   {
     slug: "sliding-vs-hinged-wardrobes",
@@ -50,6 +54,7 @@ export const blogsMeta = [
       "Sliding vs Hinged Wardrobes: What Works Best?",
     category: "Architecture",
     heroImage: BlogsImg,
+    blogsDate: "January 5, 2026",
   },
   {
     slug: "modular-interior-planning",
@@ -57,6 +62,7 @@ export const blogsMeta = [
       "Interior Planning Tips Using Modular Hardware",
     category: "Interior",
     heroImage: BlogsImg,
+    blogsDate: "January 5, 2026",
   },
 
 ];

@@ -9,7 +9,7 @@
     }
 
     @media(max-width: 575px) {
-      padding: 0 30px;
+      padding: 0 20px;
     }
   }
 
@@ -24,6 +24,9 @@
     font-weight: 400;
     // line-height: 1.1;
     color: #540B0E;
+    @media(max-width: 575px){
+      font-size: 17px;
+    }
   }
 
 
@@ -60,6 +63,9 @@
     // line-height: 1.1;
     color: #540B0E;
     font-weight: 500;
+    @media(max-width: 575px){
+      font-size: 17px;
+    }
   }
   &__boldspan {
     font-size: 20px;
@@ -67,6 +73,9 @@
     font-family: var(--font-open-sans);
     font-weight: 400;
     color: #540B0E;
+    @media(max-width: 575px){
+      font-size: 17px;
+    }
   }
 
 
