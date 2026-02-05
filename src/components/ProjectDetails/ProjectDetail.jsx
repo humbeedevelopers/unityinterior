@@ -121,8 +121,10 @@ const ProjectDetail = () => {
 
 
                 <div className="Projectdetail__info">
+                   <p className="Projectdetail__infoTitle"> {project.title}</p>
                   <span className="Projectdetail__location">
                     <Image src={LocationSvg} alt="location" className="Projectdetail__locationsvg" />
+                   
                     <p> {project.location}</p>
                   </span>
                 </div>
