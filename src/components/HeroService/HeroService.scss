@@ -30,7 +30,7 @@
     &__description {
         max-width: 260px;
         font-size: 20px;
-        // line-height: 1.6;
+        line-height: 1.1;
         color: #1E1E1E;
         text-align: right;
     }
@@ -69,6 +69,7 @@
         &__header {
             flex-direction: column;
             gap: 16px;
+            align-items: flex-start;
         }
 
         &__description {

@@ -2,10 +2,10 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import ImgMain from "@/images/Heroservice.png";
-import HeroAbout from "@/components/HeroAbout/HeroAbout";
 import ContactUsInfo from "@/components/ContactUsInfo/ContactUsInfo";
 import ContactUsMap from "@/components/ContactUsMap/ContactUsMap";
-import HeroService from "@/components/HeroService/HeroService";
+// import HeroService from "@/components/HeroService/HeroService";
+import ContactUsHero from "@/components/ContactUsHero/ContactUsHero";
 
 const AboutUs = () => {
     useEffect(() => {
@@ -14,11 +14,12 @@ const AboutUs = () => {
     });
     return (
         <div>
-            <HeroService
+            <ContactUsHero />
+            {/* <HeroService
                 title="Contact Us"
                 description="Lorem ipsum is simply dummy text of the printing and typesetting industry."
                 image={ImgMain}
-            />
+            /> */}
             <ContactUsInfo />
             <ContactUsMap />
 
