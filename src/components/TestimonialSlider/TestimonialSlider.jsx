@@ -17,49 +17,61 @@ const TestimonialData = [
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was",
         image: BannerImg,
+        name: "Ravi Gupta",
+        location: "Ahmedabad",
     },
-     {
+    {
         id: 2,
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was",
         image: BannerImg,
+        name: "Ravi Gupta",
+        location: "Mumbai",
     },
-     {
+    {
         id: 3,
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was",
         image: BannerImg,
+        name: "Ravi Gupta",
+        location: "Ahmedabad",
     },
-     {
+    {
         id: 4,
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was",
         image: BannerImg,
+        name: "Ravi Gupta",
+        location: "Mumbai",
     },
-     {
+    {
         id: 5,
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was",
         image: BannerImg,
+        name: "Ravi Gupta",
+        location: "Ahmedabad",
     },
-     {
+    {
         id: 6,
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was",
         image: BannerImg,
+        name: "Ravi Gupta",
+        location: "Mumbai",
     },
 
 
 ];
 
-const TestimonialSlider = () => {   
+const TestimonialSlider = () => {
     return (
         <section className="Testimonial-slider">
             <div className="Testimonial-slider__container">
                 <div className="Testimonial-slider__header">
                     <h2 className="Testimonial-slider__title">
                         <ParagraphTextReveal>
-                        CLIENTS ABOUT <br /> OUR WORK</ParagraphTextReveal>
+                            CLIENTS ABOUT <br /> OUR WORK</ParagraphTextReveal>
                     </h2>
 
                     <div className="Testimonial-slider__nav">
@@ -73,7 +85,7 @@ const TestimonialSlider = () => {
                             />
                         </button>
                         <button className="Testimonial-slider__btn Testimonial-slider__btn--next">
-                              <Image
+                            <Image
                                 src={NextIcon}
                                 alt="Icons"
                                 width={20}
@@ -117,14 +129,38 @@ const TestimonialSlider = () => {
                                   
                                 </div> */}
 
-                                <div className="testimonial-card__content">
-                                      <Image
+                                {/* <div className="testimonial-card__content">
+                                    <Image
                                         src={item.image}
                                         alt="Testimonial Image"
                                         className="testimonial-card__img"
                                     />
                                     <p>{item.description}</p>
+                                </div> */}
+                                <div className="testimonial-card__content">
+                                    <Image
+                                        src={item.image}
+                                        alt="Testimonial Image"
+                                        className="testimonial-card__img"
+                                    />
+
+                                    <div className="testimonial-card__text">
+                                        <p>{item.description}</p>
+
+                                        <div className="testimonial-card__author">
+                                            <div className="testimonial-card__avatar">
+                                                {/* image will come later */}
+                                            </div>
+
+                                            <div className="testimonial-card__authorInfo">
+                                                <h4>{item.name}</h4>
+                                                <span>{item.location}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
                             </article>
                         </SwiperSlide>
                     ))}

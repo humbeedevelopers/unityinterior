@@ -21,7 +21,15 @@ export const PROJECTS_DATA = [
       DummyImf,
       DummyImf
     ],
-    image: DummyImf,
+     image: [
+      DummyImf,
+      DummyImf,
+      DummyImf,
+      DummyImf,
+      DummyImf,
+      DummyImf,
+      DummyImf
+    ],
   },
 
   {

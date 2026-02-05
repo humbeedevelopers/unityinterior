@@ -6,20 +6,18 @@ import "./BlogsInnerHero.scss";
 const BlogsInnerHero = ({ title, category, image }) => {
   return (
     <section className="blogsInnerHero">
+      <h1 className="blogsInnerHero__title">
+        {title}
+      </h1>
       <div className="blogsInnerHero__imageWrap">
         <Image
-          src={image}   
+          src={image}
           alt={title}
           className="blogsInnerHero__image"
         />
 
         <div className="blogsInnerHero__overlay" />
-
         <div className="blogsInnerHero__content">
-          <h1 className="blogsInnerHero__title">
-            {title}
-          </h1>
-
           <span className="blogsInnerHero__category">
             {category}
           </span>

@@ -46,12 +46,13 @@ const FORMULA_DATA = [
 export default function Formula() {
   return (
     <section className="formula_section">
-        <div>
-            <h2 className="formula_heading">
-            MASTER FORMULA FOR
-            OUTSTANDING INTERIOR DESIGNS
-          </h2> 
-        </div>
+     <section>
+       <div>
+        <h2 className="formula_heading">
+          MASTER FORMULA FOR
+          OUTSTANDING INTERIOR DESIGNS
+        </h2>
+      </div>
       <div className="formula_container">
         {/* LEFT IMAGE */}
         <div className="formula_image_wrapper">
@@ -82,7 +83,48 @@ export default function Formula() {
             ))}
           </div>
         </div>
+        {/*  */}
+       
       </div>
+     </section>
+       <section className="home-cardsI">
+          <div className="home-cardsI__container">
+
+            <h2 className="home-cardsI__heading">During Execution</h2>
+
+            <div className="home-cardsI__list">
+
+              <div className="home-cardsI__item home-cardsI__item--active">
+                <h3 className="home-cardsI__title">Co<br />ordination</h3>
+                <p className="home-cardsI__description">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+              </div>
+
+              <div className="home-cardsI__item">
+                <h3 className="home-cardsI__title">Site <br/>Visit</h3>
+                <p className="home-cardsI__description">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+              </div>
+
+              <div className="home-cardsI__item">
+                <h3 className="home-cardsI__title">MAterial<br /> selection</h3>
+                <p className="home-cardsI__description">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+              </div>
+
+              <div className="home-cardsI__item">
+                <h3 className="home-cardsI__title">Artefact<br /> selection</h3>
+                <p className="home-cardsI__description">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
     </section>
   );
 }

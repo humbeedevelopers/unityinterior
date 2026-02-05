@@ -99,9 +99,9 @@ const ThreeSlider = () => {
                     centeredSlides
                     loop
                     slidesPerView="auto"
-                    speed={1500}
+                    speed={800}
                     autoplay={{
-                        delay: 2500,
+                        delay: 700,
                         disableOnInteraction: false,
                     }}
                     // spaceBetween={100}  
@@ -109,7 +109,7 @@ const ThreeSlider = () => {
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 0,
-                        depth: 120,
+                        depth: 90,
                         modifier: 2.5,
                         slideShadows: false,
                     }}

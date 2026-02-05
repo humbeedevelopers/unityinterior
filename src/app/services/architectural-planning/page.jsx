@@ -31,6 +31,14 @@ const InteriorDesign = () => {
                 primaryDescription="Unity Interiors offers comprehensive Architectural Planning services to bring your vision of a perfect space to life. With our expertise in architectural design and meticulous attention to detail, we ensure that every aspect of your project is carefully considered and thoughtfully executed."
                 secondaryDescription="Our architectural planning process begins with a deep understanding of your goals, requirements, and aesthetic preferences. Our team of experienced architects collaborates closely with you to develop a design concept that aligns with your vision. We meticulously analyze the available space, taking into account factors such as site conditions, building regulations, and functionality."
             />
+             <ServiceHoverCards
+                title="Lorem Ipsum Is Simply Dummy Text Of The Printing And"
+                description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
+                imageSrc={HoverImage}
+                imageSrc1={HoverImage}
+                buttonText="Contact Us"
+                onButtonClick={() => console.log("CTA Clicked")}
+            />
             <HomeCards
                 heading="Why Choose Us?"
                 cards={[
@@ -54,14 +62,7 @@ const InteriorDesign = () => {
                     },
                 ]}
             />
-            <ServiceHoverCards
-                title="Lorem Ipsum Is Simply Dummy Text Of The Printing And"
-                description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
-                imageSrc={HoverImage}
-                imageSrc1={HoverImage}
-                buttonText="Contact Us"
-                onButtonClick={() => console.log("CTA Clicked")}
-            />
+           
             <ThreeSlider />
             <TestimonialSlider />
             <CountDown />

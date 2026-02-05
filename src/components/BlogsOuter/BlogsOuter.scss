@@ -134,8 +134,9 @@
         padding: 12px 0px 20px;
         font-size: 22px;
         color: #540B0E;
-        text-transform: uppercase;
-        line-height: 1.1;
+        // text-transform: uppercase;
+        // line-height: 1.1;
+        font-family: var(--font-open-sans);
         font-weight: 400;
 
         @media(max-width: 575px) {

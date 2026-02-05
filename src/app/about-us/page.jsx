@@ -13,6 +13,7 @@ import ThreeSlider from "@/components/Threeslider/Threeslider"
 import HeroAbout from "@/components/HeroAbout/HeroAbout";
 import AboutTab from "@/components/AboutUsTab/AboutTab";
 import AboutStory from "@/components/AboutUsStory/AboutStory";
+import AboutUsMasterpiece from "@/components/AboutUsMasterpiece/AboutUsMasterpiece";
 
 const AboutUs = () => {
     useEffect(() => {
@@ -30,6 +31,8 @@ const AboutUs = () => {
                 ]}
                 imageSrc={StoryBanner}
                 imageAlt="About story image"
+                showKnowMore
+                onKnowMore={() => console.log('Know more clicked')}
             />
             <AboutTab
                 title="LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND"
@@ -58,7 +61,8 @@ const AboutUs = () => {
                 ]}
             />
             <TestimonialSlider />
-            <LeadingVision />
+            
+            {/* <AboutUsMasterpiece /> */}
             <CountDown />
             <ThreeSlider />
             <Form />
