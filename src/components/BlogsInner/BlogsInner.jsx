@@ -38,7 +38,7 @@ const BlogsInner = ({ blog }) => {
                     )}
 
                     {para.text.split("\n").map((line, idx) => (
-                      <span key={idx}>
+                      <span key={idx} className="blogsInner__boldspan">
                         {line}
                         <br />
                       </span>

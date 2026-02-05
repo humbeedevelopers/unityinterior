@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -36,6 +37,14 @@ const helveticaNeue = localFont({
   display: "swap",
 });
 
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-open-sans",
+  display: "swap",
+});
+
+
 export const metadata = {
   title: "Unity Interiors - Best Interior Designer Ahmedabad - Architecture Planning",
   description: "Unity Interiors - Best Interior Designer Ahmedabad - Architecture Planning",
@@ -44,7 +53,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={helveticaNeue.variable}>
+      <body className={`${helveticaNeue.variable} ${openSans.variable}`}>
         {/* <SmoothScroll> */}
         <Header />
         {children}
