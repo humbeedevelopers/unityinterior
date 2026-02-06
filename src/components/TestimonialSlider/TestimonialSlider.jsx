@@ -102,9 +102,9 @@ const TestimonialSlider = () => {
                         nextEl: ".Testimonial-slider__btn--next",
                     }}
                     loop={true}
-                    speed={2000}
+                    speed={1500}
                     autoplay={{
-                        delay: 2500,
+                        delay: 1000,
                         disableOnInteraction: false,
                     }}
                     spaceBetween={24}
