@@ -1,4 +1,4 @@
-.ProjectHero {
+.blogsHero {
     padding: 80px 50px;
 
     @media (max-width: 768px) {
@@ -6,7 +6,7 @@
     }
 }
 
-.ProjectHero__wrapper {
+.blogsHero__wrapper {
     position: relative;
     border-radius: 24px;
     overflow: hidden;
@@ -18,19 +18,19 @@
 }
 
 
-.ProjectHero__image {
+.blogsHero__image {
     position: absolute;
     inset: 0;
 }
 
-.ProjectHero__img {
+.blogsHero__img {
     object-fit: cover;
     width: 100%;
     height: auto;
     max-width: 100%;
 }
 
-.ProjectHero__wrapper::after {
+.blogsHero__wrapper::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -38,7 +38,7 @@
     opacity: 0.5;
 }
 
-.ProjectHero__content {
+.blogsHero__content {
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -59,7 +59,7 @@
     }
 }
 
-.ProjectHero__title {
+.blogsHero__title {
     font-size: 44px;
     line-height: 1.1;
     font-weight: 500;
@@ -76,7 +76,7 @@
     }
 }
 
-.ProjectHero__desc {
+.blogsHero__desc {
     font-size: 20px;
     line-height: 1.1;
     color: #1e1e1e;
@@ -89,7 +89,7 @@
 }
 
 
-.ProjectHero__location {
+.blogsHero__location {
     position: absolute;
     bottom: 15px;
     right: 170px;
