@@ -62,7 +62,7 @@ const AboutUs = () => {
             />
             <TestimonialSlider />
             
-            {/* <AboutUsMasterpiece /> */}
+            <AboutUsMasterpiece />
             <CountDown />
             <ThreeSlider />
             <Form />

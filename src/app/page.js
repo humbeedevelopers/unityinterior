@@ -7,6 +7,7 @@ import Form from "@/components/Form/Form"
 import Hero from "@/components/Hero/Hero"
 import HomeCards from "@/components/HomeCards/HomeCards"
 import Formula from "@/components/HomeFormula/Formula"
+import HomeTimeline from "@/components/HomeTimeline/HomeTimeline"
 import KnowledgeSpace from "@/components/KnowledgeSlider/KnowledgeSlider"
 import LeadingVision from "@/components/LeadingVision/LeadingVision"
 import Marquee from "@/components/Marquee/Marquee"
@@ -23,10 +24,12 @@ const Page = () => {
       {/* <TestimonialSlider /> */}
       <Marquee />
       <TextEffect />
-      <CoreOfferings />
-      <Formula />
       <Experience />
-      <HomeCards
+      <CoreOfferings />
+      <HomeTimeline />
+      {/* <Formula /> */}
+
+      {/* <HomeCards
         heading="During Execution"
         cards={[
           {
@@ -47,7 +50,7 @@ const Page = () => {
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
           },
         ]}
-      />
+      /> */}
       <NumbersSec />
       <TruelyMatters />
       <LeadingVision />

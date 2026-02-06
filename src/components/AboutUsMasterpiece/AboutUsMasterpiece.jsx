@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import "./AboutUsMasterpiece.scss";
-
-import PersonImg from "@/images/masterpieceBanner.png"; 
+import Mcircle from "@/images/masterpieceCircle.png"
+import PersonImg from "@/images/masterpieceBanner.png";
 
 const AboutUsMasterpiece = () => {
   return (
     <section className="aboutUsMasterpiece">
       <div className="aboutUsMasterpiece__container">
 
-       
+
         <div className="aboutUsMasterpiece__textLayer">
           <span className="aboutUsMasterpiece__subtitle">
             CREATING
@@ -27,7 +27,7 @@ const AboutUsMasterpiece = () => {
           </p>
         </div>
 
-        
+
         <div className="aboutUsMasterpiece__imageLayer">
           <Image
             src={PersonImg}
@@ -37,10 +37,16 @@ const AboutUsMasterpiece = () => {
           />
         </div>
 
-       
-        <div className="aboutUsMasterpiece__circle">
-          <span />
+        <div className="aboutUsMasterpiece__circleImage">
+          <Image
+            src={Mcircle}
+            alt="Decorative circle"
+          />
         </div>
+
+        {/* <div className="aboutUsMasterpiece__circle">
+          <span />
+        </div> */}
 
       </div>
     </section>
