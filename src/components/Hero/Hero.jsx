@@ -23,7 +23,7 @@ const Hero = () => {
             industry
           </p>
 
-          <button className="hero__button">Contact us</button>
+          <button className="hero__button">View Projects</button>
         </div>
       </div>
     </div>
