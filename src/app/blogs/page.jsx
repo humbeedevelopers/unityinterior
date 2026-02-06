@@ -1,6 +1,7 @@
 "use client"
 import { useEffect } from "react";
 import BlogsOuter from "@/components/BlogsOuter/BlogsOuter";
+import BlogsHero from "@/components/BlogsHero/BlogsHero";
 
 const BlogsOuterMain = () => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const BlogsOuterMain = () => {
     });
     return (
        <div>
+        <BlogsHero />
         <BlogsOuter />
        </div>
     )
