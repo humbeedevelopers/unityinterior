@@ -31,19 +31,19 @@
     }
 
     &__circleImage {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1; 
-    pointer-events: none;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1;
+        pointer-events: none;
 
-    img {
-        width: 100%;
-        height: auto;
-        display: block;
-        // animation: rotateCircle 8s linear infinite;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            // animation: rotateCircle 8s linear infinite;
+        }
     }
-}
 
 
 
@@ -81,7 +81,7 @@
     &__description {
         margin-top: 50px;
         max-width: 320px;
-        font-size: 20px;    
+        font-size: 20px;
         opacity: 0.9;
     }
 
@@ -143,27 +143,32 @@
         &__description {
             // margin: 0 auto;
         }
-        &__title{
+
+        &__title {
             font-size: 110px;
         }
     }
 
     @media (max-width: 900px) {
-         &__title{
+        &__title {
             font-size: 90px;
         }
     }
+
     @media (max-width: 768px) {
-        &__image{
+        &__image {
             height: auto;
         }
-        &__imageLayer{
+
+        &__imageLayer {
             margin-bottom: -252px;
         }
-         &__title{
+
+        &__title {
             font-size: 80px;
         }
     }
+
     @media (max-width: 575px) {
         padding: 80px 0;
 
@@ -176,9 +181,18 @@
         }
 
         &__image {
-            // height: 300px;
+            height: 500px;
         }
-         &__textLayer {
+        &__circleImage{
+            display: none;
+        }
+
+        &__imageLayer {
+            // height: 300px;
+            margin-bottom: -270px;
+        }
+
+        &__textLayer {
             // text-align: center;
             // left: 30px;
             // right: 30px;
@@ -196,12 +210,14 @@
             }
         }
     }
-     @media (max-width: 475px) {
-        &__subtitle{
+
+    @media (max-width: 475px) {
+        &__subtitle {
             font-size: 45px;
         }
-        &__title{
+
+        &__title {
             font-size: 35px;
         }
-     }
+    }
 }
