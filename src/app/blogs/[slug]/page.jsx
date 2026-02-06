@@ -25,7 +25,6 @@ export default async function BlogSlugPage({ params }) {
 
   return (
     <>
-    <ProjectHero project={project}/>
       {blogMeta && (
         <BlogsInnerHero
           title={blogMeta.title}
