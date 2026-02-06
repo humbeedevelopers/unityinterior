@@ -24,10 +24,11 @@ const Page = () => {
       {/* <TestimonialSlider /> */}
       <Marquee />
       <TextEffect />
+      <Experience />
       <CoreOfferings />
       <HomeTimeline />
       {/* <Formula /> */}
-      <Experience />
+
       {/* <HomeCards
         heading="During Execution"
         cards={[
