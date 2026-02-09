@@ -6,7 +6,7 @@ const CityInfo = () => {
     return (
         <section className="cityInfo">
             <div>
-                <h2 className="cityInfo__SubDesc">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h2>
+                <h2 className="cityInfo__SubDesc">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h2>
             </div>
             <div className="cityInfo__container">
 

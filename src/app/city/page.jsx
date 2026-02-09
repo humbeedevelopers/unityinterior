@@ -9,6 +9,8 @@ import CityHero from "@/components/CityHero/CityHero";
 import Form from "@/components/Form/Form";
 import Formula from "@/components/HomeFormula/Formula";
 import CityInfo from "@/components/CityInfo/CityInfo";
+import CityProjects from "@/components/CityProjects/CityProjects";
+import CityDetails from "@/components/CityDetails/CityDetails";
 
 const CityPages = () => {
     useEffect(() => {
@@ -19,6 +21,8 @@ const CityPages = () => {
         <div>
             <CityHero />
             <CityInfo />
+            <CityProjects />
+            <CityDetails />
             <Formula />
             <Form />
 
