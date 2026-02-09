@@ -1,0 +1,143 @@
+.cityInfo {
+    width: 100%;
+    padding: 80px 0;
+
+    &__container {
+        padding: 0 50px;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 56px;
+    }
+
+    &__SubDesc {
+        font-size: 22px;
+        line-height: 1.2;
+        font-weight: 400;
+        color: #1E1E1E;
+        padding: 0 50px;
+        margin-bottom: 50px;
+        max-width: 400px;
+    }
+
+    &__left {
+        flex: 0 0 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 2rem;
+    }
+
+    &__title {
+        font-size: 40px;
+        font-weight: 500;
+        color: #540B0E;
+        text-transform: uppercase;
+    }
+
+    &__button {
+        align-self: flex-start;
+        background-color: #540B0E;
+        color: #ffffff;
+        border: none;
+        padding: 14px 32px;
+        border-radius: 28px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #451010;
+        }
+    }
+
+    &__middle {
+        flex: 1;
+        max-width: 520px;
+    }
+
+    &__description {
+        font-size: 22px;
+        line-height: 1.2;
+        color: #1E1E1E;
+        font-weight: 300;
+    }
+
+    &__right {
+        flex: 0 0 420px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__textWrapper {
+        // border-radius: 20px;
+        // padding: 32px;
+        height: 100%;
+        // display: flex;
+        // align-items: center;
+    }
+
+    &__rightText {
+        font-size: 22px;
+        line-height: 1.2;
+        color: #1E1E1E;
+        font-weight: 300;
+    }
+
+    @media (max-width: 1024px) {
+        &__container {
+            gap: 40px;
+        }
+
+        &__right {
+            // flex: 0 0 360px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 0;
+
+        &__container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__left {
+            flex: 0;
+            align-items: center;
+            gap: 24px;
+            padding-bottom: 0;
+        }
+
+        &__middle,
+        &__right {
+            width: 100%;
+            display: block;
+            flex: 0;
+        }
+    }
+
+    @media (max-width: 575px) {
+        padding: 50px 0;
+
+        &__container {
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        &__title {
+            font-size: 30px;
+        }
+
+        &__description,
+        &__rightText {
+            font-size: 17px;
+        }
+
+        &__button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
