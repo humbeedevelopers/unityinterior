@@ -14,6 +14,7 @@ const ProjectInner = ({ project }) => {
         area,
         gallery = [],
     } = project;
+    
 
     return (
         <section className="ProjectInner">
