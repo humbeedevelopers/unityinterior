@@ -2,6 +2,7 @@
 import "./Hero.scss";
 // import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import WordReveal from "@/animations/WordReveal";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -22,8 +23,8 @@ const Hero = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry
           </p>
-
-          <button className="hero__button">View Projects</button>
+            <Link href={"/projects"}>
+          <button className="hero__button">View Projects</button></Link>
         </div>
       </div>
     </div>
