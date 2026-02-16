@@ -1,5 +1,5 @@
 "use client"
-import CoreOfferings from "@/components/CoreOfferings/CoreOfferingCards"
+import CoreOfferings from "@/components/CoreOfferings/CoreOfferingFinal"
 import CountDown from "@/components/CountDown/CountDown"
 import Experience from "@/components/ExperienceSec/Experience"
 import Faqs from "@/components/FaqsSection/Faqs"
