@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 // import ContactUsButton from "@/animations/ContactUsButton";
 import "./ServiceHoverCards.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const ServiceHoverCards = ({
     title,
@@ -36,7 +37,7 @@ const ServiceHoverCards = ({
             <div className="service-hover-cards__wrapper">
                 {/* Left Content */}
                 <div className="service-hover-cards__content">
-                    <h2 className="service-hover-cards__title">{title}</h2>
+                    <h2 className="service-hover-cards__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h2>
                     {/* <ContactUsButton href="/contact">CONTACT US</ContactUsButton> */}
                     <button
                         className="service-hover-cards__button"

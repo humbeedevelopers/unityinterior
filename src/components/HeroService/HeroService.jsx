@@ -3,6 +3,7 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 import "./HeroService.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const HeroService = ({ title, description, image, imageAlt }) => {
     return (
@@ -11,8 +12,8 @@ const HeroService = ({ title, description, image, imageAlt }) => {
 
 
                 <div className="hero-service__header">
-                    <h1 className="hero-service__title">{title}</h1>
-                    <p className="hero-service__description">{description}</p>
+                    <h1 className="hero-service__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h1>
+                    <p className="hero-service__description"><ParagraphTextReveal>{description}</ParagraphTextReveal></p>
                 </div>
 
                 <div className="hero-service__image-wrapper">

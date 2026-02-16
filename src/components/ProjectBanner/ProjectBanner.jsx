@@ -4,6 +4,7 @@ import Image from "next/image";
 import "./ProjectBanner.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -34,12 +35,14 @@ const images = Array.isArray(PROJECTS_DATA[0].image)
       <div className="projectBanner__container">
 
         <div className="projectBanner__header">
-          <h2 className="projectBanner__title">PROJECTS</h2>
+          <h2 className="projectBanner__title"><ParagraphTextReveal>PROJECTS</ParagraphTextReveal></h2>
 
           <p className="projectBanner__subtitle">
+            <ParagraphTextReveal>
             Lorem Ipsum is simply dummy
             text of the printing and
             typesetting industry.
+            </ParagraphTextReveal>
           </p>
         </div>  
 

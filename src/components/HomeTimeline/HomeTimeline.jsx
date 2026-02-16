@@ -1,5 +1,6 @@
 "use client";
 import "./HomeTimeline.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const timelineData = [
     {
@@ -55,8 +56,9 @@ const HomeTimeline = () => {
     return (
         <section className="homeTimeline">
             <h2 className="homeTimeline__heading">
+                <ParagraphTextReveal>
                 MASTER FORMULA FOR <br />
-                OUTSTANDING INTERIOR DESIGNS
+                OUTSTANDING INTERIOR DESIGNS</ParagraphTextReveal>
             </h2>
             <div className="homeTimeline__container">
 
