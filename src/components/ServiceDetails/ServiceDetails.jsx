@@ -1,5 +1,6 @@
 import React from "react";
 import "./ServiceDetails.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const ServiceDetails = ({
     title,
@@ -11,7 +12,7 @@ const ServiceDetails = ({
             <div className="service-details__container">
                 {/* Left Title */}
                 <div className="service-details__title">
-                    <h2>{title}</h2>
+                    <h2><ParagraphTextReveal>{title}</ParagraphTextReveal></h2>
                 </div>
 
                 {/* Center Content */}

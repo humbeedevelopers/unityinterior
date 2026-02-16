@@ -2,13 +2,14 @@
 
 import React from "react";
 import "./HomeCards.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const HomeCards = ({ heading, cards = [] }) => {
   return (
     <section className="home-cards">
       <div className="home-cards__container">
 
-        {heading && <h2 className="home-cards__heading">{heading}</h2>}
+        {heading && <h2 className="home-cards__heading"><ParagraphTextReveal>{heading}</ParagraphTextReveal></h2>}
 
 
         <div className="home-cards__list">
