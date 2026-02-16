@@ -4,11 +4,13 @@ import Image from "next/image";
 import Banner from "@/images/coreBanner.png";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef, useEffect } from "react";
 import "./CoreOfferingCards.scss";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const CoreOfferingCards = () => {
   const component = useRef(null);
@@ -19,63 +21,111 @@ const CoreOfferingCards = () => {
       id: 1,
       title: 'INTERIOR DESIGNING',
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
       image: Banner,
     },
     {
       id: 2,
       title: 'ARCHITECTURAL PLANNING',
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
       image: Banner,
     },
     {
       id: 3,
       title: '3D VISUALIZATION',
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
       image: Banner,
     },
   ];
 
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      let panels = gsap.utils.toArray(".panel");
+    // Wait for all images and content to load
+    const timer = setTimeout(() => {
+      let ctx = gsap.context(() => {
+        if (!slider.current || !component.current) return;
 
-      gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: component.current,
-          start: "top top",
-          pin: component.current,
-          markers: true,
-          scrub: 1,
-          snap: 1 / (panels.length - 1),
-          end: () => "+=" + slider.current.offsetWidth,
-           pinSpacing: true,
-        }
-      });
+        const panels = slider.current.querySelectorAll(".core-offering-cards__card");
+        
+        if (panels.length === 0) return;
 
-    }, component);
+        // Force a layout recalculation
+        slider.current.style.willChange = 'transform';
+        
+        // Get the actual scroll width after everything is rendered
+        const getScrollAmount = () => {
+          const sliderWidth = slider.current.scrollWidth;
+          const windowWidth = window.innerWidth;
+          const paddingRight = windowWidth * 0.05; //padding for last card 
+          return -(sliderWidth - windowWidth + paddingRight);
+        };
 
-    return () => ctx.revert();
+        const tween = gsap.to(slider.current, {
+          x: getScrollAmount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: component.current,
+            start: "top top",
+            end: () => `+=${slider.current.scrollWidth}`,
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            id: "horizontal-cards-scroll",
+            markers: false, 
+            onUpdate: (self) => {
+              // Optional: log progress for debugging
+              // console.log("Progress:", self.progress);
+            }
+          }
+        });
+
+      }, component);
+
+      return () => {
+        ctx.revert();
+      };
+    }, 100); // Small delay to ensure DOM is ready
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Refresh ScrollTrigger on mount and when window resizes
+  useEffect(() => {
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    // Initial refresh after component mounts
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(refreshTimer);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
-    <section className="core-offering-cards" ref={component} >
-      <div className="core-offering-cards__container" >
+    <section className="core-offering-cards">
+      <div className="core-offering-cards__container" ref={component}>
         
-        <h2 className="core-offering-cards__title">
-          <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal>
-        </h2>
+        <div className="core-offering-cards__title-wrapper">
+          <h2 className="core-offering-cards__title">
+            <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal>
+          </h2>
+        </div>
 
-        <div className="core-offering-cards__horizontal" >
+        <div className="core-offering-cards__horizontal">
           <div className="core-offering-cards__list" ref={slider}>
-            {offerings.map((offering) => (
+            {offerings.map((offering, index) => (
               <div
                 key={offering.id}
-                className="core-offering-cards__card panel"
+                className="core-offering-cards__card"
               >
                 <div className="core-offering-cards__card-header">
                   <h3 className="core-offering-cards__card-title">
@@ -89,6 +139,8 @@ const CoreOfferingCards = () => {
                       src={offering.image}
                       alt={offering.title}
                       fill
+                      sizes="100vw"
+                      // priority={index === 0}
                       className="core-offering-cards__image"
                     />
 
@@ -97,13 +149,14 @@ const CoreOfferingCards = () => {
                         {offering.description}
                       </p>
 
-                      <button className="core-offering-cards__btn">
-                        Learn more
-                      </button>
+                      <div>
+                        <button className="core-offering-cards__btn">
+                          Learn more
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             ))}
           </div>

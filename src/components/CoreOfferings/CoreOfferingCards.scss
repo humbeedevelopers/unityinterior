@@ -1,10 +1,13 @@
 .core-offering-cards {
   width: 100%;
-  position: relative;  // required for pin
-  overflow: hidden;
+  padding: 100px 0;
+  position: relative;
 
   &__container {
     padding: 0 0px 0 50px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
 
   &__title {
@@ -12,52 +15,71 @@
     font-weight: 400;
     text-align: center;
     color: #540B0E;
-    margin-bottom: 3rem;
-    padding-top: 100px; // move padding here instead of section
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
   }
 
   &__horizontal {
     width: 100%;
-    height: 100vh;   // pinned height
     overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
   }
 
   &__list {
     display: flex;
+    flex-direction: row;
+    gap: 40px;
+    will-change: transform;
     height: 100%;
   }
 
   &__card {
-    min-width: 100vw;
-    height: 100%;
+    flex: 0 0 calc(100vw - 100px);
+    max-width: calc(100vw - 100px);
     background: #fff;
+    border: 1px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   &__card-header {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 3rem;
     border-bottom: 1px solid #000;
+    background: #fff;
+    flex-shrink: 0;
   }
 
   &__card-title {
-    font-size: 28px;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
     font-weight: 400;
     color: #540B0E;
+    margin: 0;
+    // letter-spacing: 1px;
   }
 
   &__card-content {
+    width: 100%;
     flex: 1;
+    display: flex;
   }
 
   &__image-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 
   &__image {
     object-fit: cover;
+    display: block;
   }
 
   &__overlay {
@@ -67,26 +89,115 @@
     flex-direction: column;
     justify-content: flex-end;
     gap: 1.5rem;
-    padding: 3rem 2rem;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      transparent 90%
-    );
+    padding: 3rem 3rem 3rem;
+    background: linear-gradient(to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        transparent 90%);
   }
 
   &__description {
     color: #fff;
     font-size: 18px;
-    max-width: 600px;
+    line-height: 1.6;
+    margin: 0;
+    // max-width: 85%;
   }
 
   &__btn {
     background: #fff;
+    color: #000;
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .core-offering-cards {
+    &__card {
+      flex: 0 0 calc(100vw - 80px);
+      max-width: calc(100vw - 80px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .core-offering-cards {
+    padding: 70px 0;
+
+    &__container {
+      padding: 0 0 0 30px;
+    }
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 2rem;
+    }
+
+    &__card-header {
+      padding: 1.5rem 2rem;
+    }
+
+    &__overlay {
+      padding: 2rem;
+    }
+
+    &__card {
+      flex: 0 0 calc(100vw - 60px);
+      max-width: calc(100vw - 60px);
+    }
+
+    &__description {
+      font-size: 0.9rem;
+      max-width: 95%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .core-offering-cards {
+    padding: 20px 0;
+
+    &__container {
+      padding: 0 0px 0 20px;
+    }
+
+    &__title {
+      font-size: 26px;
+    }
+     &__card-header {
+    padding: 1.5rem 1.5rem;
+     }
+     &__overlay {
+      padding: 1.5rem;
+     }
+
+    &__list {
+      gap: 20px;
+    }
+
+    &__card {
+      flex: 0 0 calc(100vw - 40px);
+      max-width: calc(100vw - 40px);
+    }
+
+    &__description {
+      font-size: 0.85rem;
+    }
+
+    &__btn {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+    }
   }
 }
