@@ -1,13 +1,15 @@
 
 import "./CityDetails.scss";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const CityDetails = () => {
   return (
     <section className="cityDetails">
       <div className="cityDetails__container">
         <h2 className="cityDetails__title">
+          <ParagraphTextReveal>
           REVAMPING THE HERITAGE WITH <br />
-          MODERN TOUCH
+          MODERN TOUCH</ParagraphTextReveal>
         </h2>
 
         <div className="cityDetails__content">

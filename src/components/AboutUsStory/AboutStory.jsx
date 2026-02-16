@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import './AboutStory.scss';
+import ParagraphTextReveal from '@/animations/ParagraphTextReveal';
 
 const AboutStory = ({
   title,
@@ -23,7 +24,7 @@ const AboutStory = ({
         
         {/* Left Content */}
         <div className="about-story__content">
-          <h2 className="about-story__title">{title}</h2>
+          <h2 className="about-story__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h2>
 
           {/* <div className="about-story__text">
             {paragraphs.map((text, index) => (

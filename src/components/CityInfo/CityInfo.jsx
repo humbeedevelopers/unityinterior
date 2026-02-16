@@ -1,5 +1,5 @@
 "use client";
-
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import "./CityInfo.scss";
 
 const CityInfo = () => {
@@ -11,7 +11,7 @@ const CityInfo = () => {
             <div className="cityInfo__container">
 
                 <div className="cityInfo__left">
-                    <h2 className="cityInfo__title">THE DESIGN MANIFESTO</h2>
+                    <h2 className="cityInfo__title"><ParagraphTextReveal>THE DESIGN MANIFESTO</ParagraphTextReveal></h2>
                     {/* <button className="cityInfo__button">Contact us</button> */}
                 </div>
 

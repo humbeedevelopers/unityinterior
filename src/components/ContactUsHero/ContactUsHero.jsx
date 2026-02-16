@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "./ContactUsHero.scss";
 import ContactHeroImg from "@/images/contactusbannner.png"; 
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const ContactUsHero = () => {
   return (
@@ -8,7 +9,7 @@ const ContactUsHero = () => {
       <div className="contactUsHero__container">
 
         <div className="contactUsHero__header">
-          <h2 className="contactUsHero__title">CONTACT US</h2>
+          <h2 className="contactUsHero__title"><ParagraphTextReveal>CONTACT US</ParagraphTextReveal></h2>
 
           <p className="contactUsHero__subtitle">
             Lorem Ipsum is simply dummy

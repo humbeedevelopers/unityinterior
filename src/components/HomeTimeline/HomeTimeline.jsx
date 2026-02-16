@@ -92,7 +92,7 @@ const HomeTimeline = () => {
                 <section className="home-cardsH">
                     <div className="home-cardsH__container">
 
-                        <h2 className="home-cardsH__heading">During Execution</h2>
+                        <h2 className="home-cardsH__heading"><ParagraphTextReveal>During Execution</ParagraphTextReveal></h2>
 
                         <div className="home-cardsH__list">
 

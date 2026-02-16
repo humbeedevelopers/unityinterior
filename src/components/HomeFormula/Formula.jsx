@@ -3,6 +3,7 @@
 import Image from "next/image";
 import "./Formula.scss";
 import BannerImg from "@/images/FormulaImg.png";
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const FORMULA_DATA = [
   {
@@ -90,7 +91,7 @@ export default function Formula() {
        <section className="home-cardsI">
           <div className="home-cardsI__container">
 
-            <h2 className="home-cardsI__heading">During Execution</h2>
+            <h2 className="home-cardsI__heading"><ParagraphTextReveal>During Execution</ParagraphTextReveal></h2>
 
             <div className="home-cardsI__list">
 

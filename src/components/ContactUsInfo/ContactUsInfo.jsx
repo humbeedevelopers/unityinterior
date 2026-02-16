@@ -13,6 +13,7 @@ import LinkedinLogo from "@/images/linkedin.svg";
 import TwitterLogo from "@/images/twitter.svg";
 import FacebookLogo from "@/images/facebook.svg";
 import './ContactUsInfo.scss';
+import ParagraphTextReveal from '@/animations/ParagraphTextReveal';
 
 const ContactUsInfo = () => {
   const formik = useFormik({
@@ -49,7 +50,8 @@ const ContactUsInfo = () => {
         {/* Left Content */}
         <div className="contact-us-info__content">
           <h2 className="contact-us-info__title">
-            WE ARE ALWAYS READY TO<br />ANSWER YOUR QUESTIONS
+            <ParagraphTextReveal>
+            WE ARE ALWAYS READY TO<br />ANSWER YOUR QUESTIONS</ParagraphTextReveal>
           </h2>
 
           <p className="contact-us-info__description">
