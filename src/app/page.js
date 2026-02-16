@@ -1,5 +1,5 @@
 "use client"
-import CoreOfferings from "@/components/CoreOfferings/CoreOfferingFinal"
+import CoreOfferings from "@/components/CoreOfferings/CoreOfferingCards"
 import CountDown from "@/components/CountDown/CountDown"
 import Experience from "@/components/ExperienceSec/Experience"
 import Faqs from "@/components/FaqsSection/Faqs"
@@ -25,7 +25,7 @@ const Page = () => {
       <Marquee />
       <TextEffect />
       <Experience />
-      <CoreOfferings />
+     
       <HomeTimeline />
       {/* <Formula /> */}
 
@@ -52,6 +52,8 @@ const Page = () => {
         ]}
       /> */}
       <NumbersSec />
+
+       <CoreOfferings />
       <TruelyMatters />
       <LeadingVision />
       <ThreeSlider />
