@@ -4,7 +4,7 @@ import Image from "next/image";
 import "./CityHero.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-
+import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -24,7 +24,7 @@ const CityHero = () => {
       <div className="cityHero__container">
 
         <div className="cityHero__header">
-          <h2 className="cityHero__title">PROJECTS IN<br /> AHMEDABAD</h2>
+          <h2 className="cityHero__title"><ParagraphTextReveal>PROJECTS IN<br /> AHMEDABAD</ParagraphTextReveal></h2>
 
           <p className="cityHero__subtitle">
             Lorem Ipsum is simply dummy

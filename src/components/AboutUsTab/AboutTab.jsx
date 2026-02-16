@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import './AboutTab.scss';
+import ParagraphTextReveal from '@/animations/ParagraphTextReveal';
 
 const AboutTab = ({ title, tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -12,7 +13,7 @@ const AboutTab = ({ title, tabs }) => {
       <div className="aboutTab__container">
 
         {/* Heading */}
-        <h2 className="aboutTab__title">{title}</h2>
+        <h2 className="aboutTab__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h2>
 
         {/* Tabs */}
         <div className="aboutTab__tabs">
