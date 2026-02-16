@@ -5,6 +5,7 @@ import Image from "next/image";
 // import ContactUsButton from "@/animations/ContactUsButton";
 import "./ServiceHoverCards.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import Link from "next/link";
 
 const ServiceHoverCards = ({
     title,
@@ -39,12 +40,14 @@ const ServiceHoverCards = ({
                 <div className="service-hover-cards__content">
                     <h2 className="service-hover-cards__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h2>
                     {/* <ContactUsButton href="/contact">CONTACT US</ContactUsButton> */}
+                    <Link href={"/contact-us"}>
                     <button
                         className="service-hover-cards__button"
                         onClick={onButtonClick}
                     >
                         {buttonText}
                     </button>
+                    </Link>
                 </div>
 
                 {/* Divider */}
