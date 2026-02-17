@@ -1,7 +1,8 @@
 import "./NumbersSec.scss";
 import Image from "next/image";
-import NumbersImage from "@/images/Numbersectionimg.png"; 
+import NumbersImage from "@/images/Numbersectionimg.png";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import { motion } from "framer-motion";
 
 const NumbersSec = () => {
   return (
@@ -9,7 +10,14 @@ const NumbersSec = () => {
       <div className="numbers__container">
         {/* Left Content */}
         <div className="numbers__left">
-          <h6 className="numbers__label"><ParagraphTextReveal>THE NUMBERS</ParagraphTextReveal></h6>
+          <motion.h6
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+            className="numbers__label">
+            THE NUMBERS
+          </motion.h6>
           <p className="numbers__subtext">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </p>

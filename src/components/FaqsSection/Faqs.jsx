@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./Faqs.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import { motion } from "framer-motion";
 
 const FAQS_DATA = [
   {
@@ -11,19 +12,24 @@ const FAQS_DATA = [
     answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
-  { id: 2, question: "How do architects charge for their services?", answer:
+  {
+    id: 2, question: "How do architects charge for their services?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
-  { id: 3, question: "How do architects charge for their services?", answer:
+  {
+    id: 3, question: "How do architects charge for their services?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
-  { id: 4, question: "How do architects charge for their services?", answer:
+  {
+    id: 4, question: "How do architects charge for their services?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
-  { id: 5, question: "How do architects charge for their services?", answer:
+  {
+    id: 5, question: "How do architects charge for their services?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
-  { id: 6, question: "How do architects charge for their services?", answer:
+  {
+    id: 6, question: "How do architects charge for their services?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
 ];
@@ -41,7 +47,12 @@ const FaqsSection = () => {
         {/* Left Column */}
         <div className="faqs__left">
           <h2 className="faqs__title"><ParagraphTextReveal>QnA</ParagraphTextReveal></h2>
-          <button className="faqs__cta">MY QUESTION IS NOT HERE</button>
+          <motion.button
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+            className="faqs__cta">MY QUESTION IS NOT HERE</motion.button>
         </div>
 
         {/* Right Column */}

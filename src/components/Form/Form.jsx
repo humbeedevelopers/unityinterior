@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import "./Form.scss";
+import { motion } from "framer-motion";
 
 const schema = yup.object({
   fullName: yup.string().required("Full name is required"),
@@ -38,12 +39,17 @@ const Form = () => {
       <div className="contactForm__container">
         {/* LEFT CONTENT */}
         <div className="contactForm__content">
-          <h2 className="contactForm__heading">
+          <motion.h2
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+            className="contactForm__heading">
             LET’S MAKE AN <br />
             EXQUISITE <br />
             SPACE <br />
             <span>TOGETHER</span>
-          </h2>
+          </motion.h2>
         </div>
 
         {/* FORM */}

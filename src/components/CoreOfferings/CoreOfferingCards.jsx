@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useEffect } from "react";
 import "./CoreOfferingCards.scss";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 
 if (typeof window !== 'undefined') {
@@ -120,9 +121,16 @@ const CoreOfferingCards = () => {
       <div className="core-offering-cards__container" ref={component}>
 
         <div className="core-offering-cards__title-wrapper">
-          <h2 className="core-offering-cards__title">
-            <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal>
-          </h2>
+          <motion.h2
+            className="core-offering-cards__title"
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+          >
+            CORE OFFERINGS
+            {/* <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal> */}
+          </motion.h2>
         </div>
 
         <div className="core-offering-cards__horizontal">
