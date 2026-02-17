@@ -12,6 +12,8 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
 import "./Threeslider.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
@@ -24,6 +26,28 @@ import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 //     { id: 6, img1: PersonImage },
 //     { id: 7, img1: PersonImage },
 // ];
+const textVariants = {
+    hidden: {
+        opacity: 0,
+        y: 40,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+             ease: [0.22, 1, 0.36, 1],
+        },
+    },
+    exit: {
+        opacity: 0,
+        y: -20,
+        transition: {
+            duration: 0.3,
+        },
+    },
+};
+
 
 const slides = [
     {
@@ -68,14 +92,14 @@ const slides = [
         desc:
             "Lorem ipsum is simply dummy text of the printing and lorem ipsum is simply dummy text.",
     },
-     {
+    {
         id: 7,
         img1: PersonImage,
         title: "Bedroom Design in Ahmedabad6",
         desc:
             "Lorem ipsum is simply dummy text of the printing and lorem ipsum is simply dummy text.",
     },
-     {
+    {
         id: 8,
         img1: PersonImage,
         title: "Bedroom Design in Ahmedabad7",
@@ -139,14 +163,26 @@ const ThreeSlider = () => {
                         <Image src={PrevImg} alt="slider image" />
                     </button>
                     <button className="three-slider__btn three-slider__btn--next">
-                         <Image src={NextImg} alt="slider image" />
+                        <Image src={NextImg} alt="slider image" />
                     </button>
                     {/* <div className="three-slider__pagination" /> */}
                 </div>
 
                 <div className="three-slider__text">
-                    <h3>{slides[activeIndex].title}</h3>
-                    <p>{slides[activeIndex].desc}</p>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeIndex}
+                            variants={textVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                        >
+                            <h3>{slides[activeIndex].title}</h3>
+                            <p>{slides[activeIndex].desc}</p>
+                        </motion.div>
+                    </AnimatePresence>
+                    {/* <h3>{slides[activeIndex].title}</h3>
+                    <p>{slides[activeIndex].desc}</p> */}
                 </div>
 
             </div>

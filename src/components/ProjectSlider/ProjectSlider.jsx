@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import {React, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
@@ -11,7 +11,9 @@ import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./ProjectSlider.scss";
+import { motion, AnimatePresence } from "framer-motion";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+
 
 const slides = [
   {
@@ -25,8 +27,30 @@ const slides = [
     href: "/",
   },
 ];
-
+const textVariants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 const ProjectSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section className="projectSlider">
       <Swiper
@@ -34,6 +58,7 @@ const ProjectSlider = () => {
         slidesPerView={1}
         loop
         speed={1500}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         autoplay={{
           delay: 4500,
           disableOnInteraction: false,
@@ -56,14 +81,20 @@ const ProjectSlider = () => {
               />
 
               <div className="projectSlider__overlay">
-                <p className="projectSlider__subtitle">
-                  <ParagraphTextReveal>
-                  EXPERIENCE THE
-                  <br />
-                  <span>EXCEPTIONAL UP CLOSE</span>
-                  </ParagraphTextReveal>
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={activeIndex}
+                    variants={textVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="projectSlider__subtitle">
+                    EXPERIENCE THE
+                    <br />
+                    <span>EXCEPTIONAL UP CLOSE</span>
 
+                  </motion.p>
+                </AnimatePresence>
                 <div className="projectSlider__footer">
                   <h4>{slide.city}</h4>
                   <Link

@@ -5,6 +5,9 @@ import Lightbulb from "@/images/bulb.svg";
 import Planet from "@/images/planet.svg";
 import StarBadge from "@/images/starbadge.svg";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import { motion } from "framer-motion";
+
+
 
 const TruelyMatters = () => {
   return (
@@ -13,16 +16,22 @@ const TruelyMatters = () => {
         {/* Left Content */}
         <div className="tm-left">
           <h2>
-           <ParagraphTextReveal> WHAT TRULY <br /> MATTERS TO US</ParagraphTextReveal>
+            <ParagraphTextReveal> WHAT TRULY <br /> MATTERS TO US</ParagraphTextReveal>
           </h2>
 
-          <p>
+          <motion.p
+
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries
-          </p>
+          </motion.p>
         </div>
 
         {/* Divider */}
@@ -32,33 +41,48 @@ const TruelyMatters = () => {
         <div className="tm-right">
           <div className="tm-item">
             <div className="tm-icon">
-                <Image src={Lightbulb} alt="none" />
+              <Image src={Lightbulb} alt="none" />
             </div>
-            <div className="tm-text">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="tm-text">
               <h4>CO-CREATION</h4>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry
               </p>
-            </div>
+            </motion.div>
           </div>
 
           <div className="tm-item">
-           <div className="tm-icon">
-                <Image src={Planet} alt="none" />
+            <div className="tm-icon">
+              <Image src={Planet} alt="none" />
             </div>
-            <div className="tm-text">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="tm-text">
               <h4>SUSTAINABILITY</h4>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry
               </p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="tm-item">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="tm-item">
             <div className="tm-icon">
-                <Image src={StarBadge} alt="none" />
+              <Image src={StarBadge} alt="none" />
             </div>
             <div className="tm-text">
               <h4>QUALITY</h4>
@@ -67,7 +91,7 @@ const TruelyMatters = () => {
                 industry
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-// import ChatBot from "@/components/ChatBot/ChatBot";
+import ChatBot from "@/components/ChatBot/ChatBot";
 // import SmoothScroll from "@/animations/SmoothScroll";
 
 const helveticaNeue = localFont({
@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
-        {/* <ChatBot /> */}
+        <ChatBot />
         {/* </SmoothScroll> */}
       </body>
     </html>
