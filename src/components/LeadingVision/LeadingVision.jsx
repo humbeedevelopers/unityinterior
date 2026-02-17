@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useLayoutEffect } from "react";
 import Image from "next/image";
 import "./LeadingVision.scss";
 import BgImage from "@/images/leadingvisionimg.png";
@@ -15,43 +14,26 @@ gsap.registerPlugin(ScrollTrigger);
 const LeadingVision = () => {
   const imageRef = useRef(null);
   const sectionRefL = useRef(null);
-  useLayoutEffect(() => {
-  const ctx = gsap.context(() => {
-
-    gsap.fromTo(sectionRefL.current,
-      { scale: 1.2, opacity: 0 },
+  useEffect(() => {
+    gsap.fromTo(
+      sectionRefL.current,
+      { y: 0, scale: 1.2, opacity: 0, clipPath: "inset(100% 0% 0% 0%)" },
       {
+        y: 0,
         scale: 1,
         opacity: 1,
+        clipPath: "inset(0% 0% 0% 0%)",
         ease: "power4.out",
         scrollTrigger: {
           trigger: sectionRefL.current,
           start: "top 80%",
           end: "bottom 40%",
-          scrub: 2,
+          scrub: 2, // Smoothness of the scroll animation
         },
       }
     );
+  }, []);
 
-    gsap.fromTo(imageRef.current,
-      { y: -100, scale: 1.5, opacity: 0 },
-      {
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 70%",
-          scrub: 2,
-        },
-      }
-    );
-
-  }, sectionRefL);
-
-  return () => ctx.revert();
-
-}, []);
 
   return (
     <section className="leading-vision" ref={sectionRefL}>
