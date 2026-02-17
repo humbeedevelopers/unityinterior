@@ -9,7 +9,7 @@ import FooterImg from "@/images/footerimage.png";
 import TextRotator from "@/animations/TextRotator";
 
 const Footer = () => {
-    const animatedWords = ["design", "apps", "websites", "brand"];
+    const animatedWords = ["home", "office", "living"];
 
   return (
     <footer className="footer">
