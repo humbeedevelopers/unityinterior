@@ -48,7 +48,7 @@ const FaqsSection = () => {
         <div className="faqs__left">
           <h2 className="faqs__title"><ParagraphTextReveal>QnA</ParagraphTextReveal></h2>
           <motion.button
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}

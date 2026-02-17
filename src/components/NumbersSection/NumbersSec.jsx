@@ -18,9 +18,14 @@ const NumbersSec = () => {
             className="numbers__label">
             THE NUMBERS
           </motion.h6>
-          <p className="numbers__subtext">
+          <motion.p 
+          initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+          className="numbers__subtext">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
+          </motion.p>
 
           <motion.div
             initial={{ x: -100, opacity: 0 }}

@@ -72,9 +72,9 @@ const CountDown = () => {
         </div>
 
         <motion.div
-          initial={{ x: -100, opacity: 0 }}
+          initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
           viewport={{ once: true }}
           className="numbers__image">
           <Image
