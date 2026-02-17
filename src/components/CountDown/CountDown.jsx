@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Banner from "@/images/countdownBanner.png"
 import "./CountDown.scss";
+import { motion } from "framer-motion";
 
 const statsData = [
   { value: 350, suffix: "+", label: "PROJECTS" },
@@ -70,12 +71,17 @@ const CountDown = () => {
           ))}
         </div>
 
-        <div className="numbers__image">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0 }}
+          viewport={{ once: true }}
+          className="numbers__image">
           <Image
             src={Banner}
             alt="Art showcase"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

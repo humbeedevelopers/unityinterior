@@ -22,12 +22,17 @@ const NumbersSec = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
 
-          <div className="numbers__image">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="numbers__image">
             <Image
-              src={NumbersImage}
+              src={NumbersImage}    
               alt="Interior decor"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Grid */}
