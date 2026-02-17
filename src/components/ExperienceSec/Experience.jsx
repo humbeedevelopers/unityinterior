@@ -7,7 +7,7 @@ import "./Experience.scss";
 import ImgMain from "@/images/image1.png";
 import ImgSideTop from "@/images/image2.png";
 import ImgSideBottom from "@/images/image3.png";
-import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+// import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
