@@ -1,42 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import "./LeadingVision.scss";
 import BgImage from "@/images/leadingvisionimg.png";
 import PersonImage from "@/images/lvinnerimg.png";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
 
 const LeadingVision = () => {
-  const imageRef = useRef(null);
-  const sectionRefL = useRef(null);
-  useEffect(() => {
-    gsap.fromTo(
-      sectionRefL.current,
-      { y: 0, scale: 1.2, opacity: 0, clipPath: "inset(100% 0% 0% 0%)" },
-      {
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: sectionRefL.current,
-          start: "top 80%",
-          end: "bottom 40%",
-          scrub: 2, // Smoothness of the scroll animation
-        },
-      }
-    );
-  }, []);
-
-
   return (
-    <section className="leading-vision" ref={sectionRefL}>
+    <section className="leading-vision">
       <div className="leading-vision__bg">
         <Image
           src={BgImage}
@@ -53,7 +26,7 @@ const LeadingVision = () => {
         </h2>
 
         <div className="leading-vision__card">
-          <div className="leading-vision__image" ref={imageRef}>
+          <div className="leading-vision__image">
             <Image
               src={PersonImage}
               alt="Leader"
