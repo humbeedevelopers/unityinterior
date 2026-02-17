@@ -19,6 +19,7 @@ const TextRotator = ({ words, className = "", interval = 2500 }) => {
         position: "relative",
         display: "inline-flex",
         flexDirection: "column",
+        height: "1.2em", // lock height
         overflow: "hidden",
       }}
     >
@@ -28,7 +29,10 @@ const TextRotator = ({ words, className = "", interval = 2500 }) => {
           initial={{ y: "100%" }}
           animate={{ y: "0%" }}
           exit={{ y: "-100%" }}
-          transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+          transition={{
+            duration: 0.6,
+            ease: [0.65, 0, 0.35, 1], // smoother cubic-bezier
+          }}
           style={{
             whiteSpace: "nowrap",
             display: "inline-block",
