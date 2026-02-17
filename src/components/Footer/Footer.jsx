@@ -6,8 +6,11 @@ import Logo from "@/images/websitelogo.svg";
 import PhoneLogo from "@/images/PHONE.svg";
 import EmailLogo from "@/images/EMAIL.svg";
 import FooterImg from "@/images/footerimage.png";
+import TextRotator from "@/animations/TextRotator";
 
 const Footer = () => {
+    const animatedWords = ["design", "apps", "websites", "brand"];
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -15,7 +18,9 @@ const Footer = () => {
         <div className="footer__left">
           <h2 className="footer__headline">
             where <br />
-            home / office / living <br />
+            <TextRotator words={animatedWords}></TextRotator>
+            {/* home / office / living */}
+             <br />
             dream come true
           </h2>
 
