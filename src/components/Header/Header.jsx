@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import "./Header.scss";
 import Logo from "@/images/websitelogo.svg";
+import CommonButton from "@/animations/Buttons/CommonButton";
 
 
 // const sidebar = {
@@ -228,9 +229,20 @@ const Header = () => {
 
         {/* CTA */}
         <div className="header-cta">
-          <Link href="/contact-us" className="contact-btn">
+          
+          <CommonButton
+            buttonText="Contact us"
+            route="/contact-us"
+            padding="10px 20px"
+            bgColor="#000"
+            hoverBgColor="#540B0E"
+            fontSize="15px"
+            textColor="#ffffff"
+            hoverTextColor="#ffffff"
+          />
+          {/* <Link href="/contact-us" className="contact-btn">
             <span className="contactInner">Contact us</span>
-          </Link>
+          </Link> */}
 
           {/* Mobile Toggle */}
           {/* <button className="hamburger" onClick={() => toggleOpen()}>
