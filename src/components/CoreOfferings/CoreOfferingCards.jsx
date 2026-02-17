@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useEffect } from "react";
 import "./CoreOfferingCards.scss";
+import Link from "next/link";
+
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +25,7 @@ const CoreOfferingCards = () => {
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
       image: Banner,
+      href: "/services/interior-design",
     },
     {
       id: 2,
@@ -30,6 +33,7 @@ const CoreOfferingCards = () => {
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
       image: Banner,
+      href: "/services/architectural-planning",
     },
     {
       id: 3,
@@ -37,6 +41,7 @@ const CoreOfferingCards = () => {
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
       image: Banner,
+      href: "/services/3d-visualization",
     },
   ];
 
@@ -47,12 +52,12 @@ const CoreOfferingCards = () => {
         if (!slider.current || !component.current) return;
 
         const panels = slider.current.querySelectorAll(".core-offering-cards__card");
-        
+
         if (panels.length === 0) return;
 
         // Force a layout recalculation
         slider.current.style.willChange = 'transform';
-        
+
         // Get the actual scroll width after everything is rendered
         const getScrollAmount = () => {
           const sliderWidth = slider.current.scrollWidth;
@@ -73,7 +78,7 @@ const CoreOfferingCards = () => {
             anticipatePin: 1,
             invalidateOnRefresh: true,
             id: "horizontal-cards-scroll",
-            markers: false, 
+            markers: false,
             onUpdate: (self) => {
               // Optional: log progress for debugging
               // console.log("Progress:", self.progress);
@@ -113,7 +118,7 @@ const CoreOfferingCards = () => {
   return (
     <section className="core-offering-cards">
       <div className="core-offering-cards__container" ref={component}>
-        
+
         <div className="core-offering-cards__title-wrapper">
           <h2 className="core-offering-cards__title">
             <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal>
@@ -150,9 +155,16 @@ const CoreOfferingCards = () => {
                       </p>
 
                       <div>
-                        <button className="core-offering-cards__btn">
+                        <Link
+                          href={offering.href}
+                          className="core-offering-cards__btn"
+                        >
                           Learn more
-                        </button>
+                        </Link>
+
+                        {/* <button className="core-offering-cards__btn">
+                          Learn more
+                        </button> */}
                       </div>
                     </div>
                   </div>
