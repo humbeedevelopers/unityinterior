@@ -159,9 +159,9 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <Link href="/">
+          <PageTransition href="/">
             <Image src={Logo} alt="Unity Interiors Logo" width={130} height={50} />
-          </Link>
+          </PageTransition>
         </div>
 
         {/* Desktop Nav */}
@@ -196,7 +196,8 @@ const Header = () => {
                     if (item.href === "/services") {
                       e.preventDefault();
                     }
-                  }}>{item.name}</PageTransition>
+                  }}
+                >{item.name}</PageTransition>
                 {/* {item.children ? (
                   <span className="nav-link nav-link--disabled">
                     {item.name}
@@ -230,7 +231,7 @@ const Header = () => {
 
         {/* CTA */}
         <div className="header-cta">
-          
+
           <CommonButton
             buttonText="Contact us"
             route="/contact-us"
