@@ -218,7 +218,7 @@ const Header = () => {
                   >
                     {item.children.map((child, i) => (
                       <li key={i}>
-                        <Link href={child.href}>{child.name}</Link>
+                        <PageTransition href={child.href}>{child.name}</PageTransition>
                       </li>
                     ))}
                   </motion.ul>
