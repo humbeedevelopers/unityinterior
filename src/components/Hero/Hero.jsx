@@ -3,6 +3,7 @@ import "./Hero.scss";
 // import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import WordReveal from "@/animations/WordReveal";
 import CommonButton from "@/animations/Buttons/CommonButton";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -19,10 +20,15 @@ const Hero = () => {
           </h1>
 
           <div className="hero__footer">
-            <p className="hero__description">
+            <motion.p
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0 }}
+              viewport={{ once: true }}
+              className="hero__description">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry
-            </p>
+            </motion.p>
             <CommonButton
               buttonText="View Projects"
               route="/projects"
