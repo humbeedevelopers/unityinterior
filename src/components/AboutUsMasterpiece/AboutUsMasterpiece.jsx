@@ -3,6 +3,8 @@
 import Image from "next/image";
 import "./AboutUsMasterpiece.scss";
 import Mcircle from "@/images/masterpieceCircle.png"
+import StaticCircle from "@/images/designnew.png"
+import FlowerDesign from "@/images/flowerdesign.png"
 import PersonImg from "@/images/masterpieceBanner.png";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -49,12 +51,46 @@ const AboutUsMasterpiece = () => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="aboutUsMasterpiece__circleImage">
+        <div className="aboutUsMasterpiece__circleWrapper">
+
+          {/* Static Outer Circle */}
+          <div className="aboutUsMasterpiece__outerCircle">
+            <Image
+              src={StaticCircle}
+              alt="Static Circle"
+              fill
+              sizes="260px"
+              className="circleImg"
+            />
+          </div>
+
+          {/* Rotating Flower at Center */}
+          <motion.div
+            className="aboutUsMasterpiece__flower"
+            animate={{ rotate: 360 }}
+            transition={{
+              repeat: Infinity,
+              duration: 8,
+              ease: "linear"
+            }}
+          >
+            <Image
+              src={FlowerDesign}
+              alt="Rotating Flower"
+              fill
+              sizes="120px"
+              className="circleImg"
+            />
+          </motion.div>
+
+        </div>
+
+        {/* <div className="aboutUsMasterpiece__circleImage">
           <Image
             src={Mcircle}
             alt="Decorative circle"
           />
-        </div>
+        </div> */}
 
         {/* <div className="aboutUsMasterpiece__circle">
           <span />
