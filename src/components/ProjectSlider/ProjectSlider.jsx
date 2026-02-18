@@ -30,7 +30,7 @@ const slides = [
 const textVariants = {
   hidden: {
     opacity: 0,
-    y: 40,
+    y: 100,
   },
   visible: {
     opacity: 1,
