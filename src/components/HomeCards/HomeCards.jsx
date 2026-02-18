@@ -2,14 +2,24 @@
 
 import React from "react";
 import "./HomeCards.scss";
-import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+// import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import { motion } from "framer-motion";
 
 const HomeCards = ({ heading, cards = [] }) => {
   return (
     <section className="home-cards">
       <div className="home-cards__container">
 
-        {heading && <h2 className="home-cards__heading"><ParagraphTextReveal>{heading}</ParagraphTextReveal></h2>}
+        {heading && <motion.h2
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0 }}
+          viewport={{ once: true }}
+          className="home-cards__heading">
+          {/* <ParagraphTextReveal> */}
+          {heading}
+          {/* </ParagraphTextReveal> */}
+        </motion.h2>}
 
 
         <div className="home-cards__list">

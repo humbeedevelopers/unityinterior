@@ -15,7 +15,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 import "./Threeslider.scss";
-import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 // const slides = [
 //     { id: 1, img1: PersonImage },
@@ -36,7 +35,7 @@ const textVariants = {
         y: 0,
         transition: {
             duration: 0.8,
-             ease: [0.22, 1, 0.36, 1],
+            ease: [0.22, 1, 0.36, 1],
         },
     },
     exit: {
@@ -115,7 +114,16 @@ const ThreeSlider = () => {
     return (
         <section className="three-slider">
             <div className="three-slider__container">
-                <h2 className="three-slider__heading"><ParagraphTextReveal>Wall of Desire</ParagraphTextReveal></h2>
+                <motion.h2
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1.5, delay: 0 }}
+                    viewport={{ once: true }}
+                    className="three-slider__heading">
+                    {/* <ParagraphTextReveal> */}
+                    Wall of Desire
+                    {/* </ParagraphTextReveal> */}
+                </motion.h2>
                 <p className="three-slider__headingText">best picked projects</p>
 
                 <Swiper

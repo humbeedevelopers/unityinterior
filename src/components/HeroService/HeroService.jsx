@@ -4,6 +4,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import "./HeroService.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+import { motion } from "framer-motion";
 
 const HeroService = ({ title, description, image, imageAlt }) => {
     return (
@@ -12,8 +13,26 @@ const HeroService = ({ title, description, image, imageAlt }) => {
 
 
                 <div className="hero-service__header">
-                    <h1 className="hero-service__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h1>
-                    <p className="hero-service__description"><ParagraphTextReveal>{description}</ParagraphTextReveal></p>
+                    <motion.h1
+                        initial={{ y: 50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1.5, delay: 0 }}
+                        viewport={{ once: true }}
+                        className="hero-service__title">
+                        {/* <ParagraphTextReveal> */}
+                        {title}
+                        {/* </ParagraphTextReveal> */}
+                    </motion.h1>
+                    <motion.p 
+                    initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+                    className="hero-service__description">
+                        {/* <ParagraphTextReveal> */}
+                            {description}
+                            {/* </ParagraphTextReveal> */}
+                            </motion.p>
                 </div>
 
                 <div className="hero-service__image-wrapper">
