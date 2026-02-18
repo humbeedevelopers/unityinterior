@@ -3,6 +3,7 @@
 import Image from "next/image";
 import "./ProjectHero.scss";
 import LocationSvg from "@/images/location.svg";
+import { motion } from "framer-motion";
 
 const ProjectHero = ({ project }) => {
   if (!project) return null;
@@ -22,18 +23,28 @@ const ProjectHero = ({ project }) => {
           />
         </div>
 
-     
+
         <div className="ProjectHero__content">
           <div className="ProjectHero__left">
-            <h1 className="ProjectHero__title">
+            <motion.h1
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0 }}
+              viewport={{ once: true }}
+              className="ProjectHero__title">
               {title}
-            </h1>
+            </motion.h1>
           </div>
 
           <div className="ProjectHero__right">
-            <p className="ProjectHero__desc">
+            <motion.p
+            initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0 }}
+              viewport={{ once: true }}
+             className="ProjectHero__desc">
               {description}
-            </p>
+            </motion.p>
           </div>
         </div>
 
