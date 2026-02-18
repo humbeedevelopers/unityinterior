@@ -8,6 +8,7 @@ import { motion, useCycle, AnimatePresence } from "framer-motion";
 import "./Header.scss";
 import Logo from "@/images/websitelogo.svg";
 import CommonButton from "@/animations/Buttons/CommonButton";
+import PageTransition from "@/animations/pageTransition/PageTransition";
 
 
 // const sidebar = {
@@ -190,12 +191,12 @@ const Header = () => {
                 className={`nav-item ${pathname === item.href ? "active" : ""
                   } ${item.children ? "has-dropdown" : ""}`}
               >
-                <Link href={item.href}
+                <PageTransition href={item.href}
                   onClick={(e) => {
                     if (item.href === "/services") {
                       e.preventDefault();
                     }
-                  }}>{item.name}</Link>
+                  }}>{item.name}</PageTransition>
                 {/* {item.children ? (
                   <span className="nav-link nav-link--disabled">
                     {item.name}

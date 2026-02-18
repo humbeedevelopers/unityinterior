@@ -17,9 +17,11 @@ import ProjectSlider from "@/components/ProjectSlider/ProjectSlider"
 import TextEffect from "@/components/TextEffectSection/TextEffect"
 import ThreeSlider from "@/components/Threeslider/Threeslider"
 import TruelyMatters from "@/components/TruelyMatters/TruelyMatters"
+// import Stairs from "@/animations/Stairs/index"
 const Page = () => {
   return (
     <main>
+      {/* <Stairs /> */}
       <Hero />
       {/* <TestimonialSlider /> */}
       <Marquee />
