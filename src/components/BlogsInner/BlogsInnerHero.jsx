@@ -2,13 +2,19 @@
 
 import Image from "next/image";
 import "./BlogsInnerHero.scss";
+import { motion } from "framer-motion";
 
 const BlogsInnerHero = ({ title, category, image }) => {
   return (
     <section className="blogsInnerHero">
-      <h1 className="blogsInnerHero__title">
+      <motion.h1
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0 }}
+        viewport={{ once: true }}
+        className="blogsInnerHero__title">
         {title}
-      </h1>
+      </motion.h1>
       <div className="blogsInnerHero__imageWrap">
         <Image
           src={image}
