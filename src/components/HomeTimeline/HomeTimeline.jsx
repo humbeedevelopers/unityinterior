@@ -1,5 +1,6 @@
 "use client";
 import "./HomeTimeline.scss";
+import { motion } from "framer-motion";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 const timelineData = [
@@ -55,11 +56,17 @@ const executionData = [
 const HomeTimeline = () => {
     return (
         <section className="homeTimeline">
-            <h2 className="homeTimeline__heading">
-                <ParagraphTextReveal>
+            <motion.h2
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.5, delay: 0 }}
+                viewport={{ once: true }}
+                className="homeTimeline__heading">
+                {/* <ParagraphTextReveal> */}
                 MASTER FORMULA FOR <br />
-                OUTSTANDING INTERIOR DESIGNS</ParagraphTextReveal>
-            </h2>
+                OUTSTANDING INTERIOR DESIGNS
+                {/* </ParagraphTextReveal> */}
+            </motion.h2>
             <div className="homeTimeline__container">
 
                 <div className="homeTimeline__timeline">
@@ -75,12 +82,27 @@ const HomeTimeline = () => {
                             >
 
                                 <div className="homeTimeline__contentWrapper">
-                                    <h4 className="homeTimeline__title">{item.title}</h4>
-                                    <p className="homeTimeline__text">{item.description}</p>
+                                    <motion.h4
+                                        initial={{ x: 50, opacity: 0 }}
+                                        whileInView={{ x: 0, opacity: 1 }}
+                                        transition={{ duration: 1.5, delay: 0 }}
+                                        viewport={{ once: true }}
+                                        className="homeTimeline__title">{item.title}</motion.h4>
+                                    <motion.p
+                                        initial={{ x: -50, opacity: 0 }}
+                                        whileInView={{ x: 0, opacity: 1 }}
+                                        transition={{ duration: 1.5, delay: 0 }}
+                                        viewport={{ once: true }}
+                                        className="homeTimeline__text">{item.description}</motion.p>
                                 </div>
 
                                 <div className="homeTimeline__step">
-                                    <span>{item.step}</span>
+                                    <motion.span
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        transition={{ duration: 1 }}
+                                        viewport={{ once: true }}
+                                    >{item.step}</motion.span>
                                 </div>
                             </div>
                         );

@@ -83,8 +83,18 @@ export default function Formula() {
                   <div className="formula_number">{item.number}</div>
 
                   <div className="formula_text_content">
-                    <h4 className="formula_title">{item.title}</h4>
-                    <p className="formula_description">{item.text}</p>
+                    <motion.h4
+                      initial={{ x: 50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 1.5, delay: 0 }}
+                      viewport={{ once: true }}
+                      className="formula_title">{item.title}</motion.h4>
+                    <motion.p
+                      initial={{ x: -50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 1.5, delay: 0 }}
+                      viewport={{ once: true }}
+                      className="formula_description">{item.text}</motion.p>
                   </div>
                 </div>
               ))}
