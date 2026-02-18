@@ -11,6 +11,8 @@ import { useRouter } from "next/navigation";
 import "./ProjectDetail.scss";
 import DummyImf from "@/images/projectDummy.png";
 import LocationSvg from "@/images/location.svg";
+import { motion } from "framer-motion";
+
 
 const TABS = [
   "ALL PROJECTS",
@@ -70,10 +72,17 @@ const ProjectDetail = () => {
         <div className="Projectdetail__content">
           <div className="Projectdetail__grid">
             {visibleProjects.map((project) => (
-              <div
+              <motion.div
                 key={project.id}
                 className="Projectdetail__card"
                 onClick={() => handleCardClick(project.slug)}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut"
+                }}
+                viewport={{ once: true, amount: 0 }}
               >
                 {/* <div className="Projectdetail__image">
                   <Image
@@ -102,8 +111,8 @@ const ProjectDetail = () => {
                             src={img}
                             alt={`${project.title} ${index + 1}`}
                             className="ProjectImgMain"
-                            // fill
-                            // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          // fill
+                          // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                         </SwiperSlide>
                       ))}
@@ -121,14 +130,14 @@ const ProjectDetail = () => {
 
 
                 <div className="Projectdetail__info">
-                   <p className="Projectdetail__infoTitle"> {project.title}</p>
+                  <p className="Projectdetail__infoTitle"> {project.title}</p>
                   <span className="Projectdetail__location">
                     <Image src={LocationSvg} alt="location" className="Projectdetail__locationsvg" />
-                   
+
                     <p> {project.location}</p>
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
