@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import PrevIcon from "@/images/PrevIcon.svg";
 import NextIcon from "@/images/NextIcon.svg";
-
+import { motion, AnimatePresence } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./RelatedBlogsSlider.scss";
@@ -22,9 +22,14 @@ const RelatedBlogsSlider = ({ currentSlug }) => {
         <section className="related-blogs">
             <div className="related-blogs__container">
                 <div className="related-blogs__header">
-                    <h2 className="related-blogs__title">
+                    <motion.h2
+                        initial={{ y: 50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1.5, delay: 0 }}
+                        viewport={{ once: true }}
+                        className="related-blogs__title">
                         Related <br /> Blogs
-                    </h2>
+                    </motion.h2>
 
                     <div className="related-blogs__nav">
                         <button className="related-blogs__btn related-blogs__btn--prev">

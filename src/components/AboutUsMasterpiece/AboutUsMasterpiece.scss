@@ -30,22 +30,52 @@
         object-fit: contain;
     }
 
-    &__circleImage {
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
-        z-index: 1;
-        pointer-events: none;
+    // &__circleImage {
+    //     position: absolute;
+    //     right: 0px;
+    //     bottom: 0px;
+    //     z-index: 1;
+    //     pointer-events: none;
 
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-            // animation: rotateCircle 8s linear infinite;
-        }
-    }
+    //     img {
+    //         width: 100%;
+    //         height: auto;
+    //         display: block;
+    //         // animation: rotateCircle 8s linear infinite;
+    //     }
+    // }
 
+ .aboutUsMasterpiece__circleWrapper {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    bottom: 0px;   
+    right: 0px;   
+    top: unset;
+    left: unset;
+    transform: none;
+}
 
+.aboutUsMasterpiece__outerCircle {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.aboutUsMasterpiece__flower {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 39.7%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+}
+
+.circleImg {
+    object-fit: contain;
+}
 
     &__textLayer {
         position: absolute;
@@ -183,7 +213,8 @@
         &__image {
             height: 500px;
         }
-        &__circleImage{
+
+        &__circleImage {
             display: none;
         }
 

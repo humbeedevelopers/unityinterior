@@ -8,6 +8,7 @@ import { motion, useCycle, AnimatePresence } from "framer-motion";
 import "./Header.scss";
 import Logo from "@/images/websitelogo.svg";
 import CommonButton from "@/animations/Buttons/CommonButton";
+import PageTransition from "@/animations/pageTransition/PageTransition";
 
 
 // const sidebar = {
@@ -158,9 +159,9 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <Link href="/">
+          <PageTransition href="/">
             <Image src={Logo} alt="Unity Interiors Logo" width={130} height={50} />
-          </Link>
+          </PageTransition>
         </div>
 
         {/* Desktop Nav */}
@@ -190,12 +191,13 @@ const Header = () => {
                 className={`nav-item ${pathname === item.href ? "active" : ""
                   } ${item.children ? "has-dropdown" : ""}`}
               >
-                <Link href={item.href}
+                <PageTransition href={item.href}
                   onClick={(e) => {
                     if (item.href === "/services") {
                       e.preventDefault();
                     }
-                  }}>{item.name}</Link>
+                  }}
+                >{item.name}</PageTransition>
                 {/* {item.children ? (
                   <span className="nav-link nav-link--disabled">
                     {item.name}
@@ -216,7 +218,7 @@ const Header = () => {
                   >
                     {item.children.map((child, i) => (
                       <li key={i}>
-                        <Link href={child.href}>{child.name}</Link>
+                        <PageTransition href={child.href}>{child.name}</PageTransition>
                       </li>
                     ))}
                   </motion.ul>
@@ -229,7 +231,7 @@ const Header = () => {
 
         {/* CTA */}
         <div className="header-cta">
-          
+          <PageTransition href={"/contact-us"}>    
           <CommonButton
             buttonText="Contact us"
             route="/contact-us"
@@ -240,6 +242,7 @@ const Header = () => {
             textColor="#ffffff"
             hoverTextColor="#ffffff"
           />
+          </PageTransition>
           {/* <Link href="/contact-us" className="contact-btn">
             <span className="contactInner">Contact us</span>
           </Link> */}

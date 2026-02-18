@@ -3,7 +3,7 @@ import BlogsInnerHero from "@/components/BlogsInner/BlogsInnerHero";
 import { blogs } from "../data";
 import { blogsMeta } from "../[slug]/head";
 import RelatedBlogsSlider from "@/components/RelatedBlogsSlider/RelatedBlogsSlider";
-import ProjectHero from "@/components/ProjectHero/ProjectHero";
+// import ProjectHero from "@/components/ProjectHero/ProjectHero";
 
 // REQUIRED for static export
 export async function generateStaticParams() {

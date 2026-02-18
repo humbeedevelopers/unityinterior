@@ -7,7 +7,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./RelatedProjectSlider.scss";
-
+import { motion, AnimatePresence } from "framer-motion";
 import LocationSvg from "@/images/location.svg";
 // import PrevIcon from "@/images/PrevIcon.svg";
 // import NextIcon from "@/images/NextIcon.svg";
@@ -21,9 +21,14 @@ const RelatedProjectSlider = ({ projects = [] }) => {
             <div className="related-projects__container">
 
                 <div className="related-projects__header">
-                    <h2 className="related-projects__title">
+                    <motion.h2
+                        initial={{ y: 50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1.5, delay: 0 }}
+                        viewport={{ once: true }}
+                        className="related-projects__title">
                         RELATED <br /> PROJECTS
-                    </h2>
+                    </motion.h2>
 
                     {/* <div className="related-projects__nav">
                         <button className="related-projects__btn related-projects__btn--prev">

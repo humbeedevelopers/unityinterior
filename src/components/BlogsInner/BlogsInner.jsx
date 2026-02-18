@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import "./BlogsInner.scss";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const BlogsInner = ({ blog }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -358,9 +360,14 @@ const BlogsInner = ({ blog }) => {
         <div className="blogsInner__content">
           {blog.sections.map((section, index) => (
             <div className="blogsInner__section" key={index}>
-              <h2 className="blogsInner__heading">
+              <motion.h2 
+              initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0 }}
+          viewport={{ once: true }}
+              className="blogsInner__heading">
                 {index + 1}. {section.title}
-              </h2>
+              </motion.h2>
 
               {/* {section.paragraphs.map((para, i) => (
                 <p className="blogsInner__paragraph" key={i}>
