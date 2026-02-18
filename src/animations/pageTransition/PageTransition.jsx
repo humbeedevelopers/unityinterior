@@ -12,6 +12,7 @@ const PageTransition = ({ children, href, ...props }) => {
   };
 
   const handleTransition = async (e) => {
+    //  if (!href) return;
       //  Block only /services
   if (href === "/services") {
     e.preventDefault();

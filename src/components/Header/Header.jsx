@@ -231,7 +231,7 @@ const Header = () => {
 
         {/* CTA */}
         <div className="header-cta">
-
+          <PageTransition href={"/contact-us"}>    
           <CommonButton
             buttonText="Contact us"
             route="/contact-us"
@@ -242,6 +242,7 @@ const Header = () => {
             textColor="#ffffff"
             hoverTextColor="#ffffff"
           />
+          </PageTransition>
           {/* <Link href="/contact-us" className="contact-btn">
             <span className="contactInner">Contact us</span>
           </Link> */}
