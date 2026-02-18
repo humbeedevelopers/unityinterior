@@ -70,7 +70,10 @@ const ProjectDetail = () => {
 
         {/* Projects Grid */}
         <div className="Projectdetail__content">
-          <div className="Projectdetail__grid">
+          <div
+            key={activeTab}
+
+            className="Projectdetail__grid">
             {visibleProjects.map((project) => (
               <motion.div
                 key={project.id}
@@ -78,11 +81,13 @@ const ProjectDetail = () => {
                 onClick={() => handleCardClick(project.slug)}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{
-                  duration: 0.8,
-                  ease: "easeInOut"
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: project.id * 0.05
                 }}
-                viewport={{ once: true, amount: 0 }}
+
               >
                 {/* <div className="Projectdetail__image">
                   <Image
