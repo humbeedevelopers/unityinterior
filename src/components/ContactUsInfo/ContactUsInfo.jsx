@@ -14,6 +14,7 @@ import TwitterLogo from "@/images/twitter.svg";
 import FacebookLogo from "@/images/facebook.svg";
 import './ContactUsInfo.scss';
 import ParagraphTextReveal from '@/animations/ParagraphTextReveal';
+import { motion, AnimatePresence } from "framer-motion";
 
 const ContactUsInfo = () => {
   const formik = useFormik({
@@ -51,13 +52,18 @@ const ContactUsInfo = () => {
         <div className="contact-us-info__content">
           <h2 className="contact-us-info__title">
             <ParagraphTextReveal>
-            WE ARE ALWAYS READY TO<br />ANSWER YOUR QUESTIONS</ParagraphTextReveal>
+              WE ARE ALWAYS READY TO<br />ANSWER YOUR QUESTIONS</ParagraphTextReveal>
           </h2>
 
-          <p className="contact-us-info__description">
+          <motion.p
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="contact-us-info__description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-          </p>
+          </motion.p>
 
           <div className="contact-us-info__locations">
             <div className="contact-us-info__location">
