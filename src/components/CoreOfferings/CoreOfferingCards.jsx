@@ -9,6 +9,7 @@ import { useLayoutEffect, useRef, useEffect } from "react";
 import "./CoreOfferingCards.scss";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import CommonButton from "@/animations/Buttons/CommonButton";
 
 
 if (typeof window !== 'undefined') {
@@ -163,16 +164,25 @@ const CoreOfferingCards = () => {
                       </p>
 
                       <div>
-                        <Link
+                        {/* <Link
                           href={offering.href}
                           className="core-offering-cards__btn"
                         >
                           Learn more
-                        </Link>
+                        </Link> */}
 
-                        {/* <button className="core-offering-cards__btn">
-                          Learn more
-                        </button> */}
+                        <CommonButton
+                          buttonText="Learn more"
+                          route={offering.href}
+                          padding="10px 28px"
+                          bgColor="#ffffff"
+                          hoverBgColor="#540B0E"
+                          fontSize="15px"
+                          textColor="#000"
+                          hoverTextColor="#ffffff"
+                        />
+
+                      
                       </div>
                     </div>
                   </div>
