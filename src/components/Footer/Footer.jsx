@@ -7,9 +7,10 @@ import PhoneLogo from "@/images/PHONE.svg";
 import EmailLogo from "@/images/EMAIL.svg";
 import FooterImg from "@/images/footerimage.png";
 import TextRotator from "@/animations/TextRotator";
+import PageTransition from "@/animations/pageTransition/PageTransition";
 
 const Footer = () => {
-    const animatedWords = ["home", "office", "living"];
+  const animatedWords = ["home", "office", "living"];
 
   return (
     <footer className="footer">
@@ -20,11 +21,12 @@ const Footer = () => {
             where <br />
             <TextRotator words={animatedWords}></TextRotator>
             {/* home / office / living */}
-             <br />
+            <br />
             dream come true
           </h2>
 
           <div className="footer__brand">
+             <PageTransition>
             <Link href={"/"}>
               <Image
                 src={Logo}
@@ -32,6 +34,7 @@ const Footer = () => {
                 width={120}
                 height={50}
               /></Link>
+              </PageTransition>
           </div>
 
           <p className="footer__description">
@@ -46,16 +49,16 @@ const Footer = () => {
         <div className="footer__right">
           <div className="footer__links">
             <ul>
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/blogs">Blogs</Link></li>
-              <li><Link href="/contact-us">Contact</Link></li>
-               <li><Link href="/city">City</Link></li>
+              <li><PageTransition><Link href="/">Home</Link></PageTransition></li>
+              <li><PageTransition><Link href="/blogs">Blogs</Link></PageTransition></li>
+              <li><PageTransition><Link href="/contact-us">Contact</Link></PageTransition></li>
+              <li><PageTransition><Link href="/city">City</Link></PageTransition></li>
             </ul>
 
             <ul>
-              <li><Link href="/services/interior-design">Interior Designing</Link></li>
-              <li><Link href="/services/architectural-planning">Architectural Planning</Link></li>
-              <li><Link href="/services/3d-visualization">3D Visualization</Link></li>
+              <li><PageTransition><Link href="/services/interior-design">Interior Designing</Link></PageTransition></li>
+              <li><PageTransition><Link href="/services/architectural-planning">Architectural Planning</Link></PageTransition></li>
+              <li><PageTransition><Link href="/services/3d-visualization">3D Visualization</Link></PageTransition></li>
             </ul>
           </div>
 
