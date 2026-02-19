@@ -106,51 +106,82 @@ const ContactUsInfo = () => {
             <span>SOCIAL MEDIA :</span>
             <ul>
               <li>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://www.instagram.com/ekta_interior/"}>
                 <Image
                   src={InstaLogo}
                   alt="Instagram"
                   className='SocialImg'
                 />
+                </Link>
               </li>
 
               <li>
-                <Image
-                  src={YtLogo}
-                  alt="YouTube"
-                  className='SocialImg'
-                />
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://www.youtube.com/channel/UCQLqYlIthw4Buk6XKW4lqNg"}>
+
+                  <Image
+                    src={YtLogo}
+                    alt="YouTube"
+                    className='SocialImg'
+                  />
+                </Link>
               </li>
 
               <li>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://www.linkedin.com/in/ektamakadia/"}>
                 <Image
                   src={LinkedinLogo}
                   alt="LinkedIn"
                   className='SocialImg'
                 />
+                </Link>
               </li>
 
               <li>
+                 <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://www.facebook.com/unityinteriorstudio"}>
                 <Image
                   src={FacebookLogo}
                   alt="Facebook"
                   className='SocialImg'
                 />
+                </Link>
               </li>
 
               <li>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://www.behance.net/ektamakadia"}>
                 <Image
                   src={BehanceLogo}
                   alt="Behance"
                   className='SocialImg'
                 />
+                </Link>
               </li>
 
               <li>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://x.com/unityinteriors"}>
                 <Image
                   src={TwitterLogo}
                   alt="X"
                   className='SocialImg'
                 />
+                </Link>
               </li>
             </ul>
           </div>
