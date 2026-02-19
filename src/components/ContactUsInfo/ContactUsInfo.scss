@@ -38,6 +38,7 @@
       font-size: 25px;
       margin-bottom: 12px;
       border-bottom: 1px solid #000;
+      color: #000;
       display: inline-block;
       font-weight: 400;
     }
@@ -75,6 +76,7 @@
     span {
       font-size: 20px;
       font-weight: 400;
+      color: #000;
       display: block;
       // margin-bottom: 12px;
     }
@@ -101,7 +103,11 @@
       .SocialImg {
         max-width: 100%;
         height: auto;
+        transition: transform 0.3s ease;
         width: 100%;
+         &:hover {
+          transform: translateY(-6px); 
+        }
       }
     }
   }

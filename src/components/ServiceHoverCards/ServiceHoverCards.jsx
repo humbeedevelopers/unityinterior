@@ -6,6 +6,7 @@ import Image from "next/image";
 import "./ServiceHoverCards.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import Link from "next/link";
+import CommonButton from "@/animations/Buttons/CommonButton";
 
 const ServiceHoverCards = ({
     title,
@@ -40,14 +41,26 @@ const ServiceHoverCards = ({
                 <div className="service-hover-cards__content">
                     <h2 className="service-hover-cards__title"><ParagraphTextReveal>{title}</ParagraphTextReveal></h2>
                     {/* <ContactUsButton href="/contact">CONTACT US</ContactUsButton> */}
-                    <Link href={"/contact-us"}>
-                    <button
-                        className="service-hover-cards__button"
-                        onClick={onButtonClick}
-                    >
-                        {buttonText}
-                    </button>
-                    </Link>
+                    <div>
+                        <CommonButton
+                        buttonText="CONTACT US"
+                        route="/contact-us"
+                        padding="10px 28px"
+                        bgColor="#540B0E"
+                        hoverBgColor="#fff"
+                        fontSize="15px"
+                        textColor="#fff"
+                        hoverTextColor="#000"
+                    />
+                    </div>
+                    {/* <Link href={"/contact-us"}>
+                        <button
+                            className="service-hover-cards__button"
+                            onClick={onButtonClick}
+                        >
+                            {buttonText}
+                        </button>
+                    </Link> */}
                 </div>
 
                 {/* Divider */}

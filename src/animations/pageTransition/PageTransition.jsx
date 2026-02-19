@@ -30,7 +30,7 @@ const PageTransition = ({ children, href, ...props }) => {
     transition?.classList.remove("page_transition");
   };
   return (
-    <Link {...props} href={href} onClick={handleTransition}>
+    <Link {...props}  href={href || "#"}  onClick={handleTransition}>
       {children}
     </Link>
   );
