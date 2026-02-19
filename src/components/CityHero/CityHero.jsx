@@ -8,8 +8,8 @@ import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { motion, AnimatePresence } from "framer-motion";
 
-// static images
 import BannerImg1 from "@/images/contactusbannner.png";
 import BannerImg2 from "@/images/projectDummy.png";
 
@@ -24,13 +24,27 @@ const CityHero = () => {
       <div className="cityHero__container">
 
         <div className="cityHero__header">
-          <h2 className="cityHero__title"><ParagraphTextReveal>PROJECTS IN<br /> AHMEDABAD</ParagraphTextReveal></h2>
+          <motion.h2
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+            className="cityHero__title">
+            {/* <ParagraphTextReveal> */}
+            PROJECTS IN<br /> AHMEDABAD
+            {/* </ParagraphTextReveal> */}
+          </motion.h2>
 
-          <p className="cityHero__subtitle">
+          <motion.p
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+            className="cityHero__subtitle">
             Lorem Ipsum is simply dummy
             text of the printing and
             typesetting industry.
-          </p>
+          </motion.p>
         </div>
 
         {/* Slider */}
@@ -53,7 +67,7 @@ const CityHero = () => {
           </Swiper>
 
           <button className="cityHero__cta">
-           AHMEDABAD
+            AHMEDABAD
           </button>
         </div>
 
