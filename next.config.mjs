@@ -2,6 +2,17 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+   images: {
+    domains: ["unityinteriorsadmin.humbeestudio.xyz"],
+  },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "unityinteriorsadmin.humbeestudio.xyz",
+  //     },
+  //   ],
+  // },
   // output: "export",
   // async redirects() {
   //   return [
@@ -12,6 +23,8 @@ const nextConfig = {
   //     },
   //   ];
   // },
+
+  
 };
 
 export default nextConfig;
