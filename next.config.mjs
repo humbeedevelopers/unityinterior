@@ -2,6 +2,9 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  //  images: {
+  //   domains: ["unityinteriorsadmin.humbeestudio.xyz"],
+  // },
   // output: "export",
   // async redirects() {
   //   return [

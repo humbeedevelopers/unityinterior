@@ -1,11 +1,34 @@
 "use client";
 import "./Hero.scss";
+// import { useState, useEffect } from "react";
 // import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import WordReveal from "@/animations/WordReveal";
 import CommonButton from "@/animations/Buttons/CommonButton";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  //   const [heroData, setHeroData] = useState(null);
+
+  //  useEffect(() => {
+  //   const fetchHero = async () => {
+  //     const res = await fetch(
+  //       "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home"
+  //     );
+
+  //     const data = await res.json();
+  //     console.log("FULL DATA:", data[0]);
+  //     console.log("ACF DATA:", data[0].acf);
+
+  //     // setHeroData(data[0].acf);
+  //     setHeroData(data?.[0]?.acf || {});
+
+  //   };
+
+  //   fetchHero();
+  // }, []);
+
+  //   if (!heroData) return <div>Loading...</div>;
+
   return (
     <section className="HeroSection">
       <div className="hero">
@@ -26,6 +49,7 @@ const Hero = () => {
               transition={{ duration: 1.5, delay: 0 }}
               viewport={{ once: true }}
               className="hero__description">
+              {/* {heroData.hero_subtitle} */}
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry
             </motion.p>
