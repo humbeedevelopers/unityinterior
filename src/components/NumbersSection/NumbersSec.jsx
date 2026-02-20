@@ -1,3 +1,4 @@
+"use client"
 import "./NumbersSec.scss";
 import Image from "next/image";
 import NumbersImage from "@/images/Numbersectionimg.png";

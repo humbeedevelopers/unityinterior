@@ -26,11 +26,12 @@
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+  margin: 0 auto;
   // transform: scaleY(1.15);
 }
 
 .scroll-word {
-  white-space: nowrap;
+  // white-space: nowrap;
   margin-right: 1rem;
 }
 

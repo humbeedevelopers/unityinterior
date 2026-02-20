@@ -13,7 +13,17 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const Experience = () => {
+const Experience = (
+  {
+    years,
+    title,
+    divider,
+    description,
+    imageMain,
+    imageTop,
+    imageBottom,
+  }
+) => {
   const imageRef = useRef(null);
   const imageRef1 = useRef(null);
   const sectionRef = useRef(null);
@@ -100,28 +110,35 @@ const Experience = () => {
       <div className="experience__container">
         {/* Left Content */}
         <div className="experience__content">
-          <span className="experience__count">20</span>
+          <span className="experience__count">
+            {/* 20 */}
+            {years || 0}
+          </span>
           <motion.h2
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
             viewport={{ once: true }}
             className="experience__title">
-
-            WHERE ELEGANCE <br /> MEETS DESIRE
+            {title}
+            {/* WHERE ELEGANCE <br /> MEETS DESIRE */}
           </motion.h2>
 
           <div className="experience__divider">
-            <span>YEARS OF EXPERIENCE</span>
+            <span>
+              {divider}
+              {/* YEARS OF EXPERIENCE */}
+            </span>
           </div>
 
           <p className="experience__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
+            {description}
+            {/* Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry’s standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            remaining essentially unchanged. */}
           </p>
         </div>
 
@@ -129,13 +146,22 @@ const Experience = () => {
         <div className="experience__images" ref={imageRef}>
           <div className="experience__image experience__image--main" ref={imageRef1}>
             <Image src={ImgMain} alt="Interior Design" />
+            {/* {imageMain && (
+              <Image src={imageMain} alt="Main" fill />
+            )} */}
           </div>
 
           <div className="experience__image experience__image--top" ref={imageRef2}>
-            <Image src={ImgSideTop} alt="Luxury Space" />
+             <Image src={ImgSideTop} alt="Interior Design" />
+            {/* {imageTop && (
+              <Image src={imageTop} alt="Top" width={300} height={400} />
+            )} */}
           </div>
 
           <div className="experience__image experience__image--bottom">
+            {/* {imageBottom && (
+              <Image src={imageBottom} alt="Bottom" width={300} height={400} />
+            )} */}
             <Image src={ImgSideBottom} alt="Elegant Interior" />
           </div>
         </div>

@@ -6,11 +6,11 @@ import WordReveal from "@/animations/WordReveal";
 import CommonButton from "@/animations/Buttons/CommonButton";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ title, description, imageHero, buttonText, buttonLink }) => {
   //   const [heroData, setHeroData] = useState(null);
 
   //  useEffect(() => {
-  //   const fetchHero = async () => {
+  //   const fetchHero = async () => {  
   //     const res = await fetch(
   //       "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home"
   //     );
@@ -31,7 +31,14 @@ const Hero = () => {
 
   return (
     <section className="HeroSection">
-      <div className="hero">
+      <div className="hero"
+      //   style={{
+      //   backgroundImage: imageHero ? `url(${imageHero})` : "none",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      // }}
+      >
         <div className="hero__overlay" />
 
         <div className="hero__content">
@@ -49,13 +56,13 @@ const Hero = () => {
               transition={{ duration: 1.5, delay: 0 }}
               viewport={{ once: true }}
               className="hero__description">
-              {/* {heroData.hero_subtitle} */}
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry
+              {/* Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry */}
+              {description}
             </motion.p>
             <CommonButton
-              buttonText="View Projects"
-              route="/projects"
+              buttonText={buttonText || "View Projects"}
+              route={buttonLink || "/projects"}
               padding="10px 28px"
               bgColor="#ffffff"
               hoverBgColor="#540B0E"

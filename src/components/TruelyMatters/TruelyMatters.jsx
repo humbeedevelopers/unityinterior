@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import "./TruelyMatters.scss";
 import Image from "next/image";
