@@ -1,9 +1,10 @@
+'use client'
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anime";
 import Image from "next/image";
 // import logo from "@/images/preloader_img.png";
-import logo from "@/images/new_crown_logo.png";
+import logo from "@/images/bulb.svg";
 import styles from "./style.module.css";
 
 
@@ -79,7 +80,7 @@ const strokeDashoffset = circleStrokeLength * (1 - loadedFrames / 100);
             r="95"
             stroke="#5b3524"
             strokeWidth="3"
-            fillOpacity="0"
+            fillOpacity="0" 
             strokeDasharray={circleStrokeLength}
             strokeDashoffset={strokeDashoffset} // This makes the circle progress
             transform="rotate(-90deg)" // Rotate the circle to start from the top
