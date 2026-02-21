@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ChatBot from "@/components/ChatBot/ChatBot";
+// import Preloader from "@/components/preloader";
 // import SmoothScroll from "@/animations/SmoothScroll";
 
 
@@ -57,6 +58,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${helveticaNeue.variable} ${openSans.variable}`}>
         {/* <SmoothScroll> */}
+        {/* <Preloader /> */}
         <Header />
         {children}
         <Footer />

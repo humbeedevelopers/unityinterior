@@ -43,8 +43,8 @@
 }
 .LoaderTextFirst{
   text-transform: uppercase;
-  font-weight: 600;
-  font-family: "futura_regular";
+  font-weight: 400;
+  color: #5B3524;
   @media(max-width: 1300px){
     margin-bottom: -2rem;
   }
