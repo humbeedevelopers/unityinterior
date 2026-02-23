@@ -8,28 +8,32 @@ import { motion } from "framer-motion";
 const FAQS_DATA = [
   {
     id: 1,
-    question: "How do architects charge for their services?",
+    question: "Why should I hire an interior designer?",
     answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
-    id: 2, question: "How do architects charge for their services?", answer:
+    id: 2, question: "How involved will I be in the design process?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
-    id: 3, question: "How do architects charge for their services?", answer:
+    id: 3, question: "Do you provide only design consultation services?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
-    id: 4, question: "How do architects charge for their services?", answer:
+    id: 4, question: "Which cities do you provide services in?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
-    id: 5, question: "How do architects charge for their services?", answer:
+    id: 5, question: "Do you help with material selection and sourcing?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
-    id: 6, question: "How do architects charge for their services?", answer:
+    id: 6, question: "Can you renovate an existing space?", answer:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  },
+  {
+    id: 7, question: "Will you be involved during execution?", answer:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
 ];

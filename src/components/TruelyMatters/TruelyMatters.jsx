@@ -17,7 +17,7 @@ const TruelyMatters = () => {
         {/* Left Content */}
         <div className="tm-left">
           <h2>
-            <ParagraphTextReveal> WHAT TRULY <br /> MATTERS TO US</ParagraphTextReveal>
+            <ParagraphTextReveal> WHAT WE STAND <br />FOR/OUR CORE PRINCIPLES</ParagraphTextReveal>
           </h2>
 
           <motion.p
@@ -52,8 +52,7 @@ const TruelyMatters = () => {
               className="tm-text">
               <h4>CO-CREATION</h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
+                Client-Centric Approach // Collaborative Design
               </p>
             </motion.div>
           </div>
@@ -70,8 +69,8 @@ const TruelyMatters = () => {
               className="tm-text">
               <h4>SUSTAINABILITY</h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
+                Functional Design // Functionality
+
               </p>
             </motion.div>
           </div>
@@ -88,8 +87,7 @@ const TruelyMatters = () => {
             <div className="tm-text">
               <h4>QUALITY</h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
+               Refined Execution
               </p>
             </div>
           </motion.div>

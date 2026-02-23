@@ -29,9 +29,7 @@ const AboutUsMasterpiece = () => {
           </h1>
 
           <p className="aboutUsMasterpiece__description">
-            Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text
-            of the printing and typesetting industry.
+            By combining refined aesthetics with practical design, we craft interiors that stand the test of time and feels truly yours.
           </p>
         </motion.div>
 

@@ -8,37 +8,37 @@ const timelineData = [
         step: "01",
         title: "Layout Planning",
         description:
-            "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+            "We carefully plan your space to ensure smooth movement, smart zoning, and maximum functionality. Every layout is designed to suit your lifestyle while making the best use of available space.",
     },
     {
         step: "02",
         title: "Ceiling Design",
         description:
-            "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+            "We design ceilings that enhance lighting, proportions, and overall aesthetics. From subtle detailing to statement elements, we ensure the ceiling complements your space beautifully.",
     },
     {
         step: "03",
         title: "Electrical Design",
         description:
-            "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+            "We strategically plan lighting points, switches, and power layouts for comfort and convenience. Our approach ensures both functionality and a seamless visual finish.",
     },
     {
         step: "04",
         title: "2D Elevations",
         description:
-            "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+            "We create detailed 2D elevations to help you clearly visualize finishes, materials, and design elements before execution begins.",
     },
     {
         step: "05",
         title: "3D Renders",
         description:
-            "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+            "Through high quality and realistic 3D views, we give you a complete picture of how your space will look and feel, helping you make confident design decisions.",
     },
     {
         step: "06",
         title: "Working Drawings",
         description:
-            "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+            "Once the design is final and approved from both ends, we prepare precise technical drawings that guide contractors during execution, ensuring accuracy, smooth coordination, and high-quality results.",
     },
 ];
 
@@ -63,8 +63,9 @@ const HomeTimeline = () => {
                 viewport={{ once: true }}
                 className="homeTimeline__heading">
                 {/* <ParagraphTextReveal> */}
-                MASTER FORMULA FOR <br />
-                OUTSTANDING INTERIOR DESIGNS
+                OUR DESIGN PROCESS
+                {/* MASTER FORMULA FOR <br />
+                OUTSTANDING INTERIOR DESIGNS */}
                 {/* </ParagraphTextReveal> */}
             </motion.h2>
             <div className="homeTimeline__container">

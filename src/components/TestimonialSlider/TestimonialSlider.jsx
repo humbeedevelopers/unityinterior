@@ -71,7 +71,7 @@ const TestimonialSlider = () => {
                 <div className="Testimonial-slider__header">
                     <h2 className="Testimonial-slider__title">
                         <ParagraphTextReveal>
-                            CLIENTS ABOUT <br /> OUR WORK</ParagraphTextReveal>
+                            HEAR FROM <br /> OUR CLIENTS</ParagraphTextReveal>
                     </h2>
 
                     <div className="Testimonial-slider__nav">

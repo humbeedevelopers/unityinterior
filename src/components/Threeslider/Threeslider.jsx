@@ -121,10 +121,10 @@ const ThreeSlider = () => {
                     viewport={{ once: true }}
                     className="three-slider__heading">
                     {/* <ParagraphTextReveal> */}
-                    Wall of Desire
+                    Spaces We’ve Transformed
                     {/* </ParagraphTextReveal> */}
                 </motion.h2>
-                <p className="three-slider__headingText">best picked projects</p>
+                <p className="three-slider__headingText">Our Projects</p>
 
                 <Swiper
                     effect="coverflow"
