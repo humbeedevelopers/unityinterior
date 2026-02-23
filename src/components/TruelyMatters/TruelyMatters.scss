@@ -18,10 +18,14 @@
   h2 {
     font-size: 40px;
     letter-spacing: 1px;
+    max-width: 50%;
     color: #540B0E;
     font-weight: 400;
     margin-bottom: 40px;
     line-height: 1.2;
+    @media(max-width: 1200px){
+      max-width: 100%;
+    }
   }
 
   p {

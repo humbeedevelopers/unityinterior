@@ -120,7 +120,28 @@ export default async function Page() {
         }}
       />
       {/* <NumbersSec /> */}
-      <TruelyMatters />
+      {/* <TruelyMatters /> */}
+      <TruelyMatters
+        title={acf.truely_matters_title}
+        description={acf.truely_matters_description}
+        items={[
+          {
+            icon: acf.item1_icon?.url,
+            title: acf.item1_title,
+            description: acf.item1_description,
+          },
+          {
+            icon: acf.item2_icon?.url,
+            title: acf.item2_title,
+            description: acf.item2_description,
+          },
+          {
+            icon: acf.item3_icon?.url,
+            title: acf.item3_title,
+            description: acf.item3_description,
+          },
+        ]}
+      />
       <LeadingVision
         bgImage={acf.leading_vision_bg?.url}
         titleLine1={acf.leading_vision_title_line1}
