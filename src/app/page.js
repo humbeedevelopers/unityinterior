@@ -90,11 +90,36 @@ export default async function Page() {
         imageTop={acf.experience_top_image?.url}
         imageBottom={acf.experience_bottom_image?.url}
       />
-      <CoreOfferings 
+      <CoreOfferings
       // offerings={coreOfferings} 
       />
       <HomeTimeline />
-      <NumbersSec />
+      <NumbersSec
+        label={acf.numbers_label}
+        subtext={acf.numbers_subtext}
+        image={acf.numbers_image?.url}
+        card1={{
+          number: acf.card1_number,
+          title: acf.card1_title,
+          description: acf.card1_description,
+        }}
+        card2={{
+          number: acf.card2_number,
+          title: acf.card2_title,
+          description: acf.card2_description,
+        }}
+        card3={{
+          number: acf.card3_number,
+          title: acf.card3_title,
+          description: acf.card3_description,
+        }}
+        card4={{
+          number: acf.card4_number,
+          title: acf.card4_title,
+          description: acf.card4_description,
+        }}
+      />
+      {/* <NumbersSec /> */}
       <TruelyMatters />
       <LeadingVision />
       <ThreeSlider />
