@@ -38,9 +38,11 @@ const FAQS_DATA = [
   },
 ];
 
-const FaqsSection = () => {
+const FaqsSection = ({ faqs = [] }) => {
   const [activeId, setActiveId] = useState(1);
-
+  // const [activeId, setActiveId] = useState(
+  //   faqs.length > 0 ? faqs[0].id : null
+  // );
   const toggleFaq = (id) => {
     setActiveId(activeId === id ? null : id);
   };
@@ -61,6 +63,35 @@ const FaqsSection = () => {
 
         {/* Right Column */}
         <div className="faqs__right">
+          {/* dynamic data  */}
+          {/* {faqs.map((item, index) => {
+            const isActive = activeId === item.id;
+
+            return (
+              <div
+                key={item.id}
+                className={`faqs__item ${isActive ? "is-active" : ""}`}
+              >
+                <button
+                  className="faqs__question"
+                  onClick={() => toggleFaq(item.id)}
+                  aria-expanded={isActive}
+                >
+                  <span>{item.acf?.faq_question}</span>
+                  <span className="faqs__icon">
+                    {isActive ? "–" : "+"}
+                  </span>
+                </button>
+
+                <div className="faqs__answer-wrapper">
+                  <div className="faqs__answer">
+                    {item.acf?.faq_answer}
+                  </div>
+                </div>
+              </div>
+            );
+          })} */}
+          {/* static data */}
           {FAQS_DATA.map((item) => {
             const isActive = activeId === item.id;
 

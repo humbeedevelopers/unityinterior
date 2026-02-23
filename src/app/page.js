@@ -51,11 +51,24 @@ async function getCoreOfferings() {
 
   return res.json();
 }
+async function getFaqs() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+    { next: { revalidate: 60 } }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch FAQs");
+  }
+
+  return res.json();
+}
 
 
 export default async function Page() {
   const pageData = await getHomePageData();
   const coreOfferings = await getCoreOfferings();
+  const faqs = await getFaqs();
 
   console.log("=== WORDPRESS PAGE DATA ===");
   console.log(JSON.stringify(pageData, null, 2));
@@ -155,7 +168,9 @@ export default async function Page() {
       <CountDown />
       <Form />
       <KnowledgeSpace />
-      <Faqs />
+      <Faqs 
+      // faqs={faqs}
+       />
     </main>
   );
 }
