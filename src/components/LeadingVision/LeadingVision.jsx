@@ -8,7 +8,13 @@ import BgImage from "@/images/leadingvisionimg.png";
 import PersonImage from "@/images/lvinnerimg.png";
 // import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
-const LeadingVision = () => {
+const LeadingVision = ({
+  bgImage,
+  titleLine1,
+  titleLine2,
+  image,
+  description,
+}) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -58,6 +64,15 @@ const LeadingVision = () => {
         //   fill
         //   priority
         />
+        {/* {bgImage && (
+          <Image
+            src={bgImage}
+            alt="Leading vision background"
+            fill
+            className="leading-vision__bg-img"
+            sizes="100vw"
+          />
+        )} */}
       </div>
 
       {/* Content */}
@@ -69,7 +84,9 @@ const LeadingVision = () => {
           viewport={{ once: true }}
           className="leading-vision__title">
           {/* <ParagraphTextReveal> */}
-          LEADING <br /><p>the VISION</p>
+          {titleLine1} <br />
+          <p>{titleLine2}</p>
+          {/* LEADING <br /><p>the VISION</p> */}
           {/* </ParagraphTextReveal>  */}
         </motion.h2>
 
@@ -83,16 +100,25 @@ const LeadingVision = () => {
               width={280}
               height={360}
             />
+            {/* {image && (
+              <Image
+                src={image}
+                alt="Leader"
+                width={280}
+                height={360}
+              />
+            )} */}
           </motion.div>
 
           <motion.p
             variants={fadeUp}
             className="leading-vision__description">
-            Lorem Ipsum is simply dummy text of the printing and
+            {description}
+            {/* Lorem Ipsum is simply dummy text of the printing and
             typesetting industry. Lorem Ipsum has been the industry's
             standard dummy text ever since the 1500s when an unknown
             printer took a galley of type and scrambled it to make a
-            type specimen book.
+            type specimen book. */}
           </motion.p>
         </div>
       </div>

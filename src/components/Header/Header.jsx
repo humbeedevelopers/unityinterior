@@ -233,7 +233,7 @@ const Header = () => {
         <div className="header-cta">
           <PageTransition href={"/contact-us"}>    
           <CommonButton
-            buttonText="Contact us"
+            buttonText="Let's Talk"
             route="/contact-us"
             padding="10px 20px"
             bgColor="#000"

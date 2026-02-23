@@ -51,11 +51,24 @@ async function getCoreOfferings() {
 
   return res.json();
 }
+async function getFaqs() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+    { next: { revalidate: 60 } }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch FAQs");
+  }
+
+  return res.json();
+}
 
 
 export default async function Page() {
   const pageData = await getHomePageData();
   const coreOfferings = await getCoreOfferings();
+  const faqs = await getFaqs();
 
   console.log("=== WORDPRESS PAGE DATA ===");
   console.log(JSON.stringify(pageData, null, 2));
@@ -90,19 +103,74 @@ export default async function Page() {
         imageTop={acf.experience_top_image?.url}
         imageBottom={acf.experience_bottom_image?.url}
       />
-      <CoreOfferings 
+      <CoreOfferings
       // offerings={coreOfferings} 
       />
       <HomeTimeline />
-      <NumbersSec />
-      <TruelyMatters />
-      <LeadingVision />
+      <NumbersSec
+        label={acf.numbers_label}
+        subtext={acf.numbers_subtext}
+        image={acf.numbers_image?.url}
+        card1={{
+          number: acf.card1_number,
+          title: acf.card1_title,
+          description: acf.card1_description,
+        }}
+        card2={{
+          number: acf.card2_number,
+          title: acf.card2_title,
+          description: acf.card2_description,
+        }}
+        card3={{
+          number: acf.card3_number,
+          title: acf.card3_title,
+          description: acf.card3_description,
+        }}
+        card4={{
+          number: acf.card4_number,
+          title: acf.card4_title,
+          description: acf.card4_description,
+        }}
+      />
+      {/* <NumbersSec /> */}
+      {/* <TruelyMatters /> */}
+      <TruelyMatters
+        title={acf.truely_matters_title}
+        description={acf.truely_matters_description}
+        items={[
+          {
+            icon: acf.item1_icon?.url,
+            title: acf.item1_title,
+            description: acf.item1_description,
+          },
+          {
+            icon: acf.item2_icon?.url,
+            title: acf.item2_title,
+            description: acf.item2_description,
+          },
+          {
+            icon: acf.item3_icon?.url,
+            title: acf.item3_title,
+            description: acf.item3_description,
+          },
+        ]}
+      />
+      <LeadingVision
+        bgImage={acf.leading_vision_bg?.url}
+        titleLine1={acf.leading_vision_title_line1}
+        titleLine2={acf.leading_vision_title_line2}
+        image={acf.leading_vision_image?.url}
+        description={acf.leading_vision_description}
+      />
+      {/* <LeadingVision /> */}
       <ThreeSlider />
       <ProjectSlider />
       <CountDown />
       <Form />
       <KnowledgeSpace />
-      <Faqs />
+      <Faqs 
+      // faqs={faqs}
+       />
     </main>
   );
 }

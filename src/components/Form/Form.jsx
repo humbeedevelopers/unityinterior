@@ -19,7 +19,7 @@ const schema = yup.object({
   message: yup.string().required("Message is required"),
 });
 
-const Form = () => {
+const Form = ({actionWord = "DESIGN" }) => {
   const {
     register,
     handleSubmit,
@@ -45,8 +45,8 @@ const Form = () => {
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}
             className="contactForm__heading">
-            LET’S MAKE AN <br />
-            EXQUISITE <br />
+            LET’S {actionWord} <br />
+            YOUR DREAM <br />
             SPACE <br />
             <span>TOGETHER</span>
           </motion.h2>

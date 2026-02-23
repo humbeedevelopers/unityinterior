@@ -129,7 +129,8 @@ const CoreOfferingCards = () => {
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}
           >
-            CORE OFFERINGS
+            WHAT WE OFFER
+            {/* CORE OFFERINGS */}
             {/* <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal> */}
           </motion.h2>
         </div>

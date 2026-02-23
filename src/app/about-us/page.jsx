@@ -24,7 +24,7 @@ const AboutUs = () => {
         <div>
             <HeroAbout />
             <AboutStory
-                title="OUR STORY"
+                title="THE STORY BEHIND UNITY INTERIORS"
                 paragraphs={[
                     'We started the journey in 2018 with an idea to provide best interior designing and architectural services.In 2021, we achieved an milestone as Unity Interiors named as Top Creative and Design Companies Globally.',
                     'We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of apartments, villas and very short span we have designed couple of offices Pan India.'
@@ -65,7 +65,7 @@ const AboutUs = () => {
             <AboutUsMasterpiece />
             <CountDown />
             <ThreeSlider />
-            <Form />
+            <Form actionWord="BUILD" />
             <Faqs />
 
         </div>

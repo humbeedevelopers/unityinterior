@@ -18,11 +18,12 @@ const Footer = () => {
         {/* LEFT CONTENT */}
         <div className="footer__left">
           <h2 className="footer__headline">
-            where <br />
+            BRINGING YOUR <br />
             <TextRotator words={animatedWords}></TextRotator>
             {/* home / office / living */}
             <br />
-            dream come true
+            {/* dream come true */}
+            DREAM SPACE TO LIFE
           </h2>
 
           <div className="footer__brand">
