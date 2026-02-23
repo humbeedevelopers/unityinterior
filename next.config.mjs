@@ -2,8 +2,15 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-   images: {
-    domains: ["unityinteriorsadmin.humbeestudio.xyz"],
+  images: {
+     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "unityinteriorsadmin.humbeestudio.xyz",
+       
+      },
+    ],
   },
   // images: {
   //   remotePatterns: [
