@@ -121,7 +121,14 @@ export default async function Page() {
       />
       {/* <NumbersSec /> */}
       <TruelyMatters />
-      <LeadingVision />
+      <LeadingVision
+        bgImage={acf.leading_vision_bg?.url}
+        titleLine1={acf.leading_vision_title_line1}
+        titleLine2={acf.leading_vision_title_line2}
+        image={acf.leading_vision_image?.url}
+        description={acf.leading_vision_description}
+      />
+      {/* <LeadingVision /> */}
       <ThreeSlider />
       <ProjectSlider />
       <CountDown />
