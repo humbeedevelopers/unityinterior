@@ -11,6 +11,7 @@ import PageTransition from "@/animations/pageTransition/PageTransition";
 
 const Footer = () => {
   const animatedWords = ["home", "office", "living"];
+  const FooterWords = ["MAKING", "DREAMS", "TRUE"];
 
   return (
     <footer className="footer">
@@ -113,7 +114,11 @@ const Footer = () => {
 
       </div>
       <div className="footer-visual">
-        <h2 className="footer-visual__text">MAKING</h2>
+                    
+        <h2 className="footer-visual__text">
+          {/* MAKING */}
+          <TextRotator words={FooterWords}></TextRotator>
+          </h2>
 
         <div className="footer-visual__image">
           <Image

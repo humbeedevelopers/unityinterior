@@ -77,6 +77,21 @@ export default async function Page() {
   const acf = pageData?.acf || {};
   const heroImageUrl = acf.hero_image?.url;
 
+  // ===============================
+  // CLIENT MARQUEE LOGOS (ACF FREE)
+  // ===============================
+
+  const clientLogos = Object.entries(acf)
+    .filter(([key, value]) => key.startsWith("client_logo_") && value?.url)
+    .map(([key, value]) => ({
+      url: value.url,
+      alt: value.alt || "Client Logo",
+      width: value.width,
+      height: value.height,
+    }));
+
+  console.log("Client Logos:", clientLogos);
+
   // ACF Timeline Items
   const timelineItems = Object.keys(acf)
     .filter(key => key.startsWith("timeline_") && typeof acf[key] === "object")
@@ -158,6 +173,7 @@ export default async function Page() {
       />
 
       <Marquee />
+      {/* <Marquee logos={clientLogos} /> */}
       <TextEffect text={acf.text_effect_content || ""} />
       <Experience
         years={acf.experience_years}
@@ -169,7 +185,7 @@ export default async function Page() {
         imageBottom={acf.experience_bottom_image?.url}
       />
       <CoreOfferings
-      offerings={coreOfferings} 
+        offerings={coreOfferings}
       />
       <HomeTimeline
         timelineHeading={acf.timeline_heading}
