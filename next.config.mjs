@@ -6,7 +6,7 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: "https",
+        // protocol: "https",
         hostname: "unityinteriorsadmin.humbeestudio.xyz",
 
       },

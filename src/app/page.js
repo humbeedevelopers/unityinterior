@@ -81,16 +81,16 @@ export default async function Page() {
   // CLIENT MARQUEE LOGOS (ACF FREE)
   // ===============================
 
-  const clientLogos = Object.entries(acf)
-    .filter(([key, value]) => key.startsWith("client_logo_") && value?.url)
-    .map(([key, value]) => ({
-      url: value.url,
-      alt: value.alt || "Client Logo",
-      width: value.width,
-      height: value.height,
-    }));
+  // const clientLogos = Object.entries(acf)
+  //   .filter(([key, value]) => key.startsWith("client_logo_") && value?.url)
+  //   .map(([key, value]) => ({
+  //     url: value.url,
+  //     alt: value.alt || "Client Logo",
+  //     width: value.width,
+  //     height: value.height,
+  //   }));
 
-  console.log("Client Logos:", clientLogos);
+  // console.log("Client Logos:", clientLogos);
 
   // ACF Timeline Items
   const timelineItems = Object.keys(acf)
@@ -156,12 +156,8 @@ export default async function Page() {
   }
 
   console.log("Knowledge Items:", knowledgeItems);
-  // const heroImageUrl = acf.hero_image
-  //   ? await getMediaById(acf.hero_image)
-  //   : null;
-  // console.log("Experience Main Image:", acf.experience_image_main);
-  // console.log("Experience Top Image:", acf.experience_image_top);
-  // console.log("Experience Bottom Image:", acf.experience_image_bottom);
+
+  
   return (
     <main>
       <Hero
