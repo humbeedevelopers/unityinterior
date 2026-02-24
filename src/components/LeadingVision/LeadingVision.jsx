@@ -94,20 +94,20 @@ const LeadingVision = ({
           <motion.div
             variants={slideLeft}
             className="leading-vision__image">
-            <Image
+            {/* <Image
               src={PersonImage}
               alt="Leader"
               width={280}
               height={360}
-            />
-            {/* {image && (
+            /> */}
+            {image && (
               <Image
                 src={image}
                 alt="Leader"
                 width={280}
                 height={360}
               />
-            )} */}
+            )}
           </motion.div>
 
           <motion.p
