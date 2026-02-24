@@ -80,17 +80,17 @@ export default async function Page() {
   // ===============================
   // CLIENT MARQUEE LOGOS (ACF FREE)
   // ===============================
+const clientLogosGroup = acf.client_logos_group || {};
+  const clientLogos = Object.entries(clientLogosGroup)
+    .filter(([key, value]) => key.startsWith("client_logo_") && value?.url)
+    .map(([key, value]) => ({
+      url: value.url,
+      alt: value.alt || "Client Logo",
+      width: value.width,
+      height: value.height,
+    }));
 
-  // const clientLogos = Object.entries(acf)
-  //   .filter(([key, value]) => key.startsWith("client_logo_") && value?.url)
-  //   .map(([key, value]) => ({
-  //     url: value.url,
-  //     alt: value.alt || "Client Logo",
-  //     width: value.width,
-  //     height: value.height,
-  //   }));
-
-  // console.log("Client Logos:", clientLogos);
+  console.log("Client Logos:", clientLogos);
 
   // ACF Timeline Items
   const timelineItems = Object.keys(acf)
@@ -99,13 +99,13 @@ export default async function Page() {
     .filter(item => item?.title);
 
   // ACF Execution Items
-  console.log("Timeline Items:", timelineItems);
+  // console.log("Timeline Items:", timelineItems);
 
   const executionItems = Object.keys(acf)
     .filter(key => key.startsWith("execution_") && typeof acf[key] === "object")
     .map(key => acf[key])
     .filter(item => item?.title);
-  console.log("Execution Items:", executionItems);
+  // console.log("Execution Items:", executionItems);
 
 
   // ===============================
@@ -155,7 +155,7 @@ export default async function Page() {
     }
   }
 
-  console.log("Knowledge Items:", knowledgeItems);
+  // console.log("Knowledge Items:", knowledgeItems);
 
 
   return (
@@ -168,8 +168,8 @@ export default async function Page() {
         buttonLink={acf.hero_button_link?.url}
       />
 
-      <Marquee />
-      {/* <Marquee logos={clientLogos} /> */}
+      {/* <Marquee /> */}
+      <Marquee logos={clientLogos} />
       <TextEffect text={acf.text_effect_content || ""} />
       <Experience
         years={acf.experience_years}
