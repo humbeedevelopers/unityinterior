@@ -16,36 +16,36 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const CoreOfferingCards = () => {
+const CoreOfferingCards = ({ offerings = [] }) => {
   const component = useRef(null);
   const slider = useRef(null);
 
-  const offerings = [
-    {
-      id: 1,
-      title: 'INTERIOR DESIGNING',
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
-      image: Banner,
-      href: "/services/interior-design",
-    },
-    {
-      id: 2,
-      title: 'ARCHITECTURAL PLANNING',
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
-      image: Banner,
-      href: "/services/architectural-planning",
-    },
-    {
-      id: 3,
-      title: '3D VISUALIZATION',
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
-      image: Banner,
-      href: "/services/3d-visualization",
-    },
-  ];
+  // const offerings = [
+  //   {
+  //     id: 1,
+  //     title: 'INTERIOR DESIGNING',
+  //     description:
+  //       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
+  //     image: Banner,
+  //     href: "/services/interior-design",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'ARCHITECTURAL PLANNING',
+  //     description:
+  //       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
+  //     image: Banner,
+  //     href: "/services/architectural-planning",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: '3D VISUALIZATION',
+  //     description:
+  //       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic ",
+  //     image: Banner,
+  //     href: "/services/3d-visualization",
+  //   },
+  // ];
 
   useLayoutEffect(() => {
     // Wait for all images and content to load
@@ -130,14 +130,13 @@ const CoreOfferingCards = () => {
             viewport={{ once: true }}
           >
             WHAT WE OFFER
-            {/* CORE OFFERINGS */}
             {/* <ParagraphTextReveal>CORE OFFERINGS</ParagraphTextReveal> */}
           </motion.h2>
         </div>
 
         <div className="core-offering-cards__horizontal">
           <div className="core-offering-cards__list" ref={slider}>
-            {offerings.map((offering, index) => (
+            {/* {offerings.map((offering, index) => (
               <div
                 key={offering.id}
                 className="core-offering-cards__card"
@@ -155,7 +154,6 @@ const CoreOfferingCards = () => {
                       alt={offering.title}
                       fill
                       sizes="100vw"
-                      // priority={index === 0}
                       className="core-offering-cards__image"
                     />
 
@@ -165,12 +163,6 @@ const CoreOfferingCards = () => {
                       </p>
 
                       <div>
-                        {/* <Link
-                          href={offering.href}
-                          className="core-offering-cards__btn"
-                        >
-                          Learn more
-                        </Link> */}
 
                         <CommonButton
                           buttonText="Learn more"
@@ -189,7 +181,63 @@ const CoreOfferingCards = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
+            {offerings.map((offering, index) => {
+              // const imageUrl =
+              //   offering._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+              // const imageUrl =
+              //   offering?.acf?.core_images?.url || "/fallback.png";
+              const imageUrl = offering?.acf?.core_images?.url;
+              const description = offering.acf?.core_description;
+              const link = offering.acf?.core_link?.url;
+              console.log(imageUrl, description, link);
+              return (
+                <div
+                  key={offering.id}
+                  className="core-offering-cards__card"
+                >
+                  <div className="core-offering-cards__card-header">
+                    <h3 className="core-offering-cards__card-title">
+                      {offering.title.rendered}
+                    </h3>
+                  </div>
+
+                  <div className="core-offering-cards__card-content">
+                    <div className="core-offering-cards__image-wrapper">
+                      {imageUrl && (
+                        <Image
+                          src={imageUrl}
+                          alt={offering.title.rendered}
+                          // fill="true"
+                          fill
+                          sizes="100vw"
+                          className="core-offering-cards__image"
+                        />
+                      )}
+
+                      <div className="core-offering-cards__overlay">
+                        <p className="core-offering-cards__description">
+                          {description}
+                        </p>
+
+                        <div>
+                          <CommonButton
+                            buttonText="Learn more"
+                            route={link || "#"}
+                            padding="10px 28px"
+                            bgColor="#ffffff"
+                            hoverBgColor="#540B0E"
+                            fontSize="15px"
+                            textColor="#000"
+                            hoverTextColor="#ffffff"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 

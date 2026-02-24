@@ -19,7 +19,7 @@ const TextRotator = ({ words, className = "", interval = 2500 }) => {
         position: "relative",
         display: "inline-flex",
         flexDirection: "column",
-        height: "1.2em", // lock height
+        // height: "1.2em", // lock height
         overflow: "hidden",
       }}
     >
