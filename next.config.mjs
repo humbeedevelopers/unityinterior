@@ -3,12 +3,12 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   images: {
-     unoptimized: true,
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "unityinteriorsadmin.humbeestudio.xyz",
-       
+
       },
     ],
   },
@@ -31,7 +31,7 @@ const nextConfig = {
   //   ];
   // },
 
-  
+
 };
 
 export default nextConfig;
