@@ -29,17 +29,17 @@ async function getHomePageData() {
   return data[0];
 }
 
-// async function getMediaById(id) {
-//   const res = await fetch(
-//     `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
-//     { cache: "no-store" }
-//   );
+async function getMediaById(id) {
+  const res = await fetch(
+    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+    { cache: "no-store" }
+  );
 
-//   if (!res.ok) return null;
+  if (!res.ok) return null;
 
-//   const media = await res.json();
-//   return media.source_url;
-// }
+  const media = await res.json();
+  return media.source_url;
+}
 
 async function getCoreOfferings() {
   const res = await fetch(
@@ -78,19 +78,69 @@ export default async function Page() {
   const heroImageUrl = acf.hero_image?.url;
 
   // ACF Timeline Items
-const timelineItems = Object.keys(acf)
-  .filter(key => key.startsWith("timeline_") && typeof acf[key] === "object")
-  .map(key => acf[key])
-  .filter(item => item?.title);
+  const timelineItems = Object.keys(acf)
+    .filter(key => key.startsWith("timeline_") && typeof acf[key] === "object")
+    .map(key => acf[key])
+    .filter(item => item?.title);
 
   // ACF Execution Items
-console.log("Timeline Items:", timelineItems);
+  console.log("Timeline Items:", timelineItems);
 
-const executionItems = Object.keys(acf)
-  .filter(key => key.startsWith("execution_") && typeof acf[key] === "object")
-  .map(key => acf[key])
-  .filter(item => item?.title);
+  const executionItems = Object.keys(acf)
+    .filter(key => key.startsWith("execution_") && typeof acf[key] === "object")
+    .map(key => acf[key])
+    .filter(item => item?.title);
   console.log("Execution Items:", executionItems);
+
+
+ // ===============================
+// KNOWLEDGE SLIDER (HANDLE ID + ARRAY)
+// ===============================
+
+// const knowledgeItems = Object.entries(acf)
+//   .filter(([key, value]) => key.startsWith("slider_content") && typeof value === "object")
+//   .map(([key, value]) => {
+//     let imageUrl = "";
+//     // Case 1: Image Array
+//     if (typeof value.image === "object" && value.image?.url) {
+//       imageUrl = value.image.url;
+//     }
+//     // Case 2: Image ID (number)
+//     if (typeof value.image === "number") {
+//       imageUrl = `https://unityinteriorsadmin.humbeestudio.xyz/wp-content/uploads/2026/02/KnowlwdgeSliderBanner-1.webp`;
+//     }
+//     return {
+//       description: value?.description || "",
+//       image: imageUrl,
+//     };
+//   })
+//   .filter(item => item.description && item.image);
+
+// console.log("Knowledge Items:", knowledgeItems);
+const knowledgeItems = [];
+
+for (const [key, value] of Object.entries(acf)) {
+  if (key.startsWith("slider_content") && typeof value === "object") {
+    let imageUrl = "";
+
+    if (typeof value.image === "object" && value.image?.url) {
+      imageUrl = value.image.url;
+    }
+
+    if (typeof value.image === "number") {
+      imageUrl = await getMediaById(value.image);
+    }
+
+    if (value.description && imageUrl) {
+      knowledgeItems.push({
+        description: value.description,
+        image: imageUrl,
+      });
+    }
+  }
+}
+
+console.log("Knowledge Items:", knowledgeItems);
   // const heroImageUrl = acf.hero_image
   //   ? await getMediaById(acf.hero_image)
   //   : null;
@@ -188,7 +238,11 @@ const executionItems = Object.keys(acf)
       <ProjectSlider />
       <CountDown />
       <Form />
-      <KnowledgeSpace />
+      {/* <KnowledgeSpace /> */}
+      <KnowledgeSpace
+        title={acf.knowledge_section_title}
+        items={knowledgeItems}
+      />
       <Faqs
       // faqs={faqs}
       />
