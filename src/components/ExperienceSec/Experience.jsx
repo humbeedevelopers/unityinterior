@@ -145,24 +145,24 @@ const Experience = (
         {/* Right Images */}
         <div className="experience__images" ref={imageRef}>
           <div className="experience__image experience__image--main" ref={imageRef1}>
-            <Image src={ImgMain} alt="Interior Design" />
-            {/* {imageMain && (
+            {/* <Image src={ImgMain} alt="Interior Design" /> */}
+            {imageMain && (
               <Image src={imageMain} alt="Main" fill />
-            )} */}
+            )}
           </div>
 
           <div className="experience__image experience__image--top" ref={imageRef2}>
-             <Image src={ImgSideTop} alt="Interior Design" />
-            {/* {imageTop && (
-              <Image src={imageTop} alt="Top" width={300} height={400} />
-            )} */}
+             {/* <Image src={ImgSideTop} alt="Interior Design" /> */}
+            {imageTop && (
+              <Image src={imageTop} alt="Top" fill/>
+            )}
           </div>
 
           <div className="experience__image experience__image--bottom">
-            {/* {imageBottom && (
-              <Image src={imageBottom} alt="Bottom" width={300} height={400} />
-            )} */}
-            <Image src={ImgSideBottom} alt="Elegant Interior" />
+            {imageBottom && (
+              <Image src={imageBottom} alt="Bottom" fill />
+            )}
+            {/* <Image src={ImgSideBottom} alt="Elegant Interior" /> */}
           </div>
         </div>
       </div>

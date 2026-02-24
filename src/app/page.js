@@ -169,7 +169,7 @@ export default async function Page() {
         imageBottom={acf.experience_bottom_image?.url}
       />
       <CoreOfferings
-      // offerings={coreOfferings} 
+      offerings={coreOfferings} 
       />
       <HomeTimeline
         timelineHeading={acf.timeline_heading}
