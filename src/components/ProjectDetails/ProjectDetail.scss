@@ -30,6 +30,7 @@
         padding: 14px 16px;
         font-size: 16px;
         font-weight: 500;
+        text-transform: uppercase;
         color: #540B0E;
         border-radius: 8px;
         cursor: pointer;
@@ -76,7 +77,7 @@
             object-fit: cover;
             max-width: 100%;
             width: 100%;
-            height: auto;
+            height: 100%;
         }
     }
 
@@ -144,6 +145,7 @@
     &__location {
         font-size: 20px;
         font-weight: 500;
+        text-transform: uppercase;
         color: #540B0E;
         display: flex;
         gap: 10px;
