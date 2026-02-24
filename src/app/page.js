@@ -76,6 +76,21 @@ export default async function Page() {
 
   const acf = pageData?.acf || {};
   const heroImageUrl = acf.hero_image?.url;
+
+  // ACF Timeline Items
+const timelineItems = Object.keys(acf)
+  .filter(key => key.startsWith("timeline_") && typeof acf[key] === "object")
+  .map(key => acf[key])
+  .filter(item => item?.title);
+
+  // ACF Execution Items
+console.log("Timeline Items:", timelineItems);
+
+const executionItems = Object.keys(acf)
+  .filter(key => key.startsWith("execution_") && typeof acf[key] === "object")
+  .map(key => acf[key])
+  .filter(item => item?.title);
+  console.log("Execution Items:", executionItems);
   // const heroImageUrl = acf.hero_image
   //   ? await getMediaById(acf.hero_image)
   //   : null;
@@ -106,7 +121,13 @@ export default async function Page() {
       <CoreOfferings
       // offerings={coreOfferings} 
       />
-      <HomeTimeline />
+      <HomeTimeline
+        timelineHeading={acf.timeline_heading}
+        timelineItems={timelineItems}
+        executionHeading={acf.execution_section_heading}
+        executionItems={executionItems}
+      />
+      {/* <HomeTimeline /> */}
       <NumbersSec
         label={acf.numbers_label}
         subtext={acf.numbers_subtext}
@@ -168,9 +189,9 @@ export default async function Page() {
       <CountDown />
       <Form />
       <KnowledgeSpace />
-      <Faqs 
+      <Faqs
       // faqs={faqs}
-       />
+      />
     </main>
   );
 }
