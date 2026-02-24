@@ -32,7 +32,7 @@ async function getHomePageData() {
 async function getMediaById(id) {
   const res = await fetch(
     `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
-    { cache: "no-store" }
+    // { cache: "no-store" }
   );
 
   if (!res.ok) return null;
@@ -157,7 +157,7 @@ export default async function Page() {
 
   console.log("Knowledge Items:", knowledgeItems);
 
-  
+
   return (
     <main>
       <Hero
