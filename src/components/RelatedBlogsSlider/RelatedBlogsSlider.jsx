@@ -11,11 +11,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./RelatedBlogsSlider.scss";
-import { blogsMeta } from "@/app/blogs/[slug]/head";
+// import { blogsMeta } from "@/app/blogs/[slug]/head";
 
 
-const RelatedBlogsSlider = ({ currentSlug }) => {
-    const relatedBlogs = blogsMeta.filter(
+const RelatedBlogsSlider = ({ blogs = [], currentSlug }) => {
+    const relatedBlogs = blogs.filter(
         (blog) => blog.slug !== currentSlug
     );
     return (
@@ -66,22 +66,24 @@ const RelatedBlogsSlider = ({ currentSlug }) => {
                         <SwiperSlide key={blog.slug}>
                             <article className="related-blog-card">
                                 <div className="related-blog-card__image">
+                                     {blog.image && (
                                     <Image
-                                        src={blog.heroImage}
+                                        src={blog.image}
                                         alt={blog.title}
                                         fill
                                         className="related-blog-card__img"
                                     />
+                                     )}
                                 </div>
 
                                 <div className="related-blog-card__content">
                                     <div className="related-blog-card__contentInner">
 
                                         <span className="related-blog-card__category">
-                                            {blog.category}
+                                            {blog.categoryName}
                                         </span>
                                         <p className="related-blog-card__date">
-                                            {blog.blogsDate}
+                                            {blog.date}
                                         </p>
                                     </div>
                                     <h3 className="related-blog-card__title">
@@ -91,6 +93,7 @@ const RelatedBlogsSlider = ({ currentSlug }) => {
                             </article>
                         </SwiperSlide>
                     ))}
+                  
                 </Swiper>
             </div>
         </section>

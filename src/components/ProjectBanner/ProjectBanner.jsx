@@ -13,7 +13,7 @@ import BannerImg1 from "@/images/contactusbannner.png";
 import BannerImg2 from "@/images/projectDummy.png";
 
 const ProjectBanner = ({ projects = [] }) => {
-  // ✅ Extract all main images
+  // Extract all main images
   const images = projects
     .map((project) => project?.acf?.project_images?.main_image)
     .filter((img) => img && img.url);
@@ -24,7 +24,7 @@ const ProjectBanner = ({ projects = [] }) => {
   //   return group?.main_image?.url ? [group.main_image] : [];
   // });
 
-  // ✅ Debug console
+  //  Debug console
   useEffect(() => {
     console.log("All Projects:", projects);
     console.log("Extracted Main Images:", images);

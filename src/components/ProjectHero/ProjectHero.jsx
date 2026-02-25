@@ -11,7 +11,7 @@ const ProjectHero = ({ project }) => {
   // const { title, description, location, image } = project;
   if (!project) return null;
 
-  // ✅ Extract from WP structure
+  //  Extract from WP structure
   const title = project?.title?.rendered || "";
   const subtitle = project?.acf?.project_subtitle || "";
   const location = project?.acf?.project_location || "";

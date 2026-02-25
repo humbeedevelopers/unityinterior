@@ -19,6 +19,7 @@ const BlogsInnerHero = ({ title, category, image }) => {
         <Image
           src={image}
           alt={title}
+          fill
           className="blogsInnerHero__image"
         />
 
