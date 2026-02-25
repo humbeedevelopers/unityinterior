@@ -59,7 +59,7 @@ export const PROJECTS_DATA = [
     title: "3D Bedroom Visualization",
     category: "3D VISUALIZATION",
     location: "SURAT",
-    slug: "3d-bedroom-visualization",
+    slug: "3d-bedroom-visualization1",
     description:
       "High-quality 3D visualization showcasing lighting, materials, and layout.",
     client: "Internal Concept",

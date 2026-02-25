@@ -16,6 +16,7 @@ const RelatedProjectSlider = ({ projects = [] }) => {
     const router = useRouter();
     if (!projects.length) return null;
 
+
     return (
         <section className="related-projects">
             <div className="related-projects__container">
@@ -48,6 +49,7 @@ const RelatedProjectSlider = ({ projects = [] }) => {
                     //     nextEl: ".related-projects__btn--next",
                     // }}
                     loop={projects.length > 2}
+                    // loop={true}
                     speed={1500}
                     autoplay={{
                         delay: 2500,
@@ -69,17 +71,29 @@ const RelatedProjectSlider = ({ projects = [] }) => {
                                 onClick={() => router.push(`/projects/${project.slug}`)}
                             >
                                 <div className="related-project-card__image">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className="related-project-card__img"
-                                    />
+                                    {project.image && (
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            // sizes="(max-width:768px)     100vw, 50vw"
+                                            className="related-project-card__img"
+                                        />
+                                    )}
                                 </div>
-
+                                {/* <div>
+                                    <h3 className="related-project-card__title">
+                                        {project.title}
+                                    </h3>
+                                </div> */}
+                                <h3 className="related-project-card__title">
+                                    {project.title}
+                                </h3>
                                 <div className="related-project-card__info">
+
                                     <Image src={LocationSvg} alt="location" />
                                     <span>{project.location}</span>
+
                                 </div>
                             </article>
                         </SwiperSlide>

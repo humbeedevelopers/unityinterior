@@ -75,13 +75,24 @@
         transform: scale(1.05);
     }
 
-    &__info {
+     &__title {
         margin-top: 14px;
         display: flex;
         align-items: center;
         gap: 8px;
         font-size: 20px;
         font-weight: 500;
+        text-transform: uppercase;
+        color: #540b0e;
+     }
+    &__info {
+        // margin-top: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
         color: #540b0e;
 
         img {
