@@ -16,6 +16,20 @@ import AboutUsMasterpiece from "@/components/AboutUsMasterpiece/AboutUsMasterpie
 export const metadata = {
     title: "About Us | Unity Interior",
 };
+async function getHomePageData() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+    // { cache: "no-store" } // or revalidate: 60
+    { next: { revalidate: 60 } }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch homepage data");
+  }
+
+  const data = await res.json();
+  return data[0];
+}
 
 async function getFaqs() {
     const res = await fetch(
@@ -33,6 +47,19 @@ async function getFaqs() {
 // const AboutUs = () => {
 export default async function AboutUs() {
     const faqs = await getFaqs();
+     const pageData = await getHomePageData();
+
+    const countdownRaw = pageData?.acf?.countdown_section;
+
+    const countdownData = {
+        heading: countdownRaw?.heading,
+        subHeading: countdownRaw?.sub_heading,
+        stats: [
+            countdownRaw?.stat_1,
+            countdownRaw?.stat_2,
+            countdownRaw?.stat_3,
+        ].filter(Boolean),
+    };
     // useEffect(() => {
     //     document.title =
     //         "About Us | Unity Interior";
@@ -49,7 +76,7 @@ export default async function AboutUs() {
                 imageSrc={StoryBanner}
                 imageAlt="About story image"
                 showKnowMore
-                // onKnowMore={() => console.log('Know more clicked')}
+            // onKnowMore={() => console.log('Know more clicked')}
             />
             <AboutTab
                 title="LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND"
@@ -80,7 +107,7 @@ export default async function AboutUs() {
             <TestimonialSlider />
 
             <AboutUsMasterpiece />
-            <CountDown />
+            <CountDown data={countdownData} />
             <ThreeSlider />
             <Form actionWord="BUILD" />
             <Faqs faqs={faqs} />

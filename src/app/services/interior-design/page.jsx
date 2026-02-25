@@ -20,7 +20,20 @@ import Formula from "@/components/HomeFormula/Formula";
 export const metadata = {
     title: "Interior Design | Unity Interior",
 };
+async function getHomePageData() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+    // { cache: "no-store" } // or revalidate: 60
+    { next: { revalidate: 60 } }
+  );
 
+  if (!res.ok) {
+    throw new Error("Failed to fetch homepage data");
+  }
+
+  const data = await res.json();
+  return data[0];
+}
 async function getFaqs() {
     const res = await fetch(
         "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
@@ -36,7 +49,21 @@ async function getFaqs() {
 
 
 export default async function InteriorDesign() {
+     const pageData = await getHomePageData();
     const faqs = await getFaqs();
+
+    const countdownRaw = pageData?.acf?.countdown_section;
+
+  const countdownData = {
+    heading: countdownRaw?.heading,
+    subHeading: countdownRaw?.sub_heading,
+    stats: [
+      countdownRaw?.stat_1,
+      countdownRaw?.stat_2,
+      countdownRaw?.stat_3,
+    ].filter(Boolean),
+  };
+
 // const InteriorDesign = ({ relatedProjects }) => {
     // useEffect(() => {   
     //     document.title =
@@ -93,7 +120,7 @@ export default async function InteriorDesign() {
             )} */}
             <ThreeSlider />
             <TestimonialSlider />
-            <CountDown />
+            <CountDown data={countdownData}/>
             <Form />
             <Faqs faqs={faqs}/>
 
