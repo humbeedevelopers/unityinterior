@@ -28,7 +28,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <ProjectBanner />
+      <ProjectBanner  projects={projects}/>
       <ProjectDetail projects={projects} categories={categories} />
     </>
   );

@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import Image from "next/image";
 import "./ProjectBanner.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,24 +12,26 @@ import { PROJECTS_DATA } from "@/app/projects/data";
 import BannerImg1 from "@/images/contactusbannner.png";
 import BannerImg2 from "@/images/projectDummy.png";
 
-const ProjectBanner = ({ slug }) => {
-    // find project by slug
-  const project = PROJECTS_DATA.find(
-    (item) => item.slug === slug
-  );
+const ProjectBanner = ({ projects = [] }) => {
+  // ✅ Extract all main images
+  const images = projects
+    .map((project) => project?.acf?.project_images?.main_image)
+    .filter((img) => img && img.url);
 
-  // normalize images (array or single)
-//   const images = Array.isArray(project?.image)
-//     ? project.image
-//     : project?.image
-//     ? [project.image]
-//     : [];
-const images = Array.isArray(PROJECTS_DATA[0].image)
-  ? PROJECTS_DATA[0].image
-  : [PROJECTS_DATA[0].image];
 
+  //     const images = projects.flatMap((project) => {
+  //   const group = project?.acf?.project_images;
+  //   return group?.main_image?.url ? [group.main_image] : [];
+  // });
+
+  // ✅ Debug console
+  useEffect(() => {
+    console.log("All Projects:", projects);
+    console.log("Extracted Main Images:", images);
+  }, [projects]);
 
   if (!images.length) return null;
+
   return (
     <section className="projectBanner">
       <div className="projectBanner__container">
@@ -39,12 +41,13 @@ const images = Array.isArray(PROJECTS_DATA[0].image)
 
           <p className="projectBanner__subtitle">
             <ParagraphTextReveal>
-            Lorem Ipsum is simply dummy
-            text of the printing and
-            typesetting industry.
+
+              Lorem Ipsum is simply dummy
+              text of the printing and
+              typesetting industry.
             </ParagraphTextReveal>
           </p>
-        </div>  
+        </div>
 
         {/* Slider */}
         <div className="projectBanner__imageWrapper">
@@ -56,10 +59,17 @@ const images = Array.isArray(PROJECTS_DATA[0].image)
           >
             {images.map((img, index) => (
               <SwiperSlide key={index}>
-                <Image
+                {/* <Image
                   src={img}
                   alt={`Project banner ${index + 1}`}
-                //   fill
+                  //   fill
+                  className="projectBanner__image"
+                /> */}
+                <Image
+                  src={img.url}
+                  alt={img.alt || `Project banner ${index + 1}`}
+                  width={img.width || 1200}
+                  height={img.height || 800}
                   className="projectBanner__image"
                 />
               </SwiperSlide>
