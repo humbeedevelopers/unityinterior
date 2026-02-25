@@ -1,5 +1,5 @@
-"use client"
-import { useEffect } from "react";
+// "use client"
+// import { useEffect } from "react";
 import Image from "next/image";
 import ImgMain from "@/images/Heroservice.png";
 import HoverImage from "@/images/hoveredimg.png";
@@ -14,11 +14,55 @@ import HeroService from "@/components/HeroService/HeroService";
 import HomeCards from "@/components/HomeCards/HomeCards";
 import ServiceHoverCards from "@/components/ServiceHoverCards/ServiceHoverCards";
 
-const InteriorDesign = () => {
-    useEffect(() => {
-        document.title =
-            "3d Visualization | Unity Interior";
-    });
+
+export const metadata = {
+    title: "3d Visualization | Unity Interior",
+};
+async function getHomePageData() {
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+        // { cache: "no-store" } // or revalidate: 60
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch homepage data");
+    }
+
+    const data = await res.json();
+    return data[0];
+}
+
+async function getFaqs() {
+
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch FAQs");
+    }
+
+    return res.json();
+}
+export default async function Visualization() {
+    const pageData = await getHomePageData();
+    const faqs = await getFaqs();
+    // const InteriorDesign = () => {
+
+    const countdownRaw = pageData?.acf?.countdown_section;
+
+    const countdownData = {
+        heading: countdownRaw?.heading,
+        subHeading: countdownRaw?.sub_heading,
+        stats: [
+            countdownRaw?.stat_1,
+            countdownRaw?.stat_2,
+            countdownRaw?.stat_3,
+        ].filter(Boolean),
+    };
+
     return (
         <div>
             <HeroService
@@ -37,7 +81,7 @@ const InteriorDesign = () => {
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
                 buttonText="Contact Us"
-                onButtonClick={() => console.log("CTA Clicked")}
+            // onButtonClick={() => console.log("CTA Clicked")}
             />
             <HomeCards
                 heading="Why Choose Us?"
@@ -62,14 +106,14 @@ const InteriorDesign = () => {
                     },
                 ]}
             />
-            
+
             <ThreeSlider />
             <TestimonialSlider />
-            <CountDown />
+            <CountDown data={countdownData}/>
             <Form />
-            <Faqs />
+            <Faqs faqs={faqs} />
 
         </div>
     )
 }
-export default InteriorDesign;
+// export default InteriorDesign;

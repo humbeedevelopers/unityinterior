@@ -1,5 +1,5 @@
 "use client";
-import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+// import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import "./CityInfo.scss";
 import { motion, AnimatePresence } from "framer-motion";
 

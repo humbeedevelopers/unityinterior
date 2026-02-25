@@ -51,6 +51,8 @@ async function getCoreOfferings() {
 
   return res.json();
 }
+
+
 async function getFaqs() {
   const res = await fetch(
     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
@@ -68,6 +70,7 @@ async function getFaqs() {
 export default async function Page() {
   const pageData = await getHomePageData();
   const coreOfferings = await getCoreOfferings();
+
   const faqs = await getFaqs();
 
   console.log("=== WORDPRESS PAGE DATA ===");
@@ -80,7 +83,7 @@ export default async function Page() {
   // ===============================
   // CLIENT MARQUEE LOGOS (ACF FREE)
   // ===============================
-const clientLogosGroup = acf.client_logos_group || {};
+  const clientLogosGroup = acf.client_logos_group || {};
   const clientLogos = Object.entries(clientLogosGroup)
     .filter(([key, value]) => key.startsWith("client_logo_") && value?.url)
     .map(([key, value]) => ({
@@ -156,7 +159,18 @@ const clientLogosGroup = acf.client_logos_group || {};
   }
 
   // console.log("Knowledge Items:", knowledgeItems);
+  // countdown logic
+  const countdownRaw = pageData?.acf?.countdown_section;
 
+  const countdownData = {
+    heading: countdownRaw?.heading,
+    subHeading: countdownRaw?.sub_heading,
+    stats: [
+      countdownRaw?.stat_1,
+      countdownRaw?.stat_2,
+      countdownRaw?.stat_3,
+    ].filter(Boolean),
+  };
 
   return (
     <main>
@@ -248,7 +262,7 @@ const clientLogosGroup = acf.client_logos_group || {};
       {/* <LeadingVision /> */}
       <ThreeSlider />
       <ProjectSlider />
-      <CountDown />
+      <CountDown data={countdownData} />
       <Form />
       {/* <KnowledgeSpace /> */}
       <KnowledgeSpace
@@ -256,7 +270,7 @@ const clientLogosGroup = acf.client_logos_group || {};
         items={knowledgeItems}
       />
       <Faqs
-      // faqs={faqs}
+        faqs={faqs}
       />
     </main>
   );

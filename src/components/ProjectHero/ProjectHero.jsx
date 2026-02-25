@@ -6,18 +6,28 @@ import LocationSvg from "@/images/location.svg";
 import { motion } from "framer-motion";
 
 const ProjectHero = ({ project }) => {
+  // if (!project) return null;
+
+  // const { title, description, location, image } = project;
   if (!project) return null;
 
-  const { title, description, location, image } = project;
+  //  Extract from WP structure
+  const title = project?.title?.rendered || "";
+  const subtitle = project?.acf?.project_subtitle || "";
+  const location = project?.acf?.project_location || "";
+  const mainImage = project?.acf?.project_images?.main_image;
 
+  if (!mainImage?.url) return null;
   return (
     <section className="ProjectHero">
       <div className="ProjectHero__wrapper">
         {/* Background Image */}
         <div className="ProjectHero__image">
           <Image
-            src={image}
-            alt={title}
+           src={mainImage.url}
+            alt={mainImage.alt || title}
+            // src={image}
+            // alt={title}
             fill
             className="ProjectHero__img"
           />
@@ -38,12 +48,12 @@ const ProjectHero = ({ project }) => {
 
           <div className="ProjectHero__right">
             <motion.p
-            initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.5, delay: 0 }}
               viewport={{ once: true }}
-             className="ProjectHero__desc">
-              {description}
+              className="ProjectHero__desc">
+              {subtitle}
             </motion.p>
           </div>
         </div>

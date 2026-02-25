@@ -4,7 +4,7 @@ import Image from "next/image";
 import "./CityHero.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
+// import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
