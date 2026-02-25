@@ -5,16 +5,23 @@ import Banner from "@/images/countdownBanner.png"
 import "./CountDown.scss";
 import { motion } from "framer-motion";
 
-const statsData = [
-  { value: 350, suffix: "+", label: "PROJECTS" },
-  { value: 12, suffix: "+", label: "CREATIVE MINDS" },
-  { value: 10, suffix: "+", label: "YEARS" },
-];
+// const statsData = [
+//   { value: 350, suffix: "+", label: "PROJECTS" },
+//   { value: 12, suffix: "+", label: "CREATIVE MINDS" },
+//   { value: 10, suffix: "+", label: "YEARS" },
+// ];
 
-const CountDown = () => {
+const CountDown = ({ data }) => {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const [counts, setCounts] = useState(statsData.map(() => 0));
+  const statsData = data?.stats || [];
+  const [counts, setCounts] = useState([]);
+
+  useEffect(() => {
+    setCounts(statsData.map(() => 0));
+  }, [statsData]);
+  // const [counts, setCounts] = useState(statsData.map(() => 0));
+  // const [counts, setCounts] = useState(statsData.map(() => 0));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,8 +61,8 @@ const CountDown = () => {
         });
       }, 16);
     });
-  }, [visible]);
-
+  }, [visible, statsData]);
+  if (!statsData.length) return null;
   return (
     <section className="numbers" ref={sectionRef}>
       <div className="numbers__containerCountdown">
@@ -80,6 +87,9 @@ const CountDown = () => {
           <Image
             src={Banner}
             alt="Art showcase"
+            width={869}  
+            height={942} 
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </motion.div>
       </div>
