@@ -1,5 +1,5 @@
 // src/app/projects/[slug]/page.jsx
-
+export const dynamicParams = true;
 import ProjectSlugClient from "./ProjectSlugClient";
 
 async function getProjectData(slug) {
@@ -18,22 +18,22 @@ async function getProjectData(slug) {
 
 
 // Static generation for all project slugs
-export async function generateStaticParams() {
-  const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
-    { next: { revalidate: 60 } }
-  );
+// export async function generateStaticParams() {
+//   const res = await fetch(
+//     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
+//     { next: { revalidate: 60 } }
+//   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch projects for static params");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch projects for static params");
+//   }
 
-  const projects = await res.json();
+//   const projects = await res.json();
 
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
+//   return projects.map((project) => ({
+//     slug: project.slug,
+//   }));
+// }
 
 
 async function getAllProjects() {
