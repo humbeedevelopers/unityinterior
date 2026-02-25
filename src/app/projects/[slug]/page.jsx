@@ -16,6 +16,26 @@ async function getProjectData(slug) {
   return data[0] || null;
 }
 
+
+// Static generation for all project slugs
+export async function generateStaticParams() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
+    { next: { revalidate: 60 } }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch projects for static params");
+  }
+
+  const projects = await res.json();
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+
 async function getAllProjects() {
   const res = await fetch(
     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
@@ -91,7 +111,7 @@ export default async function ProjectSlugPage({ params }) {
   // );
   const relatedProjects = await getRelatedProjects(project.id);
   console.log("Related Projects Count:", relatedProjects.length);
-console.log("Related Projects Data:", relatedProjects);
+  console.log("Related Projects Data:", relatedProjects);
 
   return (
     <ProjectSlugClient
