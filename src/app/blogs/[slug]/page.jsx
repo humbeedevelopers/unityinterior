@@ -65,18 +65,18 @@ async function getAllBlogsFormatted() {
   });
 }
 // Optional but recommended for static generation
-// export async function generateStaticParams() {
-//   const res = await fetch(
-//     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
-//     { next: { revalidate: 60 } }
-//   );
+export async function generateStaticParams() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
+    { next: { revalidate: 60 } }
+  );
 
-//   const blogs = await res.json();
+  const blogs = await res.json();
 
-//   return blogs.map((blog) => ({
-//     slug: blog.slug,
-//   }));
-// }
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
 
 export default async function BlogSlugPage({ params }) {
   const resolvedParams = await params;   //  unwrap promise
