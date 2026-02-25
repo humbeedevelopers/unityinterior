@@ -1,5 +1,5 @@
-"use client"
-import { useEffect } from "react";
+// "use client"
+// import { useEffect } from "react";
 import Image from "next/image";
 import ImgMain from "@/images/Heroservice.png";
 import HoverImage from "@/images/hoveredimg.png";
@@ -14,11 +14,25 @@ import HeroService from "@/components/HeroService/HeroService";
 import HomeCards from "@/components/HomeCards/HomeCards";
 import ServiceHoverCards from "@/components/ServiceHoverCards/ServiceHoverCards";
 
-const InteriorDesign = () => {
-    useEffect(() => {
-        document.title =
-            "Architectural Planning | Unity Interior";
-    });
+export const metadata = {
+    title: "Architectural Planning | Unity Interior",
+};
+async function getFaqs() {
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch FAQs");
+    }
+
+    return res.json();
+}
+export default async function ArchitecturalPlanning() {
+        const faqs = await getFaqs();
+// const ArchitecturalPlanning = () => {
+  
     return (
         <div>
             <HeroService
@@ -37,7 +51,7 @@ const InteriorDesign = () => {
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
                 buttonText="Contact Us"
-                onButtonClick={() => console.log("CTA Clicked")}
+                // onButtonClick={() => console.log("CTA Clicked")}
             />
             <HomeCards
                 heading="Why Choose Us?"
@@ -67,9 +81,9 @@ const InteriorDesign = () => {
             <TestimonialSlider />
             <CountDown />
             <Form />
-            <Faqs />
+            <Faqs faqs={faqs}/>
 
         </div>
     )
 }
-export default InteriorDesign;
+// export default InteriorDesign;

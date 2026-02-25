@@ -1,5 +1,5 @@
-"use client"
-import { useEffect } from "react";
+// "use client"
+// import { useEffect } from "react";
 import Image from "next/image";
 import ImgMain from "@/images/Heroservice.png";
 import HoverImage from "@/images/hoveredimg.png";
@@ -16,11 +16,32 @@ import ServiceHoverCards from "@/components/ServiceHoverCards/ServiceHoverCards"
 import Formula from "@/components/HomeFormula/Formula";
 // import RelatedProjectSlider from "@/components/RelatedProjectSlider/RelatedProjectSlider";
 
-const InteriorDesign = ({ relatedProjects }) => {
-    useEffect(() => {   
-        document.title =
-            "Interior Design | Unity Interior";
-    });
+
+export const metadata = {
+    title: "Interior Design | Unity Interior",
+};
+
+async function getFaqs() {
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch FAQs");
+    }
+
+    return res.json();
+}
+
+
+export default async function InteriorDesign() {
+    const faqs = await getFaqs();
+// const InteriorDesign = ({ relatedProjects }) => {
+    // useEffect(() => {   
+    //     document.title =
+    //         "Interior Design | Unity Interior";
+    // });
     return (
         <div>
             <HeroService
@@ -39,7 +60,7 @@ const InteriorDesign = ({ relatedProjects }) => {
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
                 buttonText="Contact Us"
-                onButtonClick={() => console.log("CTA Clicked")}
+                // onButtonClick={() => console.log("CTA Clicked")}
             />
             <HomeCards
                 heading="Why Choose Us?"
@@ -74,9 +95,9 @@ const InteriorDesign = ({ relatedProjects }) => {
             <TestimonialSlider />
             <CountDown />
             <Form />
-            <Faqs />
+            <Faqs faqs={faqs}/>
 
         </div>
     )
 }
-export default InteriorDesign;
+// export default InteriorDesign;
