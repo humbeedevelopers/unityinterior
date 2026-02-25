@@ -39,10 +39,10 @@ const FAQS_DATA = [
 ];
 
 const FaqsSection = ({ faqs = [] }) => {
-  const [activeId, setActiveId] = useState(1);
-  // const [activeId, setActiveId] = useState(
-  //   faqs.length > 0 ? faqs[0].id : null
-  // );
+  // const [activeId, setActiveId] = useState(1);
+  const [activeId, setActiveId] = useState(
+    faqs.length > 0 ? faqs[0].id : null
+  );
   const toggleFaq = (id) => {
     setActiveId(activeId === id ? null : id);
   };
@@ -64,7 +64,7 @@ const FaqsSection = ({ faqs = [] }) => {
         {/* Right Column */}
         <div className="faqs__right">
           {/* dynamic data  */}
-          {/* {faqs.map((item, index) => {
+          {faqs.map((item, index) => {
             const isActive = activeId === item.id;
 
             return (
@@ -90,9 +90,9 @@ const FaqsSection = ({ faqs = [] }) => {
                 </div>
               </div>
             );
-          })} */}
+          })}
           {/* static data */}
-          {FAQS_DATA.map((item) => {
+          {/* {FAQS_DATA.map((item) => {
             const isActive = activeId === item.id;
 
             return (
@@ -116,7 +116,7 @@ const FaqsSection = ({ faqs = [] }) => {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
     </section>

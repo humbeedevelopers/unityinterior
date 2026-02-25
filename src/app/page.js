@@ -256,7 +256,7 @@ const clientLogosGroup = acf.client_logos_group || {};
         items={knowledgeItems}
       />
       <Faqs
-      // faqs={faqs}
+      faqs={faqs}
       />
     </main>
   );

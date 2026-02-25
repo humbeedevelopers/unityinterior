@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import "./ServiceDetails.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
