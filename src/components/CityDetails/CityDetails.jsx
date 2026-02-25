@@ -1,4 +1,5 @@
 
+"use client"
 import "./CityDetails.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 

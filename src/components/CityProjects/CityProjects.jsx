@@ -6,20 +6,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { PROJECTS_DATA } from "@/app/projects/data";
+// import { PROJECTS_DATA } from "@/app/projects/data";
 import { useRouter } from "next/navigation";
 import "./CityProjects.scss";
 import LocationSvg from "@/images/location.svg";
 
 const INITIAL_COUNT = 9;
 
-const CityProjects = () => {
+const CityProjects = ({ projects = [] }) => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const router = useRouter();
 
+  // const visibleProjects = useMemo(() => {
+  //   return PROJECTS_DATA.slice(0, visibleCount);
+  // }, [visibleCount]);
+
   const visibleProjects = useMemo(() => {
-    return PROJECTS_DATA.slice(0, visibleCount);
-  }, [visibleCount]);
+    return projects.slice(0, visibleCount);
+  }, [projects, visibleCount]);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 4);
@@ -33,7 +37,7 @@ const CityProjects = () => {
     <section className="CityProjects">
       <div className="CityProjects__container">
 
-        
+
         <div className="CityProjects__grid">
           {visibleProjects.map((project) => (
             <div
@@ -42,30 +46,35 @@ const CityProjects = () => {
               onClick={() => handleCardClick(project.slug)}
             >
               <div className="CityProjects__image">
-                {project.image && project.image.length > 1 ? (
-                  <Swiper
-                    modules={[Pagination, Autoplay]}
-                    pagination={{ clickable: true }}
-                    speed={600}
-                    className="CityProjects__swiper"
-                  >
-                    {project.image.map((img, index) => (
-                      <SwiperSlide key={index}>
-                        <Image
-                          src={img}
-                          alt={`${project.title} ${index + 1}`}
-                          className="CityProjects__img"
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                ) : (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    className="CityProjects__img"
-                    fill
-                  />
+                {/* {project.image && project.image.length > 1 ? ( */}
+                {project.images?.length > 0 && (
+                  project.images.length > 1 ? (
+                    // {project.images?.length > 1 ? (
+                    <Swiper
+                      modules={[Pagination, Autoplay]}
+                      pagination={{ clickable: true }}
+                      speed={600}
+                      className="CityProjects__swiper"
+                    >
+                      {project.images.map((img, index) => (
+                        <SwiperSlide key={index}>
+                          <Image
+                            src={img}
+                            alt={`${project.title} ${index + 1}`}
+                            fill
+                            className="CityProjects__img"
+                          />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  ) : (
+                    <Image
+                      src={project.images?.[0]}
+                      alt={project.title}
+                      className="CityProjects__img"
+                      fill
+                    />
+                  )
                 )}
               </div>
 
@@ -85,7 +94,7 @@ const CityProjects = () => {
           ))}
         </div>
 
-        {visibleCount < PROJECTS_DATA.length && (
+        {visibleCount < projects.length && (
           <div className="CityProjects__loadmore">
             <button onClick={handleLoadMore}>LOAD MORE</button>
           </div>
