@@ -9,14 +9,14 @@ import CityDetails from "@/components/CityDetails/CityDetails";
 
 
 
-// ✅ SEO Meta
+//SEO Meta
 export const metadata = {
   title: "City Projects | Unity Interior",
   description: "Explore our interior design projects across different cities by Unity Interior.",
 };
 
 
-// ✅ Fetch only projects
+//Fetch only projects
 async function getAllProjects() {
   const res = await fetch(
     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
