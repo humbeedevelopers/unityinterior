@@ -17,18 +17,30 @@ export const metadata = {
     title: "About Us | Unity Interior",
 };
 async function getHomePageData() {
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+        // { cache: "no-store" } // or revalidate: 60
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch homepage data");
+    }
+
+    const data = await res.json();
+    return data[0];
+}
+
+async function getMediaById(id) {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
-    // { cache: "no-store" } // or revalidate: 60
-    { next: { revalidate: 60 } }
+    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+    // { cache: "no-store" }
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch homepage data");
-  }
+  if (!res.ok) return null;
 
-  const data = await res.json();
-  return data[0];
+  const media = await res.json();
+  return media.source_url;
 }
 
 async function getFaqs() {
@@ -46,8 +58,9 @@ async function getFaqs() {
 
 // const AboutUs = () => {
 export default async function AboutUs() {
+    const pageData = await getHomePageData();
+    const acf = pageData?.acf || {};
     const faqs = await getFaqs();
-     const pageData = await getHomePageData();
 
     const countdownRaw = pageData?.acf?.countdown_section;
 
@@ -64,6 +77,39 @@ export default async function AboutUs() {
     //     document.title =
     //         "About Us | Unity Interior";
     // });
+
+    const threeSliderRaw = acf?.three_slider_section || {};
+
+    // const threeSliderHeading = threeSliderRaw?.section_heading;
+    // const threeSliderSubHeading = threeSliderRaw?.section_sub_heading;
+
+    const threeSlides = [];
+
+    for (const [key, value] of Object.entries(threeSliderRaw)) {
+        if (key.startsWith("slide_") && typeof value === "object") {
+            let imageUrl = "";
+
+            // Case 1: Image Array
+            if (typeof value.image === "object" && value.image?.url) {
+                imageUrl = value.image.url;
+            }
+
+            // Case 2: Image ID
+            if (typeof value.image === "number") {
+                imageUrl = await getMediaById(value.image);
+            }
+
+            if (imageUrl && value.title) {
+                threeSlides.push({
+                    id: threeSlides.length + 1,
+                    image: imageUrl,
+                    title: value.title,
+                    desc: value.description,
+                });
+            }
+        }
+    }
+
     return (
         <div>
             <HeroAbout />
@@ -108,7 +154,11 @@ export default async function AboutUs() {
 
             <AboutUsMasterpiece />
             <CountDown data={countdownData} />
-            <ThreeSlider />
+            <ThreeSlider
+                // heading={threeSliderHeading}
+                // subHeading={threeSliderSubHeading}
+                slides={threeSlides}
+            />
             <Form actionWord="BUILD" />
             <Faqs faqs={faqs} />
 

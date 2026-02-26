@@ -21,18 +21,50 @@ export const metadata = {
     title: "Interior Design | Unity Interior",
 };
 async function getHomePageData() {
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+        // { cache: "no-store" } // or revalidate: 60
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch homepage data");
+    }
+
+    const data = await res.json();
+    return data[0];
+}
+
+// async function getMediaById(id) {
+//      console.log("Fetching media ID:", id);
+
+//     const res = await fetch(
+//         `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+//         // { cache: "no-store" }
+//     );
+
+//     if (!res.ok) return null;
+
+//     const media = await res.json();
+//      console.log("Media URL:", media.source_url);
+//     return media.source_url;
+// }
+async function getMediaById(id) {
+//   console.log("Fetching media ID:", id);
+
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
-    // { cache: "no-store" } // or revalidate: 60
-    { next: { revalidate: 60 } }
+    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch homepage data");
+    // console.log("Media fetch failed:", id);
+    return null;
   }
 
-  const data = await res.json();
-  return data[0];
+  const media = await res.json();
+//   console.log("Media URL:", media.source_url);
+
+  return media.source_url;
 }
 async function getFaqs() {
     const res = await fetch(
@@ -49,22 +81,93 @@ async function getFaqs() {
 
 
 export default async function InteriorDesign() {
-     const pageData = await getHomePageData();
+    const pageData = await getHomePageData();
     const faqs = await getFaqs();
-
+    const acf = pageData?.acf || {};
     const countdownRaw = pageData?.acf?.countdown_section;
 
-  const countdownData = {
-    heading: countdownRaw?.heading,
-    subHeading: countdownRaw?.sub_heading,
-    stats: [
-      countdownRaw?.stat_1,
-      countdownRaw?.stat_2,
-      countdownRaw?.stat_3,
-    ].filter(Boolean),
-  };
+    const countdownData = {
+        heading: countdownRaw?.heading,
+        subHeading: countdownRaw?.sub_heading,
+        stats: [
+            countdownRaw?.stat_1,
+            countdownRaw?.stat_2,
+            countdownRaw?.stat_3,
+        ].filter(Boolean),
+    };
 
-// const InteriorDesign = ({ relatedProjects }) => {
+    // ===============================
+    // THREE SLIDER DATA
+    // ===============================
+
+    const threeSliderRaw = acf?.three_slider_section || {};
+
+    const threeSliderHeading = threeSliderRaw?.section_heading;
+    const threeSliderSubHeading = threeSliderRaw?.section_sub_heading;
+
+    const threeSlides = [];
+
+    for (const [key, value] of Object.entries(threeSliderRaw)) {
+        if (key.startsWith("slide_") && typeof value === "object") {
+            let imageUrl = "";
+
+            // Case 1: Image Array
+            if (typeof value.image === "object" && value.image?.url) {
+                imageUrl = value.image.url;
+            }
+
+            // Case 2: Image ID
+            if (typeof value.image === "number") {
+                imageUrl = await getMediaById(value.image);
+            }
+
+            if (imageUrl && value.title) {
+                threeSlides.push({
+                    id: threeSlides.length + 1,
+                    image: imageUrl,
+                    title: value.title,
+                    desc: value.description,
+                });
+            }
+        }
+    }
+
+
+    const testimonialRaw = acf?.testimonial_section || {};
+    const testimonials = [];
+
+    for (const [key, item] of Object.entries(testimonialRaw)) {
+        if (!item?.client_name) continue;
+
+        let imageUrl = "";
+
+        // If ACF return format = Image Array
+        if (typeof item.client_image === "object" && item.client_image?.url) {
+            imageUrl = item.client_image.url;
+        }
+
+        // If ACF return format = Image ID
+        if (typeof item.client_image === "number") {
+            imageUrl = await getMediaById(item.client_image);
+        }
+
+        testimonials.push({
+            id: testimonials.length + 1,
+            description: item.client_description,
+            name: item.client_name,
+            location: item.client_location,
+            image: imageUrl || null,
+        });
+    }
+    // console.log("TESTIMONIALS DEBUG:");
+    // testimonials.forEach((t, i) => {
+    //     console.log(`Testimonial ${i + 1}:`, {
+    //         name: t.name,
+    //         image: t.image,
+    //     });
+    // });
+
+    // const InteriorDesign = ({ relatedProjects }) => {
     // useEffect(() => {   
     //     document.title =
     //         "Interior Design | Unity Interior";
@@ -81,13 +184,13 @@ export default async function InteriorDesign() {
                 primaryDescription="Unity Interiors offers exceptional interior design services, tailored to meet the unique needs and preferences of our clients. With a commitment to creativity, functionality, and attention to detail, we transform spaces into stunning and personalized environments that inspire and delight."
                 secondaryDescription="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
             />
-             <ServiceHoverCards
+            <ServiceHoverCards
                 title="Lorem Ipsum Is Simply Dummy Text Of The Printing And"
                 description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
                 buttonText="Contact Us"
-                // onButtonClick={() => console.log("CTA Clicked")}
+            // onButtonClick={() => console.log("CTA Clicked")}
             />
             <HomeCards
                 heading="Why Choose Us?"
@@ -113,18 +216,25 @@ export default async function InteriorDesign() {
                 ]}
             />
             <Formula />
-            
-           
+
+
             {/* {relatedProjects?.length > 0 && (
                 <RelatedProjectSlider projects={relatedProjects} />
             )} */}
-            <ThreeSlider />
-            <TestimonialSlider />
-            <CountDown data={countdownData}/>
+            <ThreeSlider
+                // heading={threeSliderHeading}
+                // subHeading={threeSliderSubHeading}
+                slides={threeSlides}
+            />
+            <TestimonialSlider
+                testimonials={testimonials}
+            />
+            {/* <TestimonialSlider /> */}
+            <CountDown data={countdownData} />
             <Form />
-            <Faqs faqs={faqs}/>
+            <Faqs faqs={faqs} />
 
         </div>
     )
 }
-// export default InteriorDesign;
+// export default InteriorDesign;   
