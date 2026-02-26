@@ -172,6 +172,45 @@ export default async function Page() {
     ].filter(Boolean),
   };
 
+  // ===============================
+  // THREE SLIDER DATA
+  // ===============================
+
+const threeSliderRaw = acf?.three_slider_section || {};
+
+const threeSliderHeading = threeSliderRaw?.section_heading;
+const threeSliderSubHeading = threeSliderRaw?.section_sub_heading;
+
+const threeSlides = [];
+
+for (const [key, value] of Object.entries(threeSliderRaw)) {
+  if (key.startsWith("slide_") && typeof value === "object") {
+    let imageUrl = "";
+
+    // Case 1: Image Array
+    if (typeof value.image === "object" && value.image?.url) {
+      imageUrl = value.image.url;
+    }
+
+    // Case 2: Image ID
+    if (typeof value.image === "number") {
+      imageUrl = await getMediaById(value.image);
+    }
+
+    if (imageUrl && value.title) {
+      threeSlides.push({
+        id: threeSlides.length + 1,
+        image: imageUrl,
+        title: value.title,
+        desc: value.description,
+      });
+    }
+  }
+}
+  // console.log("Raw Three Slider:", threeSliderRaw);
+  // console.log("Mapped Slides:", threeSlides);
+
+
   return (
     <main>
       <Hero
@@ -260,7 +299,12 @@ export default async function Page() {
         description={acf.leading_vision_description}
       />
       {/* <LeadingVision /> */}
-      <ThreeSlider />
+      {/* <ThreeSlider /> */}
+      <ThreeSlider
+        // heading={threeSliderHeading}
+        // subHeading={threeSliderSubHeading}
+        slides={threeSlides}
+      />
       <ProjectSlider />
       <CountDown data={countdownData} />
       <Form />

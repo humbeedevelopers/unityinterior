@@ -1,7 +1,7 @@
 "use client";
 
 // import React from "react";
-import React, { useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import PersonImage from "@/images/walloffame.png";
@@ -108,8 +108,11 @@ const slides = [
 ];
 
 
-const ThreeSlider = () => {
+const ThreeSlider = ({ heading, subHeading, slides = [] }) => {
     const [activeIndex, setActiveIndex] = useState(0);
+    if (!slides.length) return null;
+    console.log("Slides length:", slides.length);
+
 
     return (
         <section className="three-slider">
@@ -152,6 +155,7 @@ const ThreeSlider = () => {
                     //     el: ".three-slider__pagination",
                     //     clickable: true,
                     //   }}
+                
                     navigation={{
                         nextEl: ".three-slider__btn--next",
                         prevEl: ".three-slider__btn--prev",
@@ -161,7 +165,13 @@ const ThreeSlider = () => {
                 >
                     {slides.map((slide) => (
                         <SwiperSlide key={slide.id} className="three-slider__slide">
-                            <Image src={slide.img1} alt="slider image" />
+                            <Image src={slide.image}
+                                alt={slide.title || "Project Image"}
+                                fill
+                            // width={600}
+                            // height={600}
+                            // unoptimized
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -185,8 +195,8 @@ const ThreeSlider = () => {
                             animate="visible"
                             exit="exit"
                         >
-                            <h3>{slides[activeIndex].title}</h3>
-                            <p>{slides[activeIndex].desc}</p>
+                            <h3>{slides[activeIndex]?.title}</h3>
+                            <p>{slides[activeIndex]?.desc}</p>
                         </motion.div>
                     </AnimatePresence>
                     {/* <h3>{slides[activeIndex].title}</h3>

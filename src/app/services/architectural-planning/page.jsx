@@ -19,20 +19,30 @@ export const metadata = {
 };
 
 async function getHomePageData() {
-  const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
-    // { cache: "no-store" } // or revalidate: 60
-    { next: { revalidate: 60 } }
-  );
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+        // { cache: "no-store" } // or revalidate: 60
+        { next: { revalidate: 60 } }
+    );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch homepage data");
-  }
+    if (!res.ok) {
+        throw new Error("Failed to fetch homepage data");
+    }
 
-  const data = await res.json();
-  return data[0];
+    const data = await res.json();
+    return data[0];
 }
+async function getMediaById(id) {
+    const res = await fetch(
+        `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+        // { cache: "no-store" }
+    );
 
+    if (!res.ok) return null;
+
+    const media = await res.json();
+    return media.source_url;
+}
 async function getFaqs() {
     const res = await fetch(
         "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
@@ -48,19 +58,54 @@ async function getFaqs() {
 export default async function ArchitecturalPlanning() {
     const pageData = await getHomePageData();
     const faqs = await getFaqs();
+    const acf = pageData?.acf || {};
     // const ArchitecturalPlanning = () => {
- const countdownRaw = pageData?.acf?.countdown_section;
+    const countdownRaw = pageData?.acf?.countdown_section;
 
-  const countdownData = {
-    heading: countdownRaw?.heading,
-    subHeading: countdownRaw?.sub_heading,
-    stats: [
-      countdownRaw?.stat_1,
-      countdownRaw?.stat_2,
-      countdownRaw?.stat_3,
-    ].filter(Boolean),
-  };
+    const countdownData = {
+        heading: countdownRaw?.heading,
+        subHeading: countdownRaw?.sub_heading,
+        stats: [
+            countdownRaw?.stat_1,
+            countdownRaw?.stat_2,
+            countdownRaw?.stat_3,
+        ].filter(Boolean),
+    };
+    // ===============================
+    // THREE SLIDER DATA
+    // ===============================
 
+    const threeSliderRaw = acf?.three_slider_section || {};
+
+    const threeSliderHeading = threeSliderRaw?.section_heading;
+    const threeSliderSubHeading = threeSliderRaw?.section_sub_heading;
+
+    const threeSlides = [];
+
+    for (const [key, value] of Object.entries(threeSliderRaw)) {
+        if (key.startsWith("slide_") && typeof value === "object") {
+            let imageUrl = "";
+
+            // Case 1: Image Array
+            if (typeof value.image === "object" && value.image?.url) {
+                imageUrl = value.image.url;
+            }
+
+            // Case 2: Image ID
+            if (typeof value.image === "number") {
+                imageUrl = await getMediaById(value.image);
+            }
+
+            if (imageUrl && value.title) {
+                threeSlides.push({
+                    id: threeSlides.length + 1,
+                    image: imageUrl,
+                    title: value.title,
+                    desc: value.description,
+                });
+            }
+        }
+    }
 
     return (
         <div>
@@ -106,9 +151,13 @@ export default async function ArchitecturalPlanning() {
                 ]}
             />
 
-            <ThreeSlider />
+            <ThreeSlider
+                // heading={threeSliderHeading}
+                // subHeading={threeSliderSubHeading}
+                slides={threeSlides}
+            />
             <TestimonialSlider />
-            <CountDown data={countdownData}/>
+            <CountDown data={countdownData} />
             <Form />
             <Faqs faqs={faqs} />
 
