@@ -35,16 +35,36 @@ async function getHomePageData() {
     return data[0];
 }
 
+// async function getMediaById(id) {
+//      console.log("Fetching media ID:", id);
+
+//     const res = await fetch(
+//         `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+//         // { cache: "no-store" }
+//     );
+
+//     if (!res.ok) return null;
+
+//     const media = await res.json();
+//      console.log("Media URL:", media.source_url);
+//     return media.source_url;
+// }
 async function getMediaById(id) {
-    const res = await fetch(
-        `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
-        // { cache: "no-store" }
-    );
+//   console.log("Fetching media ID:", id);
 
-    if (!res.ok) return null;
+  const res = await fetch(
+    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`
+  );
 
-    const media = await res.json();
-    return media.source_url;
+  if (!res.ok) {
+    // console.log("Media fetch failed:", id);
+    return null;
+  }
+
+  const media = await res.json();
+//   console.log("Media URL:", media.source_url);
+
+  return media.source_url;
 }
 async function getFaqs() {
     const res = await fetch(
@@ -112,6 +132,41 @@ export default async function InteriorDesign() {
         }
     }
 
+
+    const testimonialRaw = acf?.testimonial_section || {};
+    const testimonials = [];
+
+    for (const [key, item] of Object.entries(testimonialRaw)) {
+        if (!item?.client_name) continue;
+
+        let imageUrl = "";
+
+        // If ACF return format = Image Array
+        if (typeof item.client_image === "object" && item.client_image?.url) {
+            imageUrl = item.client_image.url;
+        }
+
+        // If ACF return format = Image ID
+        if (typeof item.client_image === "number") {
+            imageUrl = await getMediaById(item.client_image);
+        }
+
+        testimonials.push({
+            id: testimonials.length + 1,
+            description: item.client_description,
+            name: item.client_name,
+            location: item.client_location,
+            image: imageUrl || null,
+        });
+    }
+    // console.log("TESTIMONIALS DEBUG:");
+    // testimonials.forEach((t, i) => {
+    //     console.log(`Testimonial ${i + 1}:`, {
+    //         name: t.name,
+    //         image: t.image,
+    //     });
+    // });
+
     // const InteriorDesign = ({ relatedProjects }) => {
     // useEffect(() => {   
     //     document.title =
@@ -171,7 +226,10 @@ export default async function InteriorDesign() {
                 // subHeading={threeSliderSubHeading}
                 slides={threeSlides}
             />
-            <TestimonialSlider />
+            <TestimonialSlider
+                testimonials={testimonials}
+            />
+            {/* <TestimonialSlider /> */}
             <CountDown data={countdownData} />
             <Form />
             <Faqs faqs={faqs} />
@@ -179,4 +237,4 @@ export default async function InteriorDesign() {
         </div>
     )
 }
-// export default InteriorDesign;
+// export default InteriorDesign;   

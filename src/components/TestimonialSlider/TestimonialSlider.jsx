@@ -64,7 +64,7 @@ const TestimonialData = [
 
 ];
 
-const TestimonialSlider = () => {
+const TestimonialSlider = ({ testimonials }) => {
     return (
         <section className="Testimonial-slider">
             <div className="Testimonial-slider__container">
@@ -122,14 +122,15 @@ const TestimonialSlider = () => {
                     }}
                     className="Testimonial-slider__slider"
                 >
-                    {TestimonialData.map((item) => (
-                        <SwiperSlide key={item.id}>
-                            <article className="testimonial-card">
-                                {/* <div className="knowledge-card__image">
+                    {testimonials?.length > 0 ? (
+                        testimonials.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <article className="testimonial-card">
+                                    {/* <div className="knowledge-card__image">
                                   
                                 </div> */}
 
-                                {/* <div className="testimonial-card__content">
+                                    {/* <div className="testimonial-card__content">
                                     <Image
                                         src={item.image}
                                         alt="Testimonial Image"
@@ -137,33 +138,48 @@ const TestimonialSlider = () => {
                                     />
                                     <p>{item.description}</p>
                                 </div> */}
-                                <div className="testimonial-card__content">
-                                    <Image
-                                        src={item.image}
-                                        alt="Testimonial Image"
-                                        className="testimonial-card__img"
-                                    />
+                                    <div className="testimonial-card__content">
+                                        <Image
+                                            src={BannerImg}
+                                            alt="bannerimg"
+                                            className="testimonial-card__img"
+                                        />
 
-                                    <div className="testimonial-card__text">
-                                        <p>{item.description}</p>
+                                        <div className="testimonial-card__text">
+                                            <p>{item.description}</p>
 
-                                        <div className="testimonial-card__author">
-                                            <div className="testimonial-card__avatar">
-                                                {/* image will come later */}
-                                            </div>
+                                            <div className="testimonial-card__author">
+                                                <div className="testimonial-card__avatar">
+                                                    {item.image ? (
+                                                        <Image
+                                                            src={item.image}
+                                                            alt={item.name}
+                                                            fill
+                                                            sizes="80px"
+                                                            style={{ objectFit: "cover" }}
+                                                        />
+                                                    ) : (
+                                                        <div className="avatar-placeholder" />
+                                                    )}
+                                                    {/* image will come later */}
+                                                </div>
 
-                                            <div className="testimonial-card__authorInfo">
-                                                <h4>{item.name}</h4>
-                                                <span>{item.location}</span>
+                                                <div className="testimonial-card__authorInfo">
+                                                    <h4>{item.name}</h4>
+                                                    <span>{item.location}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                            </article>
-                        </SwiperSlide>
-                    ))}
+                                </article>
+                            </SwiperSlide>
+                        ))
+                    ) : (
+                        <p>No testimonials found</p>
+                    )}
+
                 </Swiper>
             </div>
         </section>

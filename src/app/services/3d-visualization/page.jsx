@@ -108,6 +108,34 @@ export default async function Visualization() {
             }
         }
     }
+
+
+    const testimonialRaw = acf?.testimonial_section || {};
+    const testimonials = [];
+
+    for (const [key, item] of Object.entries(testimonialRaw)) {
+        if (!item?.client_name) continue;
+
+        let imageUrl = "";
+
+        // If ACF return format = Image Array
+        if (typeof item.client_image === "object" && item.client_image?.url) {
+            imageUrl = item.client_image.url;
+        }
+
+        // If ACF return format = Image ID
+        if (typeof item.client_image === "number") {
+            imageUrl = await getMediaById(item.client_image);
+        }
+
+        testimonials.push({
+            id: testimonials.length + 1,
+            description: item.client_description,
+            name: item.client_name,
+            location: item.client_location,
+            image: imageUrl || null,
+        });
+    }
     return (
         <div>
             <HeroService
@@ -157,7 +185,7 @@ export default async function Visualization() {
                 // subHeading={threeSliderSubHeading}
                 slides={threeSlides}
             />
-            <TestimonialSlider />
+            <TestimonialSlider testimonials={testimonials} />
             <CountDown data={countdownData} />
             <Form />
             <Faqs faqs={faqs} />
