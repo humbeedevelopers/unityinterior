@@ -4,6 +4,7 @@
 import Image from "next/image";
 import "./LeadingVision.scss";
 // import { motion } from "framer-motion";
+// import { useSpring } from "framer-motion";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import BgImage from "@/images/leadingvisionimg.png";
@@ -25,6 +26,15 @@ const LeadingVision = ({
     offset: ["start end", "end start"],
   });
 
+
+//   const smooth = useSpring(scrollYProgress, {
+//   stiffness: 90,
+//   damping: 25,
+// });
+
+// const bgY = useTransform(smooth, [0, 1], [-120, 120]);
+// const bgScale = useTransform(smooth, [0, 1], [1.08, 1]);
+// const imageY = useTransform(smooth, [0, 1], [-60, 60]);
   //  Strong background parallax
   const bgY = useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]);
 
