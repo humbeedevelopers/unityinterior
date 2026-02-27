@@ -3,7 +3,10 @@
 // import { useEffect, useRef } from "react";
 import Image from "next/image";
 import "./LeadingVision.scss";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
+// import { useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import BgImage from "@/images/leadingvisionimg.png";
 import PersonImage from "@/images/lvinnerimg.png";
 // import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
@@ -15,6 +18,36 @@ const LeadingVision = ({
   image,
   description,
 }) => {
+
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+
+//   const smooth = useSpring(scrollYProgress, {
+//   stiffness: 90,
+//   damping: 25,
+// });
+
+// const bgY = useTransform(smooth, [0, 1], [-120, 120]);
+// const bgScale = useTransform(smooth, [0, 1], [1.08, 1]);
+// const imageY = useTransform(smooth, [0, 1], [-60, 60]);
+  //  Strong background parallax
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]);
+
+  // Background zoom
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
+
+  //  Foreground image float (stronger)
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-120px", "120px"]);
+
+  //  Slight blur removal while scrolling in
+  const blur = useTransform(scrollYProgress, [0, 0.4], ["6px", "0px"]);
+
+  // Parallax transforms
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,18 +85,28 @@ const LeadingVision = ({
 
   return (
     <motion.section
-      variants={containerVariants}
+      ref={sectionRef}
+      // variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       className="leading-vision" >
-      <div className="leading-vision__bg">
+      <motion.div className="leading-vision__bg"    style={{
+          y: bgY,
+          scale: bgScale,
+          filter: blur
+        }}
+      >
+        {/* {bgImage && ( */}
         <Image
           src={BgImage}
+          fill
+          sizes="100vw"
           alt="Leading the vision background"
         //   fill
         //   priority
         />
+        {/* )} */}
         {/* {bgImage && (
           <Image
             src={bgImage}
@@ -73,11 +116,14 @@ const LeadingVision = ({
             sizes="100vw"
           />
         )} */}
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="leading-vision__content container">
         <motion.h2
+        //  style={{
+        //     y: useTransform(scrollYProgress, [0, 1], ["80px", "-80px"])
+        //   }}
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.5, delay: 0 }}
@@ -92,7 +138,14 @@ const LeadingVision = ({
 
         <div className="leading-vision__card">
           <motion.div
-            variants={slideLeft}
+            // variants={slideLeft}
+            // style={{ y: imageY }}
+            // style={{
+            //   y: bgY,
+            //   scale: bgScale,
+            //   filter: blur
+            // }}
+             style={{ y: imageY }}
             className="leading-vision__image">
             {/* <Image
               src={PersonImage}
@@ -111,6 +164,9 @@ const LeadingVision = ({
           </motion.div>
 
           <motion.p
+            // style={{
+            //   y: useTransform(scrollYProgress, [0, 1], ["60px", "-60px"])
+            // }}
             variants={fadeUp}
             className="leading-vision__description">
             {description}
