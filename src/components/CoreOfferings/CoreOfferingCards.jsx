@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import Banner from "@/images/coreBanner.png";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import gsap from "gsap";
@@ -19,7 +20,7 @@ if (typeof window !== 'undefined') {
 const CoreOfferingCards = ({ offerings = [] }) => {
   const component = useRef(null);
   const slider = useRef(null);
-
+const pathname = usePathname();
   // const offerings = [
   //   {
   //     id: 1,
@@ -47,56 +48,62 @@ const CoreOfferingCards = ({ offerings = [] }) => {
   //   },
   // ];
 
-  useLayoutEffect(() => {
-    // Wait for all images and content to load
-    const timer = setTimeout(() => {
-      let ctx = gsap.context(() => {
-        if (!slider.current || !component.current) return;
+useLayoutEffect(() => {
+  if (!component.current || !slider.current) return;
 
-        const panels = slider.current.querySelectorAll(".core-offering-cards__card");
+  let ctx;
+  let resizeObserver;
 
-        if (panels.length === 0) return;
+  const initAnimation = () => {
+    ctx = gsap.context(() => {
+      const panels = slider.current.querySelectorAll(".core-offering-cards__card");
+      if (!panels.length) return;
 
-        // Force a layout recalculation
-        slider.current.style.willChange = 'transform';
-
-        // Get the actual scroll width after everything is rendered
-        const getScrollAmount = () => {
-          const sliderWidth = slider.current.scrollWidth;
-          const windowWidth = window.innerWidth;
-          const paddingRight = windowWidth * 0.05; //padding for last card 
-          return -(sliderWidth - windowWidth + paddingRight);
-        };
-
-        const tween = gsap.to(slider.current, {
-          x: getScrollAmount,
-          ease: "none",
-          scrollTrigger: {
-            trigger: component.current,
-            start: "top top",
-            end: () => `+=${slider.current.scrollWidth}`,
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            id: "horizontal-cards-scroll",
-            markers: false,
-            onUpdate: (self) => {
-              // Optional: log progress for debugging
-              // console.log("Progress:", self.progress);
-            }
-          }
-        });
-
-      }, component);
-
-      return () => {
-        ctx.revert();
+      const getScrollAmount = () => {
+        const sliderWidth = slider.current.scrollWidth;
+        const windowWidth = window.innerWidth;
+        const paddingRight = windowWidth * 0.05;
+        return -(sliderWidth - windowWidth + paddingRight);
       };
-    }, 100); // Small delay to ensure DOM is ready
 
-    return () => clearTimeout(timer);
-  }, []);
+      gsap.to(slider.current, {
+        x: getScrollAmount,
+        ease: "none",
+        scrollTrigger: {
+          trigger: component.current,
+          start: "top top",
+          end: () => `+=${slider.current.scrollWidth}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        }
+      });
+
+    }, component);
+
+    ScrollTrigger.refresh();
+  };
+
+  // 🔥 Wait for layout to stabilize
+  const timeout = setTimeout(() => {
+    initAnimation();
+  }, 200);
+
+  // 🔥 ResizeObserver ensures recalculation if content shifts
+  resizeObserver = new ResizeObserver(() => {
+    ScrollTrigger.refresh();
+  });
+
+  resizeObserver.observe(slider.current);
+
+  return () => {
+    clearTimeout(timeout);
+    if (resizeObserver) resizeObserver.disconnect();
+    if (ctx) ctx.revert();
+  };
+
+}, [pathname]);
 
   // Refresh ScrollTrigger on mount and when window resizes
   useEffect(() => {

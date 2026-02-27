@@ -14,7 +14,7 @@ import HeroService from "@/components/HeroService/HeroService";
 import HomeCards from "@/components/HomeCards/HomeCards";
 import ServiceHoverCards from "@/components/ServiceHoverCards/ServiceHoverCards";
 import Formula from "@/components/HomeFormula/Formula";
-// import RelatedProjectSlider from "@/components/RelatedProjectSlider/RelatedProjectSlider";
+import RelatedProjectSlider from "@/components/RelatedProjectSlider/RelatedProjectSlider";
 
 
 export const metadata = {
@@ -35,6 +35,35 @@ async function getHomePageData() {
     return data[0];
 }
 
+
+// related project slider 
+async function getRelatedProjects() {
+    const res = await fetch(
+        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard&per_page=100",
+        { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch projects");
+    }
+
+    const data = await res.json();
+
+    return data.map((p) => {
+        const mainImage =
+            p.acf?.project_images?.main_image?.url ||
+            p.acf?.main_image?.url ||
+            "";
+
+        return {
+            id: p.id,
+            slug: p.slug,
+            title: p.title?.rendered || "",
+            location: p.acf?.project_location || "",
+            image: mainImage,
+        };
+    });
+}
 // async function getMediaById(id) {
 //      console.log("Fetching media ID:", id);
 
@@ -49,22 +78,24 @@ async function getHomePageData() {
 //      console.log("Media URL:", media.source_url);
 //     return media.source_url;
 // }
+
+
 async function getMediaById(id) {
-//   console.log("Fetching media ID:", id);
+    //   console.log("Fetching media ID:", id);
 
-  const res = await fetch(
-    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`
-  );
+    const res = await fetch(
+        `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`
+    );
 
-  if (!res.ok) {
-    // console.log("Media fetch failed:", id);
-    return null;
-  }
+    if (!res.ok) {
+        // console.log("Media fetch failed:", id);
+        return null;
+    }
 
-  const media = await res.json();
-//   console.log("Media URL:", media.source_url);
+    const media = await res.json();
+    //   console.log("Media URL:", media.source_url);
 
-  return media.source_url;
+    return media.source_url;
 }
 async function getFaqs() {
     const res = await fetch(
@@ -83,6 +114,8 @@ async function getFaqs() {
 export default async function InteriorDesign() {
     const pageData = await getHomePageData();
     const faqs = await getFaqs();
+    const relatedProjects = await getRelatedProjects();
+    console.log("RELATED PROJECTS LENGTH:", relatedProjects.length);
     const acf = pageData?.acf || {};
     const countdownRaw = pageData?.acf?.countdown_section;
 
@@ -218,9 +251,7 @@ export default async function InteriorDesign() {
             <Formula />
 
 
-            {/* {relatedProjects?.length > 0 && (
-                <RelatedProjectSlider projects={relatedProjects} />
-            )} */}
+
             <ThreeSlider
                 // heading={threeSliderHeading}
                 // subHeading={threeSliderSubHeading}
@@ -228,6 +259,9 @@ export default async function InteriorDesign() {
             />
             <TestimonialSlider
                 testimonials={testimonials}
+            />
+            <RelatedProjectSlider
+                projects={relatedProjects}
             />
             {/* <TestimonialSlider /> */}
             <CountDown data={countdownData} />
