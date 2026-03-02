@@ -2,6 +2,7 @@
 // import { useEffect } from "react";
 import Image from "next/image";
 import ImgMain from "@/images/AboutTabImg.png";
+import ImgHero from "@/images/Heroservice.png";
 import StoryBanner from "@/images/AboutStory.png";
 import CountDown from "@/components/CountDown/CountDown"
 import Faqs from "@/components/FaqsSection/Faqs"
@@ -12,6 +13,7 @@ import HeroAbout from "@/components/HeroAbout/HeroAbout";
 import AboutTab from "@/components/AboutUsTab/AboutTab";
 import AboutStory from "@/components/AboutUsStory/AboutStory";
 import AboutUsMasterpiece from "@/components/AboutUsMasterpiece/AboutUsMasterpiece";
+import HeroService from "@/components/HeroService/HeroService";
 
 export const metadata = {
     title: "About Us | Unity Interior",
@@ -32,15 +34,15 @@ async function getHomePageData() {
 }
 
 async function getMediaById(id) {
-  const res = await fetch(
-    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
-    // { cache: "no-store" }
-  );
+    const res = await fetch(
+        `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+        // { cache: "no-store" }
+    );
 
-  if (!res.ok) return null;
+    if (!res.ok) return null;
 
-  const media = await res.json();
-  return media.source_url;
+    const media = await res.json();
+    return media.source_url;
 }
 
 async function getFaqs() {
@@ -109,7 +111,7 @@ export default async function AboutUs() {
             }
         }
     }
-   const testimonialRaw = acf?.testimonial_section || {};
+    const testimonialRaw = acf?.testimonial_section || {};
     const testimonials = [];
 
     for (const [key, item] of Object.entries(testimonialRaw)) {
@@ -137,7 +139,12 @@ export default async function AboutUs() {
     }
     return (
         <div>
-            <HeroAbout />
+            {/* <HeroAbout /> */}
+            <HeroService
+                title="About US"
+                description="Lorem ipsum is simply dummy text of the printing and typesetting industry."
+                image={ImgHero}
+            />
             <AboutStory
                 title="THE STORY BEHIND UNITY INTERIORS"
                 paragraphs={[
@@ -175,7 +182,7 @@ export default async function AboutUs() {
                     },
                 ]}
             />
-            <TestimonialSlider  testimonials={testimonials}/>
+            <TestimonialSlider testimonials={testimonials} />
 
             <AboutUsMasterpiece />
             <CountDown data={countdownData} />
