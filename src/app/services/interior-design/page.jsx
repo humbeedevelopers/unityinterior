@@ -40,6 +40,7 @@ async function getHomePageData() {
 async function getRelatedProjects() {
     const res = await fetch(
         "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard&per_page=100",
+        // https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?project_category_slug=interior-design&acf_format=standard&per_page=100
         { next: { revalidate: 60 } }
     );
 
