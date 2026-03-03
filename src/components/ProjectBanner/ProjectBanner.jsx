@@ -5,10 +5,9 @@ import "./ProjectBanner.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
-
 import "swiper/css";
 import "swiper/css/navigation";
-import { PROJECTS_DATA } from "@/app/projects/data";
+// import { PROJECTS_DATA } from "@/app/projects/data";
 import BannerImg1 from "@/images/contactusbannner.png";
 import BannerImg2 from "@/images/projectDummy.png";
 
@@ -16,7 +15,8 @@ const ProjectBanner = ({ projects = [] }) => {
   // Extract all main images
   const images = projects
     .map((project) => project?.acf?.project_images?.main_image)
-    .filter((img) => img && img.url);
+    .filter((img) => img && img.url)
+    .slice(0, 4);
 
 
   //     const images = projects.flatMap((project) => {

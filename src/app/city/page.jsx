@@ -42,33 +42,35 @@ async function getAllProjects() {
       }
     }
 
+
     return {
       id: p.id,
       slug: p.slug,
       title: p.title?.rendered?.replace(/<[^>]*>?/gm, "") || "",
       location: p.acf?.project_location || "",
-      images,
+      // images,
+      images: images.slice(0, 5),
     };
   });
 }
 
 export default async function CityPage() {
-    const projects = await getAllProjects();
-    
-    // useEffect(() => {
-    //     document.title =
-    //         "City | Unity Interior";
-    // });
-    return (
-        <div>
-            <CityHero />
-            <CityInfo />
-            <CityProjects projects={projects} />
-            <CityDetails />
-            <Formula />
-            <Form />
+  const projects = await getAllProjects();
 
-        </div>
-    )
+  // useEffect(() => {
+  //     document.title =
+  //         "City | Unity Interior";
+  // });
+  return (
+    <div>
+      <CityHero />
+      <CityInfo />
+      <CityProjects projects={projects} />
+      <CityDetails />
+      <Formula />
+      <Form />
+
+    </div>
+  )
 }
 // export default CityPages;
