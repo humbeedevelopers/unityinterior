@@ -128,7 +128,39 @@ const Header = () => {
   const pathname = usePathname();
   const [openService, setOpenService] = React.useState(false);
 
+  // const [showHeader, setShowHeader] = React.useState(true);
+  // const [isMobile, setIsMobile] = React.useState(false);
+  // const lastScrollY = React.useRef(0);
 
+  // React.useEffect(() => {
+  //   const checkScreen = () => {
+  //     setIsMobile(window.innerWidth < 992);
+  //   };
+
+  //   checkScreen();
+  //   window.addEventListener("resize", checkScreen);
+
+  //   return () => window.removeEventListener("resize", checkScreen);
+  // }, []);
+
+  // React.useEffect(() => {
+  //   if (!isMobile) return; // Only run scroll logic on mobile
+
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+
+  //     if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+  //       setShowHeader(false); // scrolling down
+  //     } else {
+  //       setShowHeader(true); // scrolling up
+  //     }
+
+  //     lastScrollY.current = currentScrollY;
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [isMobile]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -156,7 +188,14 @@ const Header = () => {
 
 
   return (
-    <header className="header">
+    <header
+      // className="header"
+      // initial={false}
+      // animate={{
+      //   y: isMobile ? (showHeader ? 0 : -120) : 0,
+      // }}
+      // transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="header">
       <div className="header-container">
         <div className="logo">
           <PageTransition href="/">
@@ -231,17 +270,17 @@ const Header = () => {
 
         {/* CTA */}
         <div className="header-cta">
-          <PageTransition href={"/contact-us"}>    
-          <CommonButton
-            buttonText="Let's Talk"
-            route="/contact-us"
-            padding="10px 20px"
-            bgColor="#000"
-            hoverBgColor="#540B0E"
-            fontSize="15px"
-            textColor="#ffffff"
-            hoverTextColor="#ffffff"
-          />
+          <PageTransition href={"/contact-us"}>
+            <CommonButton
+              buttonText="Let's Talk"
+              route="/contact-us"
+              padding="10px 20px"
+              bgColor="#000"
+              hoverBgColor="#540B0E"
+              fontSize="15px"
+              textColor="#ffffff"
+              hoverTextColor="#ffffff"
+            />
           </PageTransition>
           {/* <Link href="/contact-us" className="contact-btn">
             <span className="contactInner">Contact us</span>
