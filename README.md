@@ -1,7 +1,7 @@
 # Unity Interiors 🏡✨
 
 Unity Interiors is a modern and elegant interior design website built using **Next.js**.  
-The project focuses on showcasing premium interior design services, portfolios, and consultation offerings with a clean, minimal, and performance-optimized user experience.
+The project focuses on showcasing premium interior design services, projects, and consultation offerings with a clean, minimal, and performance-optimized user experience.
 
 ---
 
