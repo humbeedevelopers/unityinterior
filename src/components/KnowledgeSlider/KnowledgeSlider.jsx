@@ -9,6 +9,7 @@ import NextIcon from "@/images/NextIcon.svg";
 import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
 import "./KnowledgeSlider.scss";
 // import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
@@ -127,22 +128,24 @@ const KnowledgeSpace = ({ title = "", items = [] }) => {
                 >
                     {items.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <article className="knowledge-card">
-                                <div className="knowledge-card__image">
-                                    {item.image && (
-                                        <Image
-                                            src={item.image}
-                                            alt="Knowledge Image"
-                                            fill
-                                            className="knowledge-card__img"
-                                        />
-                                    )}
-                                </div>
+                            <Link href={`/blogs/${item.slug}`} className="knowledge-card__link">
+                                <article className="knowledge-card">
+                                    <div className="knowledge-card__image">
+                                        {item.image && (
+                                            <Image
+                                                src={item.image}
+                                                alt={item.title}
+                                                fill
+                                                className="knowledge-card__img"
+                                            />
+                                        )}
+                                    </div>
 
-                                <div className="knowledge-card__content">
-                                    <p>{item.description}</p>
-                                </div>
-                            </article>
+                                    <div className="knowledge-card__content">
+                                        <p>{item.title}</p>
+                                    </div>
+                                </article>
+                            </Link>
                         </SwiperSlide>
                     ))}
                     {/* {knowledgeData.map((item) => (

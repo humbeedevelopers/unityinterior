@@ -51,7 +51,26 @@ async function getCoreOfferings() {
 
   return res.json();
 }
+async function getAllBlogsFormatted() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
+    { next: { revalidate: 60 } }
+  );
 
+  if (!res.ok) throw new Error("Failed to fetch blogs");
+
+  const blogs = await res.json();
+
+  return blogs.map((post) => ({
+    id: post.id,
+    slug: post.slug,
+    title: post.acf?.blog_title || post.title?.rendered,
+    image:
+      post.acf?.blog_banner?.url ||
+      post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+      null,
+  }));
+}
 
 async function getFaqs() {
   const res = await fetch(
@@ -70,7 +89,7 @@ async function getFaqs() {
 export default async function Page() {
   const pageData = await getHomePageData();
   const coreOfferings = await getCoreOfferings();
-
+  const blogs = await getAllBlogsFormatted();
   const faqs = await getFaqs();
 
   console.log("=== WORDPRESS PAGE DATA ===");
@@ -135,28 +154,33 @@ export default async function Page() {
   //   .filter(item => item.description && item.image);
 
   // console.log("Knowledge Items:", knowledgeItems);
-  const knowledgeItems = [];
+  // exact slider code of knowledge space
+  // const knowledgeItems = [];
 
-  for (const [key, value] of Object.entries(acf)) {
-    if (key.startsWith("slider_content") && typeof value === "object") {
-      let imageUrl = "";
+  // for (const [key, value] of Object.entries(acf)) {
+  //   if (key.startsWith("slider_content") && typeof value === "object") {
+  //     let imageUrl = "";
 
-      if (typeof value.image === "object" && value.image?.url) {
-        imageUrl = value.image.url;
-      }
+  //     if (typeof value.image === "object" && value.image?.url) {
+  //       imageUrl = value.image.url;
+  //     }
 
-      if (typeof value.image === "number") {
-        imageUrl = await getMediaById(value.image);
-      }
+  //     if (typeof value.image === "number") {
+  //       imageUrl = await getMediaById(value.image);
+  //     }
 
-      if (value.description && imageUrl) {
-        knowledgeItems.push({
-          description: value.description,
-          image: imageUrl,
-        });
-      }
-    }
-  }
+  //     if (value.description && imageUrl) {
+  //       knowledgeItems.push({
+  //         description: value.description,
+  //         image: imageUrl,
+  //       });
+  //     }
+  //   }
+  // }
+
+  const knowledgeItems = blogs
+    .filter(blog => blog.image && blog.title)
+    // .slice(0, 6); // limit if needed
 
   // console.log("Knowledge Items:", knowledgeItems);
   // countdown logic
@@ -176,39 +200,40 @@ export default async function Page() {
   // THREE SLIDER DATA
   // ===============================
 
-const threeSliderRaw = acf?.three_slider_section || {};
+  const threeSliderRaw = acf?.three_slider_section || {};
 
-const threeSliderHeading = threeSliderRaw?.section_heading;
-const threeSliderSubHeading = threeSliderRaw?.section_sub_heading;
+  const threeSliderHeading = threeSliderRaw?.section_heading;
+  const threeSliderSubHeading = threeSliderRaw?.section_sub_heading;
 
-const threeSlides = [];
+  const threeSlides = [];
 
-for (const [key, value] of Object.entries(threeSliderRaw)) {
-  if (key.startsWith("slide_") && typeof value === "object") {
-    let imageUrl = "";
+  for (const [key, value] of Object.entries(threeSliderRaw)) {
+    if (key.startsWith("slide_") && typeof value === "object") {
+      let imageUrl = "";
 
-    // Case 1: Image Array
-    if (typeof value.image === "object" && value.image?.url) {
-      imageUrl = value.image.url;
-    }
+      // Case 1: Image Array
+      if (typeof value.image === "object" && value.image?.url) {
+        imageUrl = value.image.url;
+      }
 
-    // Case 2: Image ID
-    if (typeof value.image === "number") {
-      imageUrl = await getMediaById(value.image);
-    }
+      // Case 2: Image ID
+      if (typeof value.image === "number") {
+        imageUrl = await getMediaById(value.image);
+      }
 
-    if (imageUrl && value.title) {
-      threeSlides.push({
-        id: threeSlides.length + 1,
-        image: imageUrl,
-        title: value.title,
-        desc: value.description,
-      });
+      if (imageUrl && value.title) {
+        threeSlides.push({
+          id: threeSlides.length + 1,
+          image: imageUrl,
+          title: value.title,
+          desc: value.description,
+        });
+      }
     }
   }
-}
   // console.log("Raw Three Slider:", threeSliderRaw);
   // console.log("Mapped Slides:", threeSlides);
+
 
 
   return (
