@@ -51,6 +51,32 @@ async function getCoreOfferings() {
 
   return res.json();
 }
+async function getAllProjectsFormatted() {
+  const res = await fetch(
+    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
+    { next: { revalidate: 60 } }
+  );
+
+  if (!res.ok) throw new Error("Failed to fetch projects");
+
+  const projects = await res.json();
+
+  const formattedProjects = projects.map((post) => {
+    const mainImage = post?.acf?.project_images?.main_image;
+
+    return {
+      id: post.id,
+      slug: post.slug,
+      location: post.acf?.project_location || "Location",
+      image: mainImage?.url || null,
+    };
+  });
+
+  // console.log("=== PROJECT SLIDER IMAGES ===");
+  // console.log(formattedProjects);
+
+  return formattedProjects;
+}
 async function getAllBlogsFormatted() {
   const res = await fetch(
     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
@@ -89,11 +115,14 @@ async function getFaqs() {
 export default async function Page() {
   const pageData = await getHomePageData();
   const coreOfferings = await getCoreOfferings();
+  const projects = await getAllProjectsFormatted();
+  // console.log("=== PROJECTS RAW ===");
+  // console.log(projects);
   const blogs = await getAllBlogsFormatted();
   const faqs = await getFaqs();
 
-  console.log("=== WORDPRESS PAGE DATA ===");
-  console.log(JSON.stringify(pageData, null, 2));
+  // console.log("=== WORDPRESS Project DATA ===");
+  // console.log(JSON.stringify(pageData, null, 2));
 
 
   const acf = pageData?.acf || {};
@@ -112,7 +141,7 @@ export default async function Page() {
       height: value.height,
     }));
 
-  console.log("Client Logos:", clientLogos);
+  // console.log("Client Logos:", clientLogos);
 
   // ACF Timeline Items
   const timelineItems = Object.keys(acf)
@@ -180,7 +209,7 @@ export default async function Page() {
 
   const knowledgeItems = blogs
     .filter(blog => blog.image && blog.title)
-    // .slice(0, 6); // limit if needed
+  // .slice(0, 6); // limit if needed
 
   // console.log("Knowledge Items:", knowledgeItems);
   // countdown logic
@@ -330,7 +359,7 @@ export default async function Page() {
         // subHeading={threeSliderSubHeading}
         slides={threeSlides}
       />
-      <ProjectSlider />
+      <ProjectSlider slides={projects} />
       <CountDown data={countdownData} />
       <Form />
       {/* <KnowledgeSpace /> */}
