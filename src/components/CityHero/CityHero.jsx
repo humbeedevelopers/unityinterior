@@ -1,21 +1,30 @@
 "use client";
-
 import Image from "next/image";
 import "./CityHero.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-// import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { motion, AnimatePresence } from "framer-motion";
 
-import BannerImg1 from "@/images/contactusbannner.png";
-import BannerImg2 from "@/images/projectDummy.png";
+// import BannerImg1 from "@/images/contactusbannner.png";
+// import BannerImg2 from "@/images/projectDummy.png";
 
-const CityHero = () => {
+const CityHero = ({ projects = [] }) => {
   // static data (inside file only)
-  const images = [BannerImg1, BannerImg2];
+  // const images = [BannerImg1, BannerImg2];
+
+  // if (!images.length) return null;
+  const images = projects
+    .map((project) => project.images?.[0]) // only first image
+    .filter(Boolean) // remove undefined
+    .slice(0, 4);
+
+  //     const images = projects.flatMap((project) => {
+  //   const group = project?.acf?.project_images;
+  //   return group?.main_image?.url ? [group.main_image] : [];
+  // });
 
   if (!images.length) return null;
 
@@ -30,9 +39,7 @@ const CityHero = () => {
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}
             className="cityHero__title">
-            {/* <ParagraphTextReveal> */}
             PROJECTS IN<br /> AHMEDABAD
-            {/* </ParagraphTextReveal> */}
           </motion.h2>
 
           <motion.p
@@ -59,7 +66,11 @@ const CityHero = () => {
               <SwiperSlide key={index}>
                 <Image
                   src={img}
-                  alt={`City banner ${index + 1}`}
+                  alt={img || `Project banner ${index + 1}`}
+                  width={img.width || 1200}
+                  height={img.height || 800}
+                  // src={img}
+                  // alt={`City banner ${index + 1}`}
                   className="cityHero__image"
                 />
               </SwiperSlide>

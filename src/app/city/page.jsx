@@ -63,7 +63,7 @@ export default async function CityPage() {
   // });
   return (
     <div>
-      <CityHero />
+      <CityHero projects={projects}/>
       <CityInfo />
       <CityProjects projects={projects} />
       <CityDetails />
