@@ -260,6 +260,7 @@ export default async function Page() {
       }
     }
   }
+  // console.log("Leading Vision BG:", acf.leading_vision_background?.url);
   // console.log("Raw Three Slider:", threeSliderRaw);
   // console.log("Mapped Slides:", threeSlides);
 
@@ -346,7 +347,7 @@ export default async function Page() {
         ]}
       />
       <LeadingVision
-        bgImage={acf.leading_vision_bg?.url}
+        bgImage={acf.leading_vision_background?.url}
         titleLine1={acf.leading_vision_title_line1}
         titleLine2={acf.leading_vision_title_line2}
         image={acf.leading_vision_image?.url}

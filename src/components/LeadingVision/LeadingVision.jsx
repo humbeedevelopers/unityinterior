@@ -98,16 +98,16 @@ const LeadingVision = ({
         }}
       >
         {/* {bgImage && ( */}
-        <Image
+        {/* <Image
           src={BgImage}
           fill
           sizes="100vw"
           alt="Leading the vision background"
         //   fill
         //   priority
-        />
+        /> */}
         {/* )} */}
-        {/* {bgImage && (
+        {bgImage && (
           <Image
             src={bgImage}
             alt="Leading vision background"
@@ -115,7 +115,7 @@ const LeadingVision = ({
             className="leading-vision__bg-img"
             sizes="100vw"
           />
-        )} */}
+        )}
       </motion.div>
 
       {/* Content */}
