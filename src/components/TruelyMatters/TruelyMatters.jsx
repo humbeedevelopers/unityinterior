@@ -26,8 +26,8 @@ const TruelyMatters = ({title,
               viewport={{ once: true }}
           >
             {/* <ParagraphTextReveal>  */}
-              {title}
-              {/* WHAT WE STAND <br />FOR/OUR CORE PRINCIPLES */}
+              {/* {title} */}
+              WHAT WE STAND <br />FOR/OUR CORE PRINCIPLES
               {/* </ParagraphTextReveal> */}
           </motion.h2>
 
@@ -38,12 +38,12 @@ const TruelyMatters = ({title,
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            {description}
-            {/* Lorem Ipsum is simply dummy text of the printing and typesetting
+            {/* {description} */}
+            Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
-            only five centuries */}
+            only five centuries
           </motion.p>
         </div>
 
