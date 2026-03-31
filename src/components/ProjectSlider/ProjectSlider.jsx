@@ -1,6 +1,6 @@
 "use client";
 
-import {React, useState} from "react";
+import { React, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
@@ -15,18 +15,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 
 
-const slides = [
-  {
-    image: ProjectImg,
-    city: "Ahmedabad",
-    href: "/",
-  },
-  {
-    image: ProjectImg,
-    city: "Mumbai",
-    href: "/",
-  },
-];
+// const slides = [
+//   {
+//     image: ProjectImg,
+//     city: "Ahmedabad",
+//     href: "/",
+//   },
+//   {
+//     image: ProjectImg,
+//     city: "Mumbai",
+//     href: "/",
+//   },
+// ];
 const textVariants = {
   hidden: {
     opacity: 0,
@@ -48,8 +48,10 @@ const textVariants = {
     },
   },
 };
-const ProjectSlider = () => {
+// const ProjectSlider = () => {
+const ProjectSlider = ({ slides = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  if (!slides.length) return null;
 
   return (
     <section className="projectSlider">
@@ -72,13 +74,15 @@ const ProjectSlider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="projectSlider__slide">
+              {slide.image && (
               <Image
                 src={slide.image}
-                alt={slide.city}
-                // fill
+                alt={slide.location}
+                fill
                 // priority={index === 0}
                 className="projectSlider__image"
               />
+              )}
 
               <div className="projectSlider__overlay">
                 <AnimatePresence mode="wait">
@@ -96,9 +100,10 @@ const ProjectSlider = () => {
                   </motion.p>
                 </AnimatePresence>
                 <div className="projectSlider__footer">
-                  <h4>{slide.city}</h4>
+                  <h4>{slide.location}</h4>
                   <Link
-                    href={slide.href}
+                    href={`/projects/${slide.slug}`}
+                    // href={slide.href}
                     className="projectSlider__ProjectBtn"
                   >
                     View Project

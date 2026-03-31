@@ -12,6 +12,9 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 200px;
+        @media(max-width: 575px){
+            margin-bottom: 0px;
+        }
     }
 
 
@@ -113,6 +116,9 @@
         max-width: 320px;
         font-size: 20px;
         opacity: 0.9;
+        @media(max-width: 575px){
+            margin-top: 10px;
+        }
     }
 
 
@@ -228,6 +234,9 @@
             // left: 30px;
             // right: 30px;
             left: 20px;
+            @media(max-width: 575px){
+                top: 10px !important;
+            }
         }
 
         &__circle {
@@ -244,11 +253,13 @@
 
     @media (max-width: 475px) {
         &__subtitle {
-            font-size: 45px;
+            font-size: 35px;
+            margin-top: 0;
         }
 
         &__title {
             font-size: 35px;
+            margin-bottom: 0;
         }
     }
 }

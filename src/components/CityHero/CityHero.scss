@@ -1,5 +1,5 @@
 .cityHero {
-    padding: 80px 0 0;
+    padding: 60px 0 0;
 
     &__container {
         padding: 0 50px;
@@ -55,7 +55,7 @@
     &__image {
         object-fit: cover;
         width: 100% !important;
-        height: 80vh !important;
+        height: 70vh !important;
 
         @media (max-width: 991px) {
             height: auto;
@@ -64,7 +64,7 @@
 
     &__cta {
         position: absolute;
-        right: 12.5%;
+        right: 9.5%;
         bottom: 1%;
         background: transparent;
         color: #540B0E;

@@ -4,6 +4,9 @@
   overflow: hidden;
   padding-top: 8rem;
   padding-bottom: 8rem;
+  @media(max-width: 575px){
+    padding-top: 1rem;
+  }
 }
 
 .highlights-container {

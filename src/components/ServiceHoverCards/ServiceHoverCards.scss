@@ -18,6 +18,9 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 100px 0 50px;
+        @media(max-width: 575px){
+            gap: 1rem;
+        }
     }
 
     &__title {

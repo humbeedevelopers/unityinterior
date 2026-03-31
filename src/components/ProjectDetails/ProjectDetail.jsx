@@ -32,8 +32,11 @@ const ProjectDetail = ({ projects = [], categories = [] }) => {
           if (img && img.url) {
             images.push(img);
           }
+
         });
       }
+      // Limit to first 5 images only
+      images = images.slice(0, 5);
 
       return {
         id: item.id,
