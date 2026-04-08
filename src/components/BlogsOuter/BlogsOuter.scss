@@ -19,6 +19,103 @@
         height: fit-content;
     }
 
+    .blogsOuter__dropdownMobile {
+        display: none;
+    }
+
+    .blogsOuter__categoriesDesktop {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @media(max-width: 991px) {
+           flex-wrap: wrap;
+           flex-direction: row;
+        }
+    }
+
+    .blogsOuter__dropdown {
+        position: relative;
+        width: 100%;
+    }
+
+    .blogsOuter__dropdownSelected {
+        width: 100%;
+        padding: 12px 16px;
+        background: #E4DCDD;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        color: #540B0E;
+        font-size: 18px;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .blogsOuter__arrow {
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid #540B0E;
+        border-bottom: 2px solid #540B0E;
+        transform: rotate(45deg);
+        transition: 0.3s;
+    }
+
+    .blogsOuter__dropdown.is-open .blogsOuter__arrow {
+        transform: rotate(-135deg);
+    }
+
+    .blogsOuter__dropdownList {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 100%;
+        background: #E4DCDD;
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 20;
+        border: none;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: all 0.25s ease;
+    }
+
+    .blogsOuter__dropdown.is-open .blogsOuter__dropdownList {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .blogsOuter__dropdownList .blogsOuter__category {
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+        border: none;
+    }
+
+    .blogsOuter__dropdownList .blogsOuter__category:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+    }
+
+    @media (max-width: 575px) {
+        .blogsOuter__categoriesDesktop {
+            display: none;
+        }
+
+        .blogsOuter__dropdownMobile {
+            display: block;
+        }
+
+        .blogsOuter__sidebar {
+            background: transparent;
+            padding: 0;
+        }
+    }
+
     &__categories {
         list-style: none;
         padding: 0;
@@ -30,12 +127,17 @@
         border-radius: 10px;
         cursor: pointer;
         font-size: 18px;
+        font-family: inherit;
         text-transform: uppercase;
         color: #540B0E;
         transition: all 0.25s ease;
 
         &:not(:last-child) {
-            margin-bottom: 8px;
+            // margin-bottom: 8px;
+
+            @media(max-width: 575px) {
+                margin-bottom: 0px;
+            }
         }
 
         &:hover {

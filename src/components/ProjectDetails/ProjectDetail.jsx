@@ -16,6 +16,7 @@ const INITIAL_COUNT = 6;
 const ProjectDetail = ({ projects = [], categories = [] }) => {
   const [activeTab, setActiveTab] = useState("ALL PROJECTS");
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   //  Format Projects
@@ -86,7 +87,7 @@ const ProjectDetail = ({ projects = [], categories = [] }) => {
       <div className="Projectdetail__container">
 
         {/* Sidebar */}
-        <aside className="Projectdetail__sidebar">
+        {/* <aside className="Projectdetail__sidebar">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -100,6 +101,60 @@ const ProjectDetail = ({ projects = [], categories = [] }) => {
               {tab.name}
             </button>
           ))}
+        </aside> */}
+        <aside className="Projectdetail__sidebar">
+
+          {/* Desktop Tabs */}
+          <div className="Projectdetail__tabsDesktop">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`Projectdetail__tab ${activeTab === tab.name ? "is-active" : ""}`}
+                onClick={() => {
+                  setActiveTab(tab.name);
+                  setVisibleCount(INITIAL_COUNT);
+                }}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Dropdown */}
+         <div className="Projectdetail__tabsMobile">
+  <div className={`Projectdetail__dropdown ${isOpen ? "is-open" : ""}`}>
+
+    {/* Selected */}
+    <button
+      className="Projectdetail__dropdownSelected"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      {activeTab}
+      <span className="Projectdetail__arrow" />
+    </button>
+
+    {/* Options */}
+    <div className="Projectdetail__dropdownList">
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          className={`Projectdetail__tab ${
+            activeTab === tab.name ? "is-active" : ""
+          }`}
+          onClick={() => {
+            setActiveTab(tab.name);
+            setVisibleCount(INITIAL_COUNT);
+            setIsOpen(false);
+          }}
+        >
+          {tab.name}
+        </button>
+      ))}
+    </div>
+
+  </div>
+</div>
+
         </aside>
 
         {/* Projects Grid */}

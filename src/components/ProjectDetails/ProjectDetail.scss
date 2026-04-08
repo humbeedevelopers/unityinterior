@@ -12,6 +12,107 @@
         }
     }
 
+    .Projectdetail__tabsMobile {
+        display: none;
+
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            background: #E4DCDD;
+            border: 2px solid #000;
+            color: #540B0E;
+            font-size: 14px;
+            font-family: "Open Sans";
+            outline: none;
+            cursor: pointer;
+        }
+    }
+
+    .Projectdetail__tabsDesktop {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        @media(max-width: 991px) {
+           flex-wrap: wrap;
+           flex-direction: row;
+        }
+    }
+.Projectdetail__dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.Projectdetail__dropdownSelected {
+  width: 100%;
+  padding: 14px 16px;
+  background: #E4DCDD;
+  border: 1px solid #ccc;
+  color: #540B0E;
+  font-size: 16px;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Projectdetail__arrow {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #540B0E;
+  border-bottom: 2px solid #540B0E;
+  transform: rotate(45deg);
+  transition: 0.3s;
+}
+
+.Projectdetail__dropdown.is-open .Projectdetail__arrow {
+  transform: rotate(-135deg);
+}
+
+.Projectdetail__dropdownList {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #E4DCDD;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.Projectdetail__dropdown.is-open .Projectdetail__dropdownList {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.Projectdetail__dropdownList .Projectdetail__tab {
+  width: 100%;
+  border-radius: 0;
+}
+
+.Projectdetail__dropdownList .Projectdetail__tab:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+    @media (max-width: 575px) {
+        .Projectdetail__tabsDesktop {
+            display: none;
+        }
+
+        .Projectdetail__tabsMobile {
+            display: block;
+            width: 100%;
+        }
+    }
+
 
     &__sidebar {
         background: #E4DCDD;
@@ -21,6 +122,10 @@
         flex-direction: column;
         gap: 12px;
         height: fit-content;
+        @media(max-width: 575px) {
+            background-color: transparent;
+            padding: 0;
+        }
     }
 
     &__tab {
