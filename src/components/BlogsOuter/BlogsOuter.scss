@@ -84,6 +84,20 @@
         transition: all 0.25s ease;
     }
 
+.blogsOuter__dropdownList .blogsOuter__category {
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+    border: none;
+
+    background: #E4DCDD;  
+    color: #540B0E;        
+}
+
+.blogsOuter__dropdownList .blogsOuter__category:hover {
+    background: #D7B5B6;
+}
+
     .blogsOuter__dropdown.is-open .blogsOuter__dropdownList {
         opacity: 1;
         transform: translateY(0);
