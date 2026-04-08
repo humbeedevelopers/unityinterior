@@ -85,6 +85,7 @@ const BLOGS_PER_PAGE = 6;
 const BlogsOuter = ({ blogs = [], categories = [] }) => {
     const [activeCategory, setActiveCategory] = useState("all");
     const [visibleCount, setVisibleCount] = useState(BLOGS_PER_PAGE);
+    const [isOpen, setIsOpen] = useState(false);
 
     // Format blogs from WordPress
     // const formattedBlogs = useMemo(() => {
@@ -156,7 +157,7 @@ const BlogsOuter = ({ blogs = [], categories = [] }) => {
         <section className="blogsOuter">
             <div className="blogsOuter__container">
                 {/* Sidebar */}
-                <aside className="blogsOuter__sidebar">
+                {/* <aside className="blogsOuter__sidebar">
                     <ul className="blogsOuter__categories">
                         <li
                             className={`blogsOuter__category ${activeCategory === "all" ? "is-active" : ""
@@ -181,21 +182,85 @@ const BlogsOuter = ({ blogs = [], categories = [] }) => {
                                 {cat.name}
                             </li>
                         ))}
-                        {/* {categories.map((cat) => (
-                            <li
-                                key={cat}
-                                className={`blogsOuter__category ${activeCategory === cat ? "is-active" : ""
-                                    }`}
-                                onClick={() => {
-                                    setActiveCategory(cat);
-                                    setVisibleCount(BLOGS_PER_PAGE);
-                                }}
-                            >
-                                {cat}
-                            </li>
-                        ))} */}
+                       
                     </ul>
-                </aside>
+                </aside> */}
+                <aside className="blogsOuter__sidebar">
+
+  {/* Desktop Categories */}
+  <ul className="blogsOuter__categories blogsOuter__categoriesDesktop">
+    <li
+      className={`blogsOuter__category ${activeCategory === "all" ? "is-active" : ""}`}
+      onClick={() => {
+        setActiveCategory("all");
+        setVisibleCount(BLOGS_PER_PAGE);
+      }}
+    >
+      All Category
+    </li>
+
+    {categories.map((cat) => (
+      <li
+        key={cat.id}
+        className={`blogsOuter__category ${activeCategory === cat.id ? "is-active" : ""}`}
+        onClick={() => {
+          setActiveCategory(cat.id);
+          setVisibleCount(BLOGS_PER_PAGE);
+        }}
+      >
+        {cat.name}
+      </li>
+    ))}
+  </ul>
+
+  {/* Mobile Custom Dropdown */}
+  <div className="blogsOuter__dropdownMobile">
+    <div className={`blogsOuter__dropdown ${isOpen ? "is-open" : ""}`}>
+
+      {/* Selected */}
+      <button
+        className="blogsOuter__dropdownSelected"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {activeCategory === "all"
+          ? "All Category"
+          : categories.find(c => c.id === activeCategory)?.name}
+        <span className="blogsOuter__arrow" />
+      </button>
+
+      {/* Options */}
+      <div className="blogsOuter__dropdownList">
+
+        <button
+          className={`blogsOuter__category ${activeCategory === "all" ? "is-active" : ""}`}
+          onClick={() => {
+            setActiveCategory("all");
+            setVisibleCount(BLOGS_PER_PAGE);
+            setIsOpen(false);
+          }}
+        >
+          All Category
+        </button>
+
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`blogsOuter__category ${activeCategory === cat.id ? "is-active" : ""}`}
+            onClick={() => {
+              setActiveCategory(cat.id);
+              setVisibleCount(BLOGS_PER_PAGE);
+              setIsOpen(false);
+            }}
+          >
+            {cat.name}
+          </button>
+        ))}
+
+      </div>
+    </div>
+  </div>
+
+</aside>
 
                 {/* Blogs Grid */}
                 <div className="blogsOuter__content">

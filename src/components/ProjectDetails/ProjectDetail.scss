@@ -37,13 +37,11 @@
            flex-direction: row;
         }
     }
-/* Custom Dropdown */
 .Projectdetail__dropdown {
   position: relative;
   width: 100%;
 }
 
-/* Selected button (same vibe as sidebar) */
 .Projectdetail__dropdownSelected {
   width: 100%;
   padding: 14px 16px;
@@ -61,7 +59,6 @@
   align-items: center;
 }
 
-/* Arrow */
 .Projectdetail__arrow {
   width: 8px;
   height: 8px;
@@ -75,7 +72,6 @@
   transform: rotate(-135deg);
 }
 
-/* Dropdown list */
 .Projectdetail__dropdownList {
   position: absolute;
   top: calc(100% + 6px);
@@ -92,24 +88,20 @@
   transition: all 0.25s ease;
 }
 
-/* Open state */
 .Projectdetail__dropdown.is-open .Projectdetail__dropdownList {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Reuse your tab styles */
 .Projectdetail__dropdownList .Projectdetail__tab {
   width: 100%;
   border-radius: 0;
 }
 
-/* Divider */
 .Projectdetail__dropdownList .Projectdetail__tab:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-    /* Mobile */
     @media (max-width: 575px) {
         .Projectdetail__tabsDesktop {
             display: none;
