@@ -148,8 +148,8 @@ export default async function ArchitecturalPlanning() {
                 secondaryDescription="Our architectural planning process begins with a deep understanding of your goals, requirements, and aesthetic preferences. Our team of experienced architects collaborates closely with you to develop a design concept that aligns with your vision. We meticulously analyze the available space, taking into account factors such as site conditions, building regulations, and functionality."
             />
             <ServiceHoverCards
-                title="Lorem Ipsum Is Simply Dummy Text Of The Printing And"
-                description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
+                title="Ready To Transform Your Space?"
+                description="We have designed and delivered a wide range of 3BHK and 4BHK homes, along with bungalow and office spaces. Our work reflects thoughtful planning, quality execution, and attention to detail across every project."
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
                 buttonText="Contact Us"

@@ -59,7 +59,7 @@ const Footer = () => {
 
             <ul>
               <li><PageTransition><Link href="/services/interior-design">Interior Designing</Link></PageTransition></li>
-              <li><PageTransition><Link href="/services/architectural-planning">Architectural Planning</Link></PageTransition></li>
+              {/* <li><PageTransition><Link href="/services/architectural-planning">Architectural Planning</Link></PageTransition></li> */}
               <li><PageTransition><Link href="/services/3d-visualization">3D Visualization</Link></PageTransition></li>
             </ul>
           </div>

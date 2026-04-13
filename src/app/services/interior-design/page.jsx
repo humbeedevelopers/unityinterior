@@ -219,7 +219,7 @@ export default async function InteriorDesign() {
                 secondaryDescription="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
             />
             <ServiceHoverCards
-                title="Lorem Ipsum Is Simply Dummy Text Of The Printing And"
+                title="Ready To Transform Your Space?"
                 description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}

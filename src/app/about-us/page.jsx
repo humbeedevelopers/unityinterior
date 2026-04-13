@@ -163,21 +163,21 @@ export default async function AboutUs() {
                         label: 'MISSION',
                         heading: 'Mission Statement',
                         description:
-                            'At here, our mission is to become a leading architectural firm in creative design solutions that resolve our clients’ social, environmental & economic needs. Leading not in terms of doing bigger projects, it is always about helping more and more individuals.',
+                            'Our mission is to create thoughtful interiors that balance functionality, aesthetics, and comfort. We focus on understanding each client’s needs and translating them into spaces that feel personal, practical, and timeless.',
                         image: ImgMain,
                     },
                     {
                         label: 'VISION',
                         heading: 'Vision Statement',
                         description:
-                            'At here, our mission is to become a leading architectural firm in creative design solutions that resolve our clients’ social, environmental & economic needs. Leading not in terms of doing bigger projects, it is always about helping more and more individuals.',
+                            'Our vision is to become a trusted design studio known for creating meaningful and well-crafted spaces. We aim to continuously evolve with design while staying rooted in quality, innovation, and attention to detail.',
                         image: ImgMain,
                     },
                     {
                         label: 'VALUES',
                         heading: 'Our Core Values',
                         description:
-                            'At here, our mission is to become a leading architectural firm in creative design solutions that resolve our clients’ social, environmental & economic needs. Leading not in terms of doing bigger projects, it is always about helping more and more individuals.',
+                            'We believe in honest communication, thoughtful design, and uncompromised quality. Every project is guided by collaboration, transparency, and a commitment to delivering spaces that truly reflect our clients.',
                         image: ImgMain,
                     },
                 ]}
