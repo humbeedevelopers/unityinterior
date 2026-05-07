@@ -46,8 +46,8 @@ const Form = ({actionWord = "DESIGN" }) => {
             viewport={{ once: true }}
             className="contactForm__heading">
             LET’S {actionWord} <br />
-            YOUR DREAM <br />
-            SPACE <br />
+            DESIGN YOUR <br />
+            DREAM SPACE <br />
             <span>TOGETHER</span>
           </motion.h2>
         </div>

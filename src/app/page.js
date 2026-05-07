@@ -126,6 +126,9 @@ export default async function Page() {
 
 
   const acf = pageData?.acf || {};
+  console.log("=== ACF FIELDS ===");
+  console.log(JSON.stringify(acf, null, 2));
+  
   const heroImageUrl = acf.hero_image?.url;
 
   // ===============================

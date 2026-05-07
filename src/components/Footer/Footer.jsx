@@ -19,12 +19,12 @@ const Footer = () => {
         {/* LEFT CONTENT */}
         <div className="footer__left">
           <h2 className="footer__headline">
-            BRINGING YOUR <br />
+            WE MAKE YOUR <br />
             <TextRotator words={animatedWords}></TextRotator>
             {/* home / office / living */}
             <br />
             {/* dream come true */}
-            DREAM SPACE TO LIFE
+            DREAM TO LIFE
           </h2>
 
           <div className="footer__brand">
@@ -40,10 +40,7 @@ const Footer = () => {
           </div>
 
           <p className="footer__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry’s standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            At Unity Interiors, every space is approached with clarity, intention, and attention to detail. We focus on creating designs that are not only visually refined but also practical and easy to execute. From planning layouts to final finishes, each decision is made to ensure balance, functionality, and long-term value. The result is a space that feels effortless, works seamlessly, and reflects the people it is designed for.
           </p>
         </div>
 

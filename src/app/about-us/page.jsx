@@ -148,8 +148,8 @@ export default async function AboutUs() {
             <AboutStory
                 title="THE STORY BEHIND UNITY INTERIORS"
                 paragraphs={[
-                    'We started the journey in 2018 with an idea to provide best interior designing and architectural services.In 2021, we achieved an milestone as Unity Interiors named as Top Creative and Design Companies Globally.',
-                    'We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of apartments, villas and very short span we have designed couple of offices Pan India.'
+                    'Founded by Ekta in 2018, Unity Interiors was built on the belief that good design should feel effortless, thoughtful, and truly personal. Today, it stands as a leading design firm creating spaces that balance aesthetics with everyday functionality.',
+                    'In 2020, we expanded through social media, connecting with a wider audience and sharing our design approach. Since then, we have designed over 1 lakh+ sq. ft. of spaces, offering interior design consultation across 20+ cities in India and have also worked with multiple clients internationally.'
                 ]}
                 imageSrc={StoryBanner}
                 imageAlt="About story image"

@@ -21,11 +21,11 @@ const AboutUsMasterpiece = () => {
           viewport={{ once: true }}
           className="aboutUsMasterpiece__textLayer">
           <span className="aboutUsMasterpiece__subtitle">
-            CREATING
+            TIMELESS
           </span>
 
           <h1 className="aboutUsMasterpiece__title">
-            MASTER<span>PIECE</span>
+            INTE<span>RIORS</span>
           </h1>
 
           <p className="aboutUsMasterpiece__description">

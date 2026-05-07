@@ -39,11 +39,8 @@ const TruelyMatters = ({title,
             viewport={{ once: true }}
           >
             {/* {description} */}
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries
+            At Unity Interiors, design is never one-sided. We believe the best spaces are born from honest collaboration, mindful choices, and uncompromising craftsmanship. Every project we take on is shaped by the people who'll live in it, the materials that will stand the test of time, and the quiet details that turn a house into a home. These three values guide every decision we make — from the first sketch to the final styling.
+
           </motion.p>
         </div>
 
