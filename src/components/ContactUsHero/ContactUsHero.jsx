@@ -27,9 +27,7 @@ const ContactUsHero = () => {
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}
           className="contactUsHero__subtitle">
-            Lorem Ipsum is simply dummy
-            text of the printing and
-            typesetting industry.
+            We'd love to hear about your space, your vision, and how we can bring it to life — together.
           </motion.p>
         </div>
 

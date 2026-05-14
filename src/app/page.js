@@ -291,6 +291,7 @@ export default async function Page() {
         imageTop={acf.experience_top_image?.url}
         imageBottom={acf.experience_bottom_image?.url}
       />
+      
       <CoreOfferings
         offerings={coreOfferings}
       />

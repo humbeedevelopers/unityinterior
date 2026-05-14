@@ -142,7 +142,7 @@ export default async function AboutUs() {
             {/* <HeroAbout /> */}
             <HeroService
                 title="About US"
-                description="Lorem ipsum is simply dummy text of the printing and typesetting industry."
+                description="A design studio building interiors that balance beauty, function, and intent — one thoughtful space at a time."
                 image={ImgHero}
             />
             <AboutStory

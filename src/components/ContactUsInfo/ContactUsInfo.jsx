@@ -61,8 +61,7 @@ const ContactUsInfo = () => {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             viewport={{ once: true }}
             className="contact-us-info__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            Whether you're planning a new home, redesigning your office, or just exploring possibilities, our team is here to help. Reach out with your questions, share your ideas, or book a consultation — we'll get back to you with thoughtful answers and a clear next step
           </motion.p>
 
           <div className="contact-us-info__locations">
@@ -103,7 +102,7 @@ const ContactUsInfo = () => {
           </div>
 
           <div className="contact-us-info__social">
-            <span>SOCIAL MEDIA :</span>
+            <span>Find us on :</span>
             <ul>
               <li>
                 <Link
@@ -248,7 +247,7 @@ const ContactUsInfo = () => {
             </button> */}
             <button type="submit" className="contact-us-info__submit">
               <span className="contact-us-info__label">
-                Submit
+                Send Message
               </span>
               <span className="contact-us-info__icon">
                 <Image

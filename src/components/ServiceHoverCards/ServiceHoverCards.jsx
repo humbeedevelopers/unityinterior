@@ -95,7 +95,7 @@ const ServiceHoverCards = ({
                         onMouseEnter={() => setActiveIndex(1)}
                         onMouseLeave={() => setActiveIndex(null)}
                     >
-                        <p className="service-hover-cards__description">{description}</p>
+                        <p className="service-hover-cards__description">{buttonText}</p>
 
                         <div
                             className={`service-hover-cards__image ${activeIndex === 1 ? "is-active" : ""

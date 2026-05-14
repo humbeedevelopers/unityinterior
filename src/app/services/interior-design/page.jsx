@@ -210,20 +210,20 @@ export default async function InteriorDesign() {
         <div>
             <HeroService
                 title="Interior Design Service"
-                description="Lorem ipsum is simply dummy text of the printing and typesetting industry."
+                description="Each space we design is a reflection of thoughtful planning and personal understanding, created to feel right, function well, and stand the test of time."
                 image={ImgMain}
             />
             <ServiceDetails
                 title="Service Details"
-                primaryDescription="Unity Interiors offers exceptional interior design services, tailored to meet the unique needs and preferences of our clients. With a commitment to creativity, functionality, and attention to detail, we transform spaces into stunning and personalized environments that inspire and delight."
-                secondaryDescription="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
+                primaryDescription="At Unity Interiors, we craft interiors that are as functional as they are beautiful. Tailored to suit how you live, work, and unwind, our designs blend creativity, comfort, and detail — transforming everyday spaces into personalised environments that feel honest, inspiring, and unmistakably yours."
+                secondaryDescription="With extensive experience designing 3 BHK and 4 BHK apartments, luxury bungalows, and commercial offices across India, we've shaped a wide range of spaces — each delivered with care, precision, and a sharp eye for detail. Explore our work to see the difference design intent makes."
             />
             <ServiceHoverCards
                 title="Ready To Transform Your Space?"
-                description="We have done tremendous work in 3 BHK and 4 BHK interior designing. We have designed, built and design interior of bungalows as well. Over a very short span, we have designed couple of offices in Pan India. Take a look at projects we have done."
+                description="From compact apartments to expansive bungalows, our team has shaped homes that reflect the people who live in them. Every space we design is built around your lifestyle, your taste, and the way you want to feel at home."
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
-                buttonText="Contact Us"
+                buttonText="Whether you're starting from scratch or reimagining an existing space, we're here to guide you through every step — from the first idea to the final reveal. Get in touch and let's create something timeless together."
             // onButtonClick={() => console.log("CTA Clicked")}
             />
             <HomeCards
@@ -232,20 +232,19 @@ export default async function InteriorDesign() {
                     {
                         title: "Functional Design Approach",
                         description:
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+                            "We design for the way you actually live. Every layout, finish, and detail is chosen with purpose — balancing beauty with everyday practicality",
                     },
                     {
                         title: "On Time and On Budget",
-                        description: "We deliver projects without delays or hidden costs.",
+                        description: "We respect your time and investment. Our projects are delivered on schedule and within budget, with full transparency at every stage",
                     },
                     {
                         title: "Highly Professional Staff",
-                        description: "Our team consists of experienced industry experts.",
+                        description: "Our team of designers, planners, and craftsmen bring years of experience, sharp attention to detail, and a deep commitment to quality",
                     },
                     {
                         title: "Real Focus on Satisfaction",
-                        description: "Your success is our priority.",
+                        description: "Your happiness defines our success. We listen, refine, and deliver spaces you'll love living in — long after the project is complete",
                     },
                 ]}
             />

@@ -139,20 +139,20 @@ export default async function ArchitecturalPlanning() {
         <div>
             <HeroService
                 title="Architectural Planning service"
-                description="Lorem ipsum is simply dummy text of the printing and typesetting industry."
+                description="Thoughtful planning that lays the foundation for spaces designed to live, work, and grow beautifully with you"
                 image={ImgMain}
             />
             <ServiceDetails
                 title="Service Details"
-                primaryDescription="Unity Interiors offers comprehensive Architectural Planning services to bring your vision of a perfect space to life. With our expertise in architectural design and meticulous attention to detail, we ensure that every aspect of your project is carefully considered and thoughtfully executed."
-                secondaryDescription="Our architectural planning process begins with a deep understanding of your goals, requirements, and aesthetic preferences. Our team of experienced architects collaborates closely with you to develop a design concept that aligns with your vision. We meticulously analyze the available space, taking into account factors such as site conditions, building regulations, and functionality."
+                primaryDescription="Unity Interiors offers comprehensive architectural planning services that bring your vision of a perfect space to life. With deep expertise in design and a meticulous eye for detail, we ensure every aspect of your project is carefully considered, intentionally crafted, and thoughtfully executed from start to finish"
+                secondaryDescription="Our architectural planning process begins with a deep understanding of your goals, requirements, and aesthetic preferences. Our team of experienced architects collaborates closely with you to develop a design concept that aligns with your vision. We carefully analyse the available space — considering site conditions, building regulations, and functionality — to create plans that are both practical and beautifully resolved"
             />
             <ServiceHoverCards
                 title="Ready To Transform Your Space?"
-                description="We have designed and delivered a wide range of 3BHK and 4BHK homes, along with bungalow and office spaces. Our work reflects thoughtful planning, quality execution, and attention to detail across every project."
+                description="Our team brings years of experience in architectural planning and design, ensuring that every project is executed with the highest level of professionalism and skill."
                 imageSrc={HoverImage}
                 imageSrc1={HoverImage}
-                buttonText="Contact Us"
+                buttonText="From residential homes to commercial spaces, we've planned and designed projects of every scale — each grounded in functionality and brought to life with creative precision. Our work spans bungalows, apartments, and offices across India. Take a look at the projects we've shaped, planned, and proudly delivered."
             // onButtonClick={() => console.log("CTA Clicked")}
             />
             <HomeCards
@@ -161,21 +161,20 @@ export default async function ArchitecturalPlanning() {
                     {
                         title: "Expertise and Experience",
                         description:
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+                            "Backed by over a decade of hands-on experience, our team brings deep architectural knowledge, refined judgement, and proven expertise to every project we take on",
                     },
                     {
                         title: "Tailored Designs",
-                        description: "We deliver projects without delays or hidden costs.",
+                        description: "Every plan we create is shaped around you — your space, your lifestyle, and your goals. No templates, no shortcuts, just thoughtful design built around your needs",
                     },
                     {
                         title: "Attention to Detail",
-                        description: "Our team consists of experienced industry experts.",
+                        description: "From the largest layout to the smallest dimension, we obsess over the details — because precision in planning is what makes great architecture feel effortless",
                     },
                     {
                         title: "Collaborative Approach",
-                        description: "Your success is our priority.",
-                    },
+                        description: "We design with you, not just for you. Our process is built on open communication, shared ideas, and a partnership that lasts from the first sketch to the final handover",
+                    }
                 ]}
             />
 

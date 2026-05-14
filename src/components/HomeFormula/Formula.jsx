@@ -11,37 +11,37 @@ const FORMULA_DATA = [
     number: "01",
     title: "LAYOUT PLANNING",
     text:
-      "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+      "We map out every inch of your space with intent — optimising flow, function, and proportion so that the foundation of your interior is strong, smart, and built around how you live",
   },
   {
     number: "02",
     title: "CEILING DESIGN",
     text:
-      "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+      "From sleek modern profiles to detailed false ceilings, we design overhead spaces that elevate the room — adding character, depth, and the right play of light",
   },
   {
     number: "03",
     title: "ELECTRICAL DESIGN",
     text:
-      "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+      "We plan every switch, socket, and light point with precision — ensuring your interiors are not just beautiful, but functional, future-ready, and effortless to live in",
   },
   {
     number: "04",
     title: "3D ELEVATIONS",
     text:
-      "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+      "We visualise key walls and feature areas in detailed 3D — helping you preview textures, finishes, and design elements before any execution begins",
   },
   {
     number: "05",
     title: "3D RENDERS",
     text:
-      "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+      "Photorealistic 3D renders bring your entire space to life — from lighting and materials to furniture and styling, giving you a true preview of the finished interior",
   },
   {
     number: "06",
     title: "WORKING DRAWINGS",
     text:
-      "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s",
+      "Detailed technical drawings guide every contractor and craftsman on site — ensuring what's built matches the design exactly, down to the last millimetre",
   },
 ];
 
@@ -114,28 +114,28 @@ export default function Formula() {
             <div className="home-cardsI__item home-cardsI__item--active">
               <h3 className="home-cardsI__title">Co<br />ordination</h3>
               <p className="home-cardsI__description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                We bridge contractors, vendors, and craftsmen — keeping every trade aligned so your project moves smoothly from start to finish
               </p>
             </div>
 
             <div className="home-cardsI__item">
               <h3 className="home-cardsI__title">Site <br />Visit</h3>
               <p className="home-cardsI__description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Regular on-site reviews at every milestone ensure precision, quality, and that the build stays true to the original design
               </p>
             </div>
 
             <div className="home-cardsI__item">
               <h3 className="home-cardsI__title">MAterial<br /> selection</h3>
               <p className="home-cardsI__description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                We curate finishes, fabrics, and surfaces that balance beauty and durability — chosen to suit your space and story
               </p>
             </div>
 
             <div className="home-cardsI__item">
               <h3 className="home-cardsI__title">Artefact<br /> selection</h3>
               <p className="home-cardsI__description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Thoughtfully sourced decor, accents, and statement pieces that bring warmth, character, and soul to your finished space
               </p>
             </div>
 
