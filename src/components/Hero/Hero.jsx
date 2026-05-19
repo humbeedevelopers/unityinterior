@@ -24,7 +24,8 @@ const Hero = ({ description, buttonText, buttonLink }) => {
     const ctx = canvas.getContext("2d");
     const wrapper = wrapperRef.current;
 
-    // Tall enough for full animation + one viewport of "rest" at last frame
+    // Tall enough for full animation + one viewport of "rest" at last frame.
+    // This wrapper is the scroll track; the inner section is `position: sticky`.
     wrapper.style.height = `${FRAME_COUNT * 16 + window.innerHeight}px`;
 
     const resizeCanvas = () => {
@@ -62,7 +63,9 @@ const Hero = ({ description, buttonText, buttonLink }) => {
 
     const obj = { frame: 0 };
 
-    // Trigger on the wrapper — no pin, sticky CSS keeps the section in view
+    // No GSAP pin — CSS `position: sticky` on .HeroSection keeps the hero in
+    // view (works now that globals.css uses `overflow-x: clip` not `hidden`).
+    // ScrollTrigger only scrubs the frame index across the wrapper's height.
     const tl = gsap.to(obj, {
       frame: FRAME_COUNT - 1,
       snap: "frame",
