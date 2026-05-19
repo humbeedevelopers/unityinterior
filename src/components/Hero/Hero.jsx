@@ -8,10 +8,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 193;
+// Desktop and mobile use separate frame folders (same naming: 000.jpg, 001.jpg…).
+// Drop the mobile frames into `public/hero_section_frames_mobile/` later and
+// adjust `count` if the mobile sequence has a different number of frames.
+const FRAME_SETS = {
+  desktop: { dir: "/hero_section_frames", count: 193 },
+  mobile: { dir: "/hero_section_frames_mobile", count: 193 },
+};
+const MOBILE_BREAKPOINT = 768;
 
-const getFrameUrl = (index) =>
-  `/hero_section_frames/${String(index).padStart(3, "0")}.jpg`;
+const getActiveSet = () =>
+  window.innerWidth <= MOBILE_BREAKPOINT ? FRAME_SETS.mobile : FRAME_SETS.desktop;
+
+const getFrameUrl = (dir, index) =>
+  `${dir}/${String(index).padStart(3, "0")}.jpg`;
 
 const Hero = ({ description, buttonText, buttonLink }) => {
   const canvasRef = useRef(null);
@@ -24,9 +34,24 @@ const Hero = ({ description, buttonText, buttonLink }) => {
     const ctx = canvas.getContext("2d");
     const wrapper = wrapperRef.current;
 
-    // Tall enough for full animation + one viewport of "rest" at last frame.
-    // This wrapper is the scroll track; the inner section is `position: sticky`.
-    wrapper.style.height = `${FRAME_COUNT * 16 + window.innerHeight}px`;
+    let activeSet = null;
+    let tl = null;
+
+    const drawFrame = (index) => {
+      const img = imagesRef.current[index];
+      if (!img || !img.complete || img.naturalHeight === 0) return;
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      // "cover": scale so the frame fills the canvas on BOTH axes (cropping
+      // the overflow), so it fits any screen size without letterboxing.
+      const scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+      const drawW = img.naturalWidth * scale;
+      const drawH = img.naturalHeight * scale;
+      const x = (w - drawW) / 2;
+      const y = (h - drawH) / 2;
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(img, x, y, drawW, drawH);
+    };
 
     const resizeCanvas = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -36,57 +61,75 @@ const Hero = ({ description, buttonText, buttonLink }) => {
       drawFrame(currentFrameRef.current);
     };
 
-    const drawFrame = (index) => {
-      const img = imagesRef.current[index];
-      if (!img || !img.complete || img.naturalHeight === 0) return;
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
-      const scale = w / img.naturalWidth;
-      const drawH = img.naturalHeight * scale;
-      const y = (h - drawH) / 2;
-      ctx.clearRect(0, 0, w, h);
-      ctx.drawImage(img, 0, y, w, drawH);
+    const build = (set) => {
+      activeSet = set;
+      const { dir, count } = set;
+
+      // Tall enough for full animation + one viewport of "rest" at last frame.
+      // This wrapper is the scroll track; the inner section is `position: sticky`.
+      wrapper.style.height = `${count * 16 + window.innerHeight}px`;
+
+      const images = Array.from({ length: count }, (_, i) => {
+        const img = new Image();
+        img.src = getFrameUrl(dir, i);
+        img.onload = () => {
+          if (i === currentFrameRef.current) drawFrame(i);
+        };
+        return img;
+      });
+      imagesRef.current = images;
+
+      resizeCanvas();
+
+      const obj = { frame: currentFrameRef.current };
+
+      // No GSAP pin — CSS `position: sticky` on .HeroSection keeps the hero in
+      // view (works now that globals.css uses `overflow-x: clip` not `hidden`).
+      // ScrollTrigger only scrubs the frame index across the wrapper's height.
+      tl = gsap.to(obj, {
+        frame: count - 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: wrapper,
+          start: "top top",
+          end: `+=${count * 16}`,
+          scrub: 0.5,
+        },
+        onUpdate: () => {
+          const frame = Math.round(obj.frame);
+          currentFrameRef.current = frame;
+          drawFrame(frame);
+        },
+      });
     };
 
-    const images = Array.from({ length: FRAME_COUNT }, (_, i) => {
-      const img = new Image();
-      img.src = getFrameUrl(i);
-      img.onload = () => {
-        if (i === 0) resizeCanvas();
-      };
-      return img;
-    });
-    imagesRef.current = images;
+    const teardown = () => {
+      if (tl) {
+        tl.scrollTrigger?.kill();
+        tl.kill();
+        tl = null;
+      }
+    };
 
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    build(getActiveSet());
 
-    const obj = { frame: 0 };
-
-    // No GSAP pin — CSS `position: sticky` on .HeroSection keeps the hero in
-    // view (works now that globals.css uses `overflow-x: clip` not `hidden`).
-    // ScrollTrigger only scrubs the frame index across the wrapper's height.
-    const tl = gsap.to(obj, {
-      frame: FRAME_COUNT - 1,
-      snap: "frame",
-      ease: "none",
-      scrollTrigger: {
-        trigger: wrapper,
-        start: "top top",
-        end: `+=${FRAME_COUNT * 16}`,
-        scrub: 0.5,
-      },
-      onUpdate: () => {
-        const frame = Math.round(obj.frame);
-        currentFrameRef.current = frame;
-        drawFrame(frame);
-      },
-    });
+    const onResize = () => {
+      resizeCanvas();
+      const next = getActiveSet();
+      if (next !== activeSet) {
+        // Crossed the desktop/mobile breakpoint — swap frame set & rebuild.
+        currentFrameRef.current = 0;
+        teardown();
+        build(next);
+        ScrollTrigger.refresh();
+      }
+    };
+    window.addEventListener("resize", onResize);
 
     return () => {
-      tl.kill();
+      teardown();
       ScrollTrigger.getAll().forEach((st) => st.kill());
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 

@@ -128,39 +128,42 @@ const Header = () => {
   const pathname = usePathname();
   const [openService, setOpenService] = React.useState(false);
 
-  // const [showHeader, setShowHeader] = React.useState(true);
-  // const [isMobile, setIsMobile] = React.useState(false);
-  // const lastScrollY = React.useRef(0);
+  const [hidden, setHidden] = React.useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
-  // React.useEffect(() => {
-  //   const checkScreen = () => {
-  //     setIsMobile(window.innerWidth < 992);
-  //   };
+  React.useEffect(() => {
+    lastScrollY.current = window.scrollY;
 
-  //   checkScreen();
-  //   window.addEventListener("resize", checkScreen);
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(() => {
+        ticking.current = false;
+        const y = window.scrollY;
 
-  //   return () => window.removeEventListener("resize", checkScreen);
-  // }, []);
+        // Hide/show only activates once the Hero + Marquee (.clients) have
+        // fully scrolled past the top. Before that the header stays visible.
+        const marquee = document.querySelector(".clients");
+        const pastSecondSection = marquee
+          ? marquee.getBoundingClientRect().bottom <= 0
+          : false;
 
-  // React.useEffect(() => {
-  //   if (!isMobile) return; // Only run scroll logic on mobile
+        if (!pastSecondSection) {
+          setHidden(false);
+        } else {
+          const delta = y - lastScrollY.current;
+          if (delta > 4) setHidden(true); // scrolling down → hide
+          else if (delta < -4) setHidden(false); // scrolling up → show
+        }
 
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
+        lastScrollY.current = y;
+      });
+    };
 
-  //     if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-  //       setShowHeader(false); // scrolling down
-  //     } else {
-  //       setShowHeader(true); // scrolling up
-  //     }
-
-  //     lastScrollY.current = currentScrollY;
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [isMobile]);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -196,7 +199,12 @@ const Header = () => {
       // }}
       // transition={{ duration: 0.35, ease: "easeInOut" }}
       className="header">
-      <div className="header-container">
+      <motion.div
+        className="header-container"
+        initial={false}
+        animate={{ y: !isOpen && hidden ? "-150%" : "0%" }}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+      >
         <div className="logo">
           <PageTransition href="/">
             <Image src={Logo} alt="Unity Interiors Logo" width={130} height={50} />
@@ -319,7 +327,7 @@ const Header = () => {
           </motion.button>
 
         </div>
-      </div>
+      </motion.div>
       <AnimatePresence mode="wait">
         {isOpen && (
           <motion.nav
