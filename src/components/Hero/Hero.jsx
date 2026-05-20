@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 // adjust `count` if the mobile sequence has a different number of frames.
 const FRAME_SETS = {
   desktop: { dir: "/hero_section_frames", count: 193 },
-  mobile: { dir: "/hero_section_frames_mobile", count: 193 },
+  mobile: { dir: "/hero_section_frames_mobile", count: 196 },
 };
 const MOBILE_BREAKPOINT = 768;
 
