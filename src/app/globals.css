@@ -43,6 +43,16 @@ body {
   filter: blur(12px);
 }
 
+.page-content {
+  padding-top: 90px;
+}
+
+@media (max-width: 575px) {
+  .page-content {
+    padding-top: 80px;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -1,3 +1,13 @@
+/* Cancels the global .page-content padding-top so the hero wrapper
+   starts flush at the top of the page (below the fixed header). */
+.HeroWrapper {
+  margin-top: -90px;
+
+  @media (max-width: 575px) {
+    margin-top: -80px;
+  }
+}
+
 .HeroSection {
   position: sticky;
   top: 90px;

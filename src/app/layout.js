@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
         {/* <SmoothScroll> */}
         {/* <Preloader /> */}
         <Header />
-        {children}
+        <main className="page-content">{children}</main>
         <Footer />
         <WhatsAppButton />
         {/* <ChatBot /> */}
