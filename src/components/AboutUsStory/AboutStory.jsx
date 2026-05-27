@@ -80,6 +80,8 @@ const AboutStory = ({
             <Image
               src={imageSrc}
               alt={imageAlt}
+              width={1200}
+              height={900}
               className="about-story__image"
             />
           </motion.div>

@@ -78,6 +78,8 @@ const AboutTab = ({ title, tabs }) => {
                 <Image
                   src={tabs[activeTab].image}
                   alt={tabs[activeTab].label}
+                  width={800}
+                  height={600}
                 />
               </motion.div>
             </AnimatePresence>

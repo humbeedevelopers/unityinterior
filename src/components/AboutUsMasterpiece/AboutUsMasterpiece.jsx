@@ -8,7 +8,13 @@ import FlowerDesign from "@/images/flowerdesign.png"
 import PersonImg from "@/images/masterpieceBanner.png";
 import { motion, AnimatePresence } from "framer-motion";
 
-const AboutUsMasterpiece = () => {
+const AboutUsMasterpiece = ({
+  firstWord = "TIMELESS",
+  titlePart1 = "INTER",
+  titlePart2 = "IORS",
+  description = "By combining refined aesthetics with practical design, we craft interiors that stand the test of time and feels truly yours.",
+  image = null,
+}) => {
   return (
     <section className="aboutUsMasterpiece">
       <div className="aboutUsMasterpiece__container">
@@ -21,15 +27,15 @@ const AboutUsMasterpiece = () => {
           viewport={{ once: true }}
           className="aboutUsMasterpiece__textLayer">
           <span className="aboutUsMasterpiece__subtitle">
-            TIMELESS
+            {firstWord}
           </span>
 
           <h1 className="aboutUsMasterpiece__title">
-            INTE<span>RIORS</span>
+            {titlePart1}<span>{titlePart2}</span>
           </h1>
 
           <p className="aboutUsMasterpiece__description">
-            By combining refined aesthetics with practical design, we craft interiors that stand the test of time and feels truly yours.
+            {description}
           </p>
         </motion.div>
 
@@ -41,9 +47,11 @@ const AboutUsMasterpiece = () => {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="aboutUsMasterpiece__imageLayer">
             <Image
-              src={PersonImg}
+              src={image || PersonImg}
               alt="Masterpiece Person"
               priority
+              width={800}
+              height={1000}
               className="aboutUsMasterpiece__image"
             />
           </motion.div>
