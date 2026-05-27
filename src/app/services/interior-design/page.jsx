@@ -22,7 +22,7 @@ export const metadata = {
 };
 async function getHomePageData() {
     const res = await fetch(
-        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+        "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/pages?slug=home&acf_format=standard",
         // { cache: "no-store" } // or revalidate: 60
         { next: { revalidate: 60 } }
     );
@@ -39,8 +39,8 @@ async function getHomePageData() {
 // related project slider 
 async function getRelatedProjects() {
     const res = await fetch(
-        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard&per_page=100",
-        // https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?project_category_slug=interior-design&acf_format=standard&per_page=100
+        "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?acf_format=standard&per_page=100",
+        // https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?project_category_slug=interior-design&acf_format=standard&per_page=100
         { next: { revalidate: 60 } }
     );
 
@@ -69,7 +69,7 @@ async function getRelatedProjects() {
 //      console.log("Fetching media ID:", id);
 
 //     const res = await fetch(
-//         `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+//         `https://websiteadmin.unityinteriors.com/wp-json/wp/v2/media/${id}`,
 //         // { cache: "no-store" }
 //     );
 
@@ -85,7 +85,7 @@ async function getMediaById(id) {
     //   console.log("Fetching media ID:", id);
 
     const res = await fetch(
-        `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`
+        `https://websiteadmin.unityinteriors.com/wp-json/wp/v2/media/${id}`
     );
 
     if (!res.ok) {
@@ -100,7 +100,7 @@ async function getMediaById(id) {
 }
 async function getFaqs() {
     const res = await fetch(
-        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+        "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/faqs?acf_format=standard",
         { next: { revalidate: 60 } }
     );
 

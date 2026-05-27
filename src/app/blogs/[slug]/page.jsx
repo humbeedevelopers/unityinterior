@@ -8,7 +8,7 @@ import RelatedBlogsSlider from "@/components/RelatedBlogsSlider/RelatedBlogsSlid
 
 async function getBlogBySlug(slug) {
   const res = await fetch(
-    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?slug=${slug}&_embed&acf_format=standard`,
+    `https://websiteadmin.unityinteriors.com/wp-json/wp/v2/blogs?slug=${slug}&_embed&acf_format=standard`,
     { next: { revalidate: 60 } }
   );
 
@@ -22,7 +22,7 @@ async function getBlogBySlug(slug) {
 
 // async function getAllBlogs() {
 //   const res = await fetch(
-//     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
+//     "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/blogs?_embed&acf_format=standard",
 //     { next: { revalidate: 60 } }
 //   );
 
@@ -32,7 +32,7 @@ async function getBlogBySlug(slug) {
 // }
 async function getAllBlogsFormatted() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/blogs?_embed&acf_format=standard",
     { next: { revalidate: 60 } }
   );
 
@@ -67,7 +67,7 @@ async function getAllBlogsFormatted() {
 // Optional but recommended for static generation
 export async function generateStaticParams() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/blogs?_embed&acf_format=standard",
     { next: { revalidate: 60 } }
   );
 

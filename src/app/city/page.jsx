@@ -19,7 +19,7 @@ export const metadata = {
 //Fetch only projects
 async function getAllProjects() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?acf_format=standard",
     { next: { revalidate: 60 } }
   );
 

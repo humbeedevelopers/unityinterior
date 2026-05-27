@@ -20,7 +20,7 @@ export const metadata = {
 
 async function getHomePageData() {
     const res = await fetch(
-        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/pages?slug=home&acf_format=standard",
+        "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/pages?slug=home&acf_format=standard",
         // { cache: "no-store" } // or revalidate: 60
         { next: { revalidate: 60 } }
     );
@@ -34,7 +34,7 @@ async function getHomePageData() {
 }
 async function getMediaById(id) {
     const res = await fetch(
-        `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/media/${id}`,
+        `https://websiteadmin.unityinteriors.com/wp-json/wp/v2/media/${id}`,
         // { cache: "no-store" }
     );
 
@@ -45,7 +45,7 @@ async function getMediaById(id) {
 }
 async function getFaqs() {
     const res = await fetch(
-        "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/faqs?acf_format=standard",
+        "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/faqs?acf_format=standard",
         { next: { revalidate: 60 } }
     );
 

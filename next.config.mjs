@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         // protocol: "https",
-        hostname: "unityinteriorsadmin.humbeestudio.xyz",
+        hostname: "websiteadmin.unityinteriors.com",
 
       },
     ],
@@ -16,7 +16,7 @@ const nextConfig = {
   //   remotePatterns: [
   //     {
   //       protocol: "https",
-  //       hostname: "unityinteriorsadmin.humbeestudio.xyz",
+  //       hostname: "websiteadmin.unityinteriors.com",
   //     },
   //   ],
   // },

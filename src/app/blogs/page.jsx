@@ -22,7 +22,7 @@ import BlogsOuter from "@/components/BlogsOuter/BlogsOuter";
 
 async function getBlogs() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blogs?_embed&acf_format=standard",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/blogs?_embed&acf_format=standard",
     { next: { revalidate: 60 } }
   );
   return res.json();
@@ -30,7 +30,7 @@ async function getBlogs() {
 
 async function getCategories() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/blog_category",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/blog_category",
     { next: { revalidate: 60 } }
   );
   return res.json();

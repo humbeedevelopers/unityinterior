@@ -4,7 +4,7 @@ import ProjectSlugClient from "./ProjectSlugClient";
 
 async function getProjectData(slug) {
   const res = await fetch(
-    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?slug=${slug}&acf_format=standard`,
+    `https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?slug=${slug}&acf_format=standard`,
     { next: { revalidate: 60 } }
   );
 
@@ -20,7 +20,7 @@ async function getProjectData(slug) {
 // Static generation for all project slugs
 export async function generateStaticParams() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?acf_format=standard",
     { next: { revalidate: 60 } }
   );
 
@@ -38,7 +38,7 @@ export async function generateStaticParams() {
 
 async function getAllProjects() {
   const res = await fetch(
-    "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard",
+    "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?acf_format=standard",
     { next: { revalidate: 60 } }
   );
 
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }) {
 // related project slider 
 async function getRelatedProjects(currentId) {
   const res = await fetch(
-    `https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?acf_format=standard`,
+    `https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?acf_format=standard`,
     { next: { revalidate: 60 } }
   );
 

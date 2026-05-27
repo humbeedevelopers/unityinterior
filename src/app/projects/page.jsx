@@ -4,11 +4,11 @@ import ProjectDetail from "@/components/ProjectDetails/ProjectDetail";
 async function getData() {
   const [projectsRes, categoriesRes] = await Promise.all([
     fetch(
-      "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?_embed&acf_format=standard",
+      "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?_embed&acf_format=standard",
       { next: { revalidate: 60 } }
     ),
     fetch(
-      "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/project-category",
+      "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/project-category",
       { next: { revalidate: 60 } }
     ),
   ]);
@@ -41,7 +41,7 @@ export default async function ProjectsPage() {
 // import { useEffect } from "react";
 // async function getProjects() {
 //   const res = await fetch(
-//     "https://unityinteriorsadmin.humbeestudio.xyz/wp-json/wp/v2/projects?_embed",
+//     "https://websiteadmin.unityinteriors.com/wp-json/wp/v2/projects?_embed",
 //     {
 //       next: { revalidate: 60 }, // ISR
 //     }
