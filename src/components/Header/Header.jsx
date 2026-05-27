@@ -141,20 +141,29 @@ const Header = () => {
       requestAnimationFrame(() => {
         ticking.current = false;
         const y = window.scrollY;
+        const heroWrapper = document.querySelector(".HeroWrapper");
 
-        // Hide/show only activates once the Hero + Marquee (.clients) have
-        // fully scrolled past the top. Before that the header stays visible.
-        const marquee = document.querySelector(".clients");
-        const pastSecondSection = marquee
-          ? marquee.getBoundingClientRect().bottom <= 0
-          : false;
-
-        if (!pastSecondSection) {
-          setHidden(false);
+        if (heroWrapper) {
+          const heroPastViewport = heroWrapper.getBoundingClientRect().bottom <= 0;
+          if (!heroPastViewport) {
+            // Inside hero section — keep header visible.
+            setHidden(false);
+          } else {
+            // Past hero — slide up on scroll-down, slide back on scroll-up.
+            const delta = y - lastScrollY.current;
+            if (delta > 4) setHidden(true);
+            else if (delta < -4) setHidden(false);
+          }
         } else {
-          const delta = y - lastScrollY.current;
-          if (delta > 4) setHidden(true); // scrolling down → hide
-          else if (delta < -4) setHidden(false); // scrolling up → show
+          // Internal pages — slide up on scroll-down, back on scroll-up.
+          // Always show when near the top of the page.
+          if (y < 80) {
+            setHidden(false);
+          } else {
+            const delta = y - lastScrollY.current;
+            if (delta > 4) setHidden(true);
+            else if (delta < -4) setHidden(false);
+          }
         }
 
         lastScrollY.current = y;
@@ -191,19 +200,14 @@ const Header = () => {
 
 
   return (
-    <header
-      // className="header"
-      // initial={false}
-      // animate={{
-      //   y: isMobile ? (showHeader ? 0 : -120) : 0,
-      // }}
-      // transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="header">
-      <motion.div
+    <motion.header
+      className="header"
+      initial={false}
+      animate={{ y: !isOpen && hidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+    >
+      <div
         className="header-container"
-        initial={false}
-        animate={{ y: !isOpen && hidden ? "-150%" : "0%" }}
-        transition={{ duration: 0.35, ease: "easeInOut" }}
       >
         <div className="logo">
           <PageTransition href="/">
@@ -327,7 +331,7 @@ const Header = () => {
           </motion.button>
 
         </div>
-      </motion.div>
+      </div>
       <AnimatePresence mode="wait">
         {isOpen && (
           <motion.nav
@@ -455,7 +459,7 @@ const Header = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 };
 
