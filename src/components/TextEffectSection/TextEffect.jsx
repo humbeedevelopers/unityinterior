@@ -12,10 +12,7 @@ const TextEffect = ({ text }) => {
     <section className="highlights">
       <div className="highlights-container">
         <header className="highlights-header">
-          <ScrollFillText
-           text={Htext}
-              //text={text}
-            pin />
+          <ScrollFillText text={Htext} />
         </header>
       </div>
     </section>

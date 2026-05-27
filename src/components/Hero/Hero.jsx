@@ -73,6 +73,7 @@ const Hero = ({ description, buttonText, buttonLink }) => {
         const img = new Image();
         img.src = getFrameUrl(dir, i);
         img.onload = () => {
+          // Draw whenever the frame that just loaded is the one currently needed
           if (i === currentFrameRef.current) drawFrame(i);
         };
         return img;
@@ -83,9 +84,6 @@ const Hero = ({ description, buttonText, buttonLink }) => {
 
       const obj = { frame: currentFrameRef.current };
 
-      // No GSAP pin — CSS `position: sticky` on .HeroSection keeps the hero in
-      // view (works now that globals.css uses `overflow-x: clip` not `hidden`).
-      // ScrollTrigger only scrubs the frame index across the wrapper's height.
       tl = gsap.to(obj, {
         frame: count - 1,
         ease: "none",
@@ -94,6 +92,14 @@ const Hero = ({ description, buttonText, buttonLink }) => {
           start: "top top",
           end: `+=${count * 16}`,
           scrub: 0.5,
+          // onRefresh fires after GSAP recalculates positions on mount —
+          // this is the only reliable moment to draw the frame that matches
+          // the actual scroll position (onUpdate never fires at progress=0).
+          onRefresh: (self) => {
+            const frame = Math.round(self.progress * (count - 1));
+            currentFrameRef.current = frame;
+            drawFrame(frame);
+          },
         },
         onUpdate: () => {
           const frame = Math.round(obj.frame);

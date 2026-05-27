@@ -6,12 +6,11 @@ import "./ScrollTextFill.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollFillText = ({ text = "", pin = true }) => {
+const ScrollFillText = ({ text = "" }) => {
   if (!text) return null;
 
   const containerRef = useRef(null);
   const lettersRef = useRef([]);
-
   lettersRef.current = [];
 
   useEffect(() => {
@@ -23,10 +22,10 @@ const ScrollFillText = ({ text = "", pin = true }) => {
       ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
-        start: pin ? "top top" : "top 80%",
-        end: pin ? "+=200%" : "top 30%",
+        // Start filling as section enters, finish before it exits
+        start: "top 85%",
+        end: "bottom 30%",
         scrub: true,
-        pin,
       },
     });
 
@@ -34,14 +33,10 @@ const ScrollFillText = ({ text = "", pin = true }) => {
       tween.scrollTrigger?.kill();
       tween.kill();
     };
-  }, [text, pin]);
+  }, [text]);
 
   return (
-    <section
-      ref={containerRef}
-      className={`scroll-fill-section ${pin ? "is-pinned" : "not-pinned"}`}
-    >
-      <div className="scroll-fill-inner">
+    <section ref={containerRef} className="scroll-fill-section">
       <p className="scroll-fill-text">
         {text.split(" ").map((word, wordIndex) => (
           <span key={wordIndex} className="scroll-word">
@@ -57,7 +52,6 @@ const ScrollFillText = ({ text = "", pin = true }) => {
           </span>
         ))}
       </p>
-      </div>
     </section>
   );
 };

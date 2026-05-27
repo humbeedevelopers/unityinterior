@@ -2,44 +2,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &.is-pinned {
-    min-height: 100vh;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  &.not-pinned {
-    min-height: 30vh;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
+  padding: 4rem 1rem;
 }
 
 .scroll-fill-text {
-  font-size: 90px; 
+  font-size: 90px;
   font-weight: 400;
   line-height: 1.01;
-//   font-style: "light";
   text-transform: uppercase;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   margin: 0 auto;
-  // transform: scaleY(1.15);
 }
 
 .scroll-word {
-  // white-space: nowrap;
   margin-right: 1rem;
 }
 
 .scroll-letter {
-  color: #fff; 
+  color: #fff;
   display: inline-block;
 }
-
 
 @media (max-width: 575px) {
   .scroll-fill-text {
