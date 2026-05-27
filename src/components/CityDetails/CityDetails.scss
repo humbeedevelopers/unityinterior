@@ -16,6 +16,11 @@
   }
 
   &__content {
+    // The WP HTML wraps content in another .cityDetails__container — neutralise it
+    .cityDetails__container {
+      padding: 0;
+    }
+
     p {
       font-size: 22px;
       line-height: 1.2;

@@ -51,7 +51,7 @@ const Footer = () => {
               <li><PageTransition><Link href="/">Home</Link></PageTransition></li>
               <li><PageTransition><Link href="/blogs">Blogs</Link></PageTransition></li>
               <li><PageTransition><Link href="/contact-us">Contact</Link></PageTransition></li>
-              <li><PageTransition><Link href="/city">City</Link></PageTransition></li>
+              <li><PageTransition><Link href="/cities">Cities</Link></PageTransition></li>
             </ul>
 
             <ul>

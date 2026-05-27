@@ -6,26 +6,9 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-// import BannerImg1 from "@/images/contactusbannner.png";
-// import BannerImg2 from "@/images/projectDummy.png";
-
-const CityHero = ({ projects = [] }) => {
-  // static data (inside file only)
-  // const images = [BannerImg1, BannerImg2];
-
-  // if (!images.length) return null;
-  const images = projects
-    .map((project) => project.images?.[0]) // only first image
-    .filter(Boolean) // remove undefined
-    .slice(0, 4);
-
-  //     const images = projects.flatMap((project) => {
-  //   const group = project?.acf?.project_images;
-  //   return group?.main_image?.url ? [group.main_image] : [];
-  // });
-
+const CityHero = ({ title = "", description = "", images = [] }) => {
   if (!images.length) return null;
 
   return (
@@ -39,7 +22,7 @@ const CityHero = ({ projects = [] }) => {
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}
             className="cityHero__title">
-            PROJECTS IN<br /> AHMEDABAD
+            {title}
           </motion.h2>
 
           <motion.p
@@ -48,13 +31,10 @@ const CityHero = ({ projects = [] }) => {
             transition={{ duration: 1.5, delay: 0 }}
             viewport={{ once: true }}
             className="cityHero__subtitle">
-            Lorem Ipsum is simply dummy
-            text of the printing and
-            typesetting industry.
+            {description}
           </motion.p>
         </div>
 
-        {/* Slider */}
         <div className="cityHero__imageWrapper">
           <Swiper
             modules={[Navigation, Pagination]}
@@ -65,21 +45,15 @@ const CityHero = ({ projects = [] }) => {
             {images.map((img, index) => (
               <SwiperSlide key={index}>
                 <Image
-                  src={img}
-                  alt={img || `Project banner ${index + 1}`}
+                  src={img.url}
+                  alt={img.alt || `${title} ${index + 1}`}
                   width={img.width || 1200}
                   height={img.height || 800}
-                  // src={img}
-                  // alt={`City banner ${index + 1}`}
                   className="cityHero__image"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-
-          <button className="cityHero__cta">
-            AHMEDABAD
-          </button>
         </div>
 
       </div>
