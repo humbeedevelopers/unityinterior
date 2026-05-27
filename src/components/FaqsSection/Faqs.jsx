@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import "./Faqs.scss";
 import ParagraphTextReveal from "@/animations/ParagraphTextReveal";
 import { motion } from "framer-motion";
@@ -53,12 +54,14 @@ const FaqsSection = ({ faqs = [] }) => {
         {/* Left Column */}
         <div className="faqs__left">
           <h2 className="faqs__title"><ParagraphTextReveal>QnA</ParagraphTextReveal></h2>
-          <motion.button
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0 }}
-            viewport={{ once: true }}
-            className="faqs__cta">MY QUESTION IS NOT HERE</motion.button>
+          <Link href="/contact-us">
+            <motion.button
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0 }}
+              viewport={{ once: true }}
+              className="faqs__cta">MY QUESTION IS NOT HERE</motion.button>
+          </Link>
         </div>
 
         {/* Right Column */}

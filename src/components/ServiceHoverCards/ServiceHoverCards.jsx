@@ -84,7 +84,7 @@ const ServiceHoverCards = ({
                                 transform: `translate(${position.x}px, ${position.y}px)`,
                             }}
                         >
-                            <Image src={imageSrc} alt={imageAlt} width={260} height={180} />
+                            {imageSrc && <Image src={imageSrc} alt={imageAlt} width={260} height={180} />}
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@ const ServiceHoverCards = ({
                                 transform: `translate(${position.x}px, ${position.y}px)`,
                             }}
                         >
-                            <Image src={imageSrc1} alt={imageAlt} width={260} height={180} />
+                            {imageSrc1 && <Image src={imageSrc1} alt={imageAlt} width={260} height={180} />}
                         </div>
                     </div>
 

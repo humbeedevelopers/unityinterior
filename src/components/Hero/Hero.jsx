@@ -67,7 +67,7 @@ const Hero = ({ description, buttonText, buttonLink }) => {
 
       // Tall enough for full animation + one viewport of "rest" at last frame.
       // This wrapper is the scroll track; the inner section is `position: sticky`.
-      wrapper.style.height = `${count * 16 + window.innerHeight}px`;
+      wrapper.style.height = `${count * 9 + window.innerHeight}px`;
 
       const images = Array.from({ length: count }, (_, i) => {
         const img = new Image();
@@ -90,7 +90,7 @@ const Hero = ({ description, buttonText, buttonLink }) => {
         scrollTrigger: {
           trigger: wrapper,
           start: "top top",
-          end: `+=${count * 16}`,
+          end: `+=${count * 9}`,
           scrub: 0.5,
           // onRefresh fires after GSAP recalculates positions on mount —
           // this is the only reliable moment to draw the frame that matches

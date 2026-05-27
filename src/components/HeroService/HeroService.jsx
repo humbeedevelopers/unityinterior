@@ -35,13 +35,17 @@ const HeroService = ({ title, description, image, imageAlt }) => {
                             </motion.p>
                 </div>
 
-                <div className="hero-service__image-wrapper">
-                    <Image
-                        src={image}
-                        alt={imageAlt || title}
-                        className="hero-service__image"
-                    />
-                </div>
+                {image && (
+                    <div className="hero-service__image-wrapper">
+                        <Image
+                            src={image}
+                            alt={imageAlt || title}
+                            width={1920}
+                            height={1080}
+                            className="hero-service__image"
+                        />
+                    </div>
+                )}
 
             </div>
         </section>
